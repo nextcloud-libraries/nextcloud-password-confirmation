@@ -5,5 +5,5 @@ cache:
 node_js:
   - "node"
 
-build:
+script:
   - echo "nothing to do"
