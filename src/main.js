@@ -6,8 +6,8 @@ export default function confirm() {
     }
 
     if (OC.PasswordConfirmation.requiresPasswordConfirmation()) {
-        return new Promise((res, _rej) => {
-            OC.PasswordConfirmation.requirePasswordConfirmation(res);
+        return new Promise((res, rej) => {
+            OC.PasswordConfirmation.requirePasswordConfirmation(res, {}, rej);
         });
     } else {
         return Promise.resolve();
