@@ -20,12 +20,9 @@
     "url": "https://github.com/ChristophWurst/nextcloud-password-confirmation/issues"
   },
   "homepage": "https://github.com/ChristophWurst/nextcloud-password-confirmation#readme",
-  "browserslist": [
-    "last 2 versions",
-    "ie >= 11"
-  ],
   "devDependencies": {
     "@babel/core": "^7.1.2",
+    "@babel/plugin-transform-arrow-functions": "^7.2.0",
     "@babel/preset-env": "^7.1.0",
     "babel-loader": "^8.0.4",
     "webpack": "^4.20.2",
