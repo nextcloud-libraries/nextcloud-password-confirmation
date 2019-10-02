@@ -1,4 +1,4 @@
-# nextcloud-password-confirmation
+# @nextcloud/password-confirmation
 
 [![npm](https://img.shields.io/npm/v/nextcloud-password-confirmation.svg)](https://www.npmjs.com/package/nextcloud-password-confirmation)
 [![Build Status](https://travis-ci.org/ChristophWurst/nextcloud-password-confirmation.svg?branch=master)](https://travis-ci.org/ChristophWurst/nextcloud-password-confirmation)
@@ -15,7 +15,7 @@ npm i --save nextcloud-password-confirmation
 
 ## Usage
 ```js
-import confirmPassword from 'nextcloud-password-confirmation';
+import confirmPassword from '@nextcloud/password-confirmation';
 
 confirmPassword().then(() => {
     // your logic
