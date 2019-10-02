@@ -1,5 +1,5 @@
 {
-  "name": "nextcloud-password-confirmation",
+  "name": "@nextcloud/password-confirmation",
   "version": "0.4.2",
   "description": "Promise-based password confirmation wrapper for Nextcloud",
   "main": "dist/main.js",
@@ -7,26 +7,26 @@
     "build": "webpack --progress --config webpack.prod.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ChristophWurst/nextcloud-password-confirmation.git"
-  },
   "keywords": [
     "nextcloud"
   ],
+  "homepage": "https://github.com/nextcloud/nextcloud-password-confirmation#readme",
   "author": "Christoph Wurst",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ChristophWurst/nextcloud-password-confirmation/issues"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nextcloud/nextcloud-password-confirmation"
   },
-  "homepage": "https://github.com/ChristophWurst/nextcloud-password-confirmation#readme",
+  "bugs": {
+    "url": "https://github.com/nextcloud/nextcloud-password-confirmation/issues"
+  },
   "devDependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/plugin-transform-arrow-functions": "^7.2.0",
-    "@babel/preset-env": "^7.1.0",
-    "babel-loader": "^8.0.4",
-    "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.2",
-    "webpack-merge": "^4.1.4"
+    "@babel/core": "7.1.2",
+    "@babel/plugin-transform-arrow-functions": "7.2.0",
+    "@babel/preset-env": "7.1.0",
+    "babel-loader": "8.0.4",
+    "webpack": "4.20.2",
+    "webpack-cli": "3.1.2",
+    "webpack-merge": "4.1.4"
   }
 }
