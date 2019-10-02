@@ -1,7 +1,7 @@
 # @nextcloud/password-confirmation
 
-[![npm](https://img.shields.io/npm/v/nextcloud-password-confirmation.svg)](https://www.npmjs.com/package/nextcloud-password-confirmation)
-[![Build Status](https://travis-ci.org/ChristophWurst/nextcloud-password-confirmation.svg?branch=master)](https://travis-ci.org/ChristophWurst/nextcloud-password-confirmation)
+[![npm](https://img.shields.io/npm/v/@nextcloud/password-confirmation.svg)](https://www.npmjs.com/package/nextcloud-password-confirmation)
+[![Build Status](https://travis-ci.org/nextcloud/nextcloud-password-confirmation.svg?branch=master)](https://travis-ci.org/nextcloud/nextcloud-password-confirmation)
 
 Promise-based password confirmation wrapper for Nextcloud.
 
