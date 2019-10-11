@@ -21,7 +21,7 @@
     "url": "https://github.com/nextcloud/nextcloud-password-confirmation/issues"
   },
   "devDependencies": {
-    "@babel/core": "7.6.3",
+    "@babel/core": "7.6.4",
     "@babel/plugin-transform-arrow-functions": "7.2.0",
     "@babel/preset-env": "7.1.0",
     "babel-loader": "8.0.6",
