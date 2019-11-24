@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.7.4",
-    "@babel/plugin-transform-arrow-functions": "7.2.0",
+    "@babel/plugin-transform-arrow-functions": "7.7.4",
     "@babel/preset-env": "7.1.0",
     "@nextcloud/browserslist-config": "^1.0.0",
     "babel-loader": "8.0.6",
