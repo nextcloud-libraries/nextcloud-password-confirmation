@@ -1,6 +1,6 @@
 {
   "name": "@nextcloud/password-confirmation",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Promise-based password confirmation wrapper for Nextcloud",
   "main": "dist/main.js",
   "scripts": {
