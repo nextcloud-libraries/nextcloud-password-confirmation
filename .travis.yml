@@ -6,11 +6,19 @@ node_js:
 - node
 script:
 - npm run build
+- npm run build:doc
 deploy:
-  provider: npm
-  skip_cleanup: true
-  email: christoph@winzerhof-wurst.at
-  api_key:
-    secure: j9k/1yAjt9y4gobbq2CL4Vci3sKiK4w5T2+W66W458IMJYO62rC6PDzZ2CkoGFKxWBkwEgZHZsD7G/6Rxvmis7gmzQ3yMtmz1TJO7gElKX+9McpDaxIZIeLW9S9Reh00L2E8XTZvUTZuJACLvuJmNN5q2uSvkAB5VRxDXM9faufLbrIDgg+CXOd+TfpDHojQtN1g/GjScOnvPBjbNZepSw5ts7XAA7eY8GdTDrkYjIX0YyhB68qhDDJpVs5OErmaMAwKOfojvLANBHr0bYAaczjsQd/CU9HNmyPRBDEfa2SJQTIZ8Eqn3LsXnhc4iZlDTQeVJBiJzLgwTOtNZMb/i84T5L2jEEAjbtQ3JWwLC7+mrj5w+feTs2y5is0cb+I/MoM9mrCD+6GZOwA3mZ7Hy2/UIT3niA+uWeKbs9XGbAxhtIEJvBWcEUcZnOxKBrG/yTY0GY5w5Rcr2PN8zdqvk+4K5PRSSx0IN3/Q+pzizVHkqs+YStijAUcWjls3O4FFekgnXzDSlfApn5HWpmdD/9+potD8/feirWRnyW5rq5pPg+fPwUznS+V6VXBb7Ybdg072DVVovVr+XuRw1otqEDs/i9chKe+eNt64aXWVMVmyrI63OGe4RHw1zqRKZRxxOpuCTxYXuAocPPgwgnN1C3swuUJBCzD6xg3A0gI1nPU=
-  on:
-    tags: true
+  - provider: npm
+    skip_cleanup: true
+    email: christoph@winzerhof-wurst.at
+    api_key:
+      secure: j9k/1yAjt9y4gobbq2CL4Vci3sKiK4w5T2+W66W458IMJYO62rC6PDzZ2CkoGFKxWBkwEgZHZsD7G/6Rxvmis7gmzQ3yMtmz1TJO7gElKX+9McpDaxIZIeLW9S9Reh00L2E8XTZvUTZuJACLvuJmNN5q2uSvkAB5VRxDXM9faufLbrIDgg+CXOd+TfpDHojQtN1g/GjScOnvPBjbNZepSw5ts7XAA7eY8GdTDrkYjIX0YyhB68qhDDJpVs5OErmaMAwKOfojvLANBHr0bYAaczjsQd/CU9HNmyPRBDEfa2SJQTIZ8Eqn3LsXnhc4iZlDTQeVJBiJzLgwTOtNZMb/i84T5L2jEEAjbtQ3JWwLC7+mrj5w+feTs2y5is0cb+I/MoM9mrCD+6GZOwA3mZ7Hy2/UIT3niA+uWeKbs9XGbAxhtIEJvBWcEUcZnOxKBrG/yTY0GY5w5Rcr2PN8zdqvk+4K5PRSSx0IN3/Q+pzizVHkqs+YStijAUcWjls3O4FFekgnXzDSlfApn5HWpmdD/9+potD8/feirWRnyW5rq5pPg+fPwUznS+V6VXBb7Ybdg072DVVovVr+XuRw1otqEDs/i9chKe+eNt64aXWVMVmyrI63OGe4RHw1zqRKZRxxOpuCTxYXuAocPPgwgnN1C3swuUJBCzD6xg3A0gI1nPU=
+    on:
+      tags: true
+  - provider: pages
+    skip-cleanup: true
+    github-token: $GITHUB_TOKEN
+    keep-history: true
+    local-dir: dist/doc
+    on:
+      tags: true

@@ -10,7 +10,7 @@ This tiny library wraps `OC.PasswordConfirmation.requiresPasswordConfirmation` a
 
 ## Installation
 ```sh
-npm i --save nextcloud-password-confirmation
+npm i --save @nextcloud/password-confirmation
 ```
 
 ## Usage
