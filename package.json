@@ -28,7 +28,7 @@
     "@nextcloud/browserslist-config": "^1.0.0",
     "babel-loader": "8.0.6",
     "typedoc": "^0.15.5",
-    "webpack": "4.41.2",
+    "webpack": "4.41.4",
     "webpack-cli": "3.3.10",
     "webpack-merge": "4.2.2"
   },
