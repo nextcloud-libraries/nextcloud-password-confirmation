@@ -32,7 +32,9 @@
     "webpack-cli": "3.3.11",
     "webpack-merge": "4.2.2"
   },
-  "dependencies": {},
+  "dependencies": {
+    "core-js": "^3.6.4"
+  },
   "browserslist": [
     "extends @nextcloud/browserslist-config"
   ]
