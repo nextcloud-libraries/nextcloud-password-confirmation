@@ -24,7 +24,7 @@
   "devDependencies": {
     "@babel/core": "7.12.10",
     "@babel/plugin-transform-arrow-functions": "7.12.1",
-    "@babel/preset-env": "7.12.11",
+    "@babel/preset-env": "7.12.13",
     "@nextcloud/browserslist-config": "^1.0.0",
     "babel-loader": "8.2.2",
     "typedoc": "^0.16.7",
