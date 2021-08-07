@@ -22,7 +22,7 @@
     "url": "https://github.com/nextcloud/nextcloud-password-confirmation/issues"
   },
   "devDependencies": {
-    "@babel/core": "7.14.8",
+    "@babel/core": "7.15.0",
     "@babel/plugin-transform-arrow-functions": "7.14.5",
     "@babel/preset-env": "7.14.8",
     "@nextcloud/browserslist-config": "^2.0.0",
