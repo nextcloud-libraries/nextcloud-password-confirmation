@@ -1,4 +1,8 @@
-export default function confirm() {
+/// <reference types="@nextcloud/typings" />
+
+declare var OC: Nextcloud.v21.OC | Nextcloud.v22.OC;
+
+export default function confirm(): Promise<void> {
     if (typeof OC === 'undefined') {
         return Promise.reject(new Error('OC not defined'));
     } else if (typeof OC.PasswordConfirmation === 'undefined') {

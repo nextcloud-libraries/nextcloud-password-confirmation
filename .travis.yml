@@ -1,9 +1,0 @@
-language: node_js
-cache:
-  directories:
-  - node_modules
-node_js:
-- node
-script:
-- npm run build
-- npm run build:doc

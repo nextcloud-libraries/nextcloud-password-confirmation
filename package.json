@@ -1,11 +1,14 @@
 {
   "name": "@nextcloud/password-confirmation",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Promise-based password confirmation wrapper for Nextcloud",
-  "main": "dist/main.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "webpack --progress --config webpack.prod.js",
-    "build:doc": "typedoc --out dist/doc src && touch dist/doc/.nojekyll",
+    "build": "babel ./lib --out-dir dist --extensions '.ts,.tsx' --source-maps && tsc --emitDeclarationOnly",
+    "build:doc": "typedoc --out dist/doc lib && touch dist/doc/.nojekyll",
+    "check-types": "tsc",
+    "dev": "babel ./lib --out-dir dist --extensions '.ts,.tsx' --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -22,15 +25,16 @@
     "url": "https://github.com/nextcloud/nextcloud-password-confirmation/issues"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/core": "7.16.0",
     "@babel/plugin-transform-arrow-functions": "7.16.0",
     "@babel/preset-env": "7.16.4",
+    "@babel/preset-typescript": "^7.9.0",
     "@nextcloud/browserslist-config": "^2.0.0",
+    "@nextcloud/typings": "^1.2.1",
     "babel-loader": "8.2.3",
     "typedoc": "^0.22.7",
-    "webpack": "5.64.4",
-    "webpack-cli": "4.9.1",
-    "webpack-merge": "5.8.0"
+    "typescript": "^4.0.2"
   },
   "dependencies": {
     "core-js": "^3.6.4"
