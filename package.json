@@ -1,45 +1,58 @@
 {
   "name": "@nextcloud/password-confirmation",
   "version": "2.0.0",
-  "description": "Promise-based password confirmation wrapper for Nextcloud",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "description": "Password confirmation for Nextcloud",
+  "main": "./dist/main.js",
+  "browser": "./dist/main.js",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    ".": "./dist/main.js",
+    "./style.css": "./dist/style.css"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "babel ./lib --out-dir dist --extensions '.ts,.tsx' --source-maps && tsc --emitDeclarationOnly",
-    "build:doc": "typedoc --out dist/doc lib && touch dist/doc/.nojekyll",
-    "check-types": "tsc",
-    "dev": "babel ./lib --out-dir dist --extensions '.ts,.tsx' --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite build --mode development",
+    "watch": "vite build --mode development --watch",
+    "build": "vue-tsc --noEmit && vite build && tsup src/main.ts --dts-only",
+    "l10n:extract": "node build/extract-l10n.mjs"
   },
   "keywords": [
     "nextcloud"
   ],
   "homepage": "https://github.com/nextcloud/nextcloud-password-confirmation#readme",
-  "author": "Christoph Wurst",
+  "repository": "github:nextcloud/nextcloud-password-confirmation",
+  "bugs": "https://github.com/nextcloud/nextcloud-password-confirmation/issues",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/nextcloud/nextcloud-password-confirmation"
-  },
-  "bugs": {
-    "url": "https://github.com/nextcloud/nextcloud-password-confirmation/issues"
+  "dependencies": {
+    "@nextcloud/axios": "^2.0.0",
+    "@nextcloud/capabilities": "^1.0.4",
+    "@nextcloud/l10n": "^1.6.0",
+    "@nextcloud/router": "^2.0.0",
+    "@nextcloud/vue": "^7.0.0-beta.0",
+    "vue": "^2.7.10"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "7.18.13",
-    "@babel/plugin-transform-arrow-functions": "7.18.6",
-    "@babel/preset-env": "7.18.10",
-    "@babel/preset-typescript": "^7.9.0",
-    "@nextcloud/browserslist-config": "^2.0.0",
-    "@nextcloud/typings": "^1.2.1",
-    "babel-loader": "8.2.5",
-    "typedoc": "^0.23.3",
-    "typescript": "^4.0.2"
-  },
-  "dependencies": {
-    "core-js": "^3.6.4"
+    "@nextcloud/browserslist-config": "^2.3.0",
+    "@types/gettext-parser": "^4.0.1",
+    "@types/node": "^18.7.15",
+    "@types/node-gettext": "^3.0.3",
+    "@vitejs/plugin-vue2": "^1.1.2",
+    "browserslist-to-esbuild": "^1.2.0",
+    "gettext-extractor": "^3.5.4",
+    "gettext-parser": "^6.0.0",
+    "sass": "^1.54.8",
+    "tsup": "^6.2.3",
+    "typescript": "^4.8.2",
+    "vite": "^3.1.0",
+    "vue-tsc": "^0.40.10"
   },
   "browserslist": [
     "extends @nextcloud/browserslist-config"
-  ]
+  ],
+  "engines": {
+    "node": "^16.0.0",
+    "npm": "^7.0.0 || ^8.0.0"
+  }
 }
