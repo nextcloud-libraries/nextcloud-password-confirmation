@@ -15,7 +15,7 @@
   "scripts": {
     "dev": "vite build --mode development",
     "watch": "vite build --mode development --watch",
-    "build": "vue-tsc --noEmit && vite build && tsup src/main.ts --dts-only",
+    "build": "vue-tsc --noEmit && vite build && tsup src/main.ts --silent --dts-only",
     "l10n:extract": "node build/extract-l10n.mjs"
   },
   "keywords": [
