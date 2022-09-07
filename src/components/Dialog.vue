@@ -37,9 +37,9 @@
         @invalid="valid = false"
         @keydown.enter="confirm" />
 
-      <NcNoteCard v-if="errorMessage"
+      <NcNoteCard v-if="showError"
         :show-alert="true">
-        <p>{{ errorMessage }}</p>
+        <p>{{ errorText }}</p>
       </NcNoteCard>
 
       <NcButton type="primary"
@@ -77,12 +77,13 @@ export default Vue.extend({
   data() {
     return {
       password: '',
-      errorMessage: '',
+      showError: false,
       valid: Boolean((getCapabilities() as any)?.password_policy) ? false : true,
       dialogId: DIALOG_ID,
       titleText: t('Authentication required'),
       subtitleText: t('This action requires you to confirm your password'),
       passwordLabelText: t('Password'),
+      errorText: t('Failed to authenticate, please try again'),
       confirmText: t('Confirm'),
     }
   },
@@ -95,14 +96,15 @@ export default Vue.extend({
 
   methods: {
     async confirm(): Promise<void> {
+      this.showError = false
+
       const url = generateUrl('/login/confirm')
       try {
         const { data } = await axios.post(url, { password: this.password })
         window.nc_lastLogin = data.lastLogin
-        this.errorMessage = ''
         this.$emit('confirmed')
       } catch (e) {
-        this.errorMessage = t('Failed to authenticate, try again')
+        this.showError = true
       }
     },
 

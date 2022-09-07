@@ -6,12 +6,12 @@ msgstr ""
 msgid "Authentication required"
 msgstr ""
 
-#: src/components/Dialog.vue:86
+#: src/components/Dialog.vue:87
 msgid "Confirm"
 msgstr ""
 
-#: src/components/Dialog.vue:105
-msgid "Failed to authenticate, try again"
+#: src/components/Dialog.vue:86
+msgid "Failed to authenticate, please try again"
 msgstr ""
 
 #: src/components/Dialog.vue:85
