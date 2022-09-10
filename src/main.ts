@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import DialogComponent from './components/Dialog.vue'
-import { DIALOG_ID } from './globals.js'
+import { DIALOG_ID, MODAL_CLASS } from './globals.js'
 import { t } from './utils/l10n.js'
 
 import type { ComponentInstance } from 'vue'
@@ -27,7 +27,16 @@ export const confirmPassword = (): Promise<void> => {
 
   const mountPoint = document.createElement('div')
   mountPoint.setAttribute('id', DIALOG_ID)
-  document.body.prepend(mountPoint)
+
+  const modals = document.querySelectorAll(`.${MODAL_CLASS}`)
+  const isModalMounted = Boolean(modals.length)
+
+  if (isModalMounted) {
+    const previousModal = modals[modals.length - 1]
+    previousModal.prepend(mountPoint)
+  } else {
+    document.body.prepend(mountPoint)
+  }
 
   const DialogClass = Vue.extend(DialogComponent)
   // Mount point element is replaced by the component

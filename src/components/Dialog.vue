@@ -24,6 +24,7 @@
   <NcModal :id="dialogId"
     class="dialog"
     size="small"
+    :container="null"
     @close="close">
     <div class="dialog__container">
       <h2 class="dialog__title">{{ titleText }}</h2>
