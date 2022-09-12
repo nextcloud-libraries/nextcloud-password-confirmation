@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+### Fixed
+
+- Fix dialog not appearing when another modal is open
+
 ## 3.0.0 - 2022-09-07
 
 ### Breaking
