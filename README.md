@@ -15,7 +15,7 @@ npm add @nextcloud/password-confirmation
 ## Usage
 ```js
 import { confirmPassword } from '@nextcloud/password-confirmation'
-import '@nextcloud/password-confirmation/style.css' // Required for dialog styles
+import '@nextcloud/password-confirmation/dist/style.css' // Required for dialog styles
 
 const foo = async () => {
     try {
