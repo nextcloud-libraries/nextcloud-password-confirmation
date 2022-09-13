@@ -5,10 +5,6 @@
   "main": "./dist/main.js",
   "browser": "./dist/main.js",
   "types": "./dist/main.d.ts",
-  "exports": {
-    ".": "./dist/main.js",
-    "./style.css": "./dist/style.css"
-  },
   "files": [
     "dist"
   ],

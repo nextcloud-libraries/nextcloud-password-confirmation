@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+### Breaking
+
+- Dialog styles must be imported with `import '@nextcloud/password-confirmation/dist/style.css'`
+
+### Fixed
+
+- Remove exports field to fix eslint and build errors in dependent environments
+
 ## 3.0.1 - 2022-09-12
 
 ### Fixed
