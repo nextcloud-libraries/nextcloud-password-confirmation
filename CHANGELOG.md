@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## 4.0.0 - 2022-09-14
+
 ### Breaking
 
 - Dialog styles must be imported with `import '@nextcloud/password-confirmation/dist/style.css'`
