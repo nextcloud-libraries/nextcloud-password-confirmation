@@ -33,7 +33,7 @@
       <NcPasswordField ref="field"
         :value.sync="password"
         :label="passwordLabelText"
-        :check-password-strength="true"
+        :check-password-strength="false"
         @valid="valid = true"
         @invalid="valid = false"
         @keydown.enter="confirm" />
