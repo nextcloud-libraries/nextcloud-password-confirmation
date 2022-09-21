@@ -26,3 +26,14 @@ const foo = async () => {
     }
 }
 ```
+
+## Releasing
+
+1) Create release branch
+2) Adjust version using `npm version vx.y.z --no-git-tag-version`
+3) Update `CHANGELOG.md`
+4) Commit and open PR
+5) After merge, pull latest master
+6) `git tag vx.y.z`
+7) `git push origin vx.y.z`
+8) `npm ci && npm run build && npm publish`
