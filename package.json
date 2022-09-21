@@ -11,7 +11,7 @@
   "scripts": {
     "dev": "vite build --mode development",
     "watch": "vite build --mode development --watch",
-    "build": "vue-tsc --noEmit && vite build && tsup src/main.ts --silent --dts-only",
+    "build": "vue-tsc && vite build && tsup src/main.ts --silent --dts-only",
     "l10n:extract": "node build/extract-l10n.mjs"
   },
   "keywords": [
@@ -26,7 +26,7 @@
     "@nextcloud/capabilities": "^1.0.4",
     "@nextcloud/l10n": "^1.6.0",
     "@nextcloud/router": "^2.0.0",
-    "@nextcloud/vue": "^7.0.0-beta.2",
+    "@nextcloud/vue": "^7.0.0-beta.5",
     "vue": "^2.7.10"
   },
   "devDependencies": {
