@@ -2,8 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
-## 4.0.1 - 2022-09-21
+## 4.0.2 - 2022-09-26
+
 ### Fixed
+
+- Remove password policy checks completely to fix permanently disabled confirm button
+- Bump @nextcloud/vue to remove errors from console
+
+### Changed
+
+- Document release process
+- Dependency updates
+
+## 4.0.1 - 2022-09-21
+
+### Fixed
+
 - Password strength shown
 
 ## 4.0.0 - 2022-09-14
