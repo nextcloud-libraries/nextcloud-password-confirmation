@@ -2,19 +2,19 @@ msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 
-#: src/components/Dialog.vue:84
+#: src/components/Dialog.vue:78
 msgid "Authentication required"
 msgstr ""
 
-#: src/components/Dialog.vue:88
+#: src/components/Dialog.vue:82
 msgid "Confirm"
 msgstr ""
 
-#: src/components/Dialog.vue:87
+#: src/components/Dialog.vue:81
 msgid "Failed to authenticate, please try again"
 msgstr ""
 
-#: src/components/Dialog.vue:86
+#: src/components/Dialog.vue:80
 msgid "Password"
 msgstr ""
 
@@ -22,6 +22,6 @@ msgstr ""
 msgid "Password confirmation dialog already mounted"
 msgstr ""
 
-#: src/components/Dialog.vue:85
+#: src/components/Dialog.vue:79
 msgid "This action requires you to confirm your password"
 msgstr ""
