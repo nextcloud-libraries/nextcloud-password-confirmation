@@ -33,9 +33,6 @@
       <NcPasswordField ref="field"
         :value.sync="password"
         :label="passwordLabelText"
-        :check-password-strength="false"
-        @valid="valid = true"
-        @invalid="valid = false"
         @keydown.enter="confirm" />
 
       <NcNoteCard v-if="showError"
@@ -46,7 +43,6 @@
       <NcButton type="primary"
         class="dialog__button"
         :aria-label="confirmText"
-        :disabled="!valid"
         @click="confirm">
         {{ confirmText }}
       </NcButton>
@@ -58,7 +54,6 @@
 import Vue from 'vue'
 import axios from '@nextcloud/axios'
 import { NcButton, NcModal, NcNoteCard, NcPasswordField } from '@nextcloud/vue'
-import { getCapabilities } from '@nextcloud/capabilities'
 import { generateUrl } from '@nextcloud/router'
 import { DIALOG_ID } from '../globals.js'
 import { t } from '../utils/l10n.js'
@@ -79,7 +74,6 @@ export default Vue.extend({
     return {
       password: '',
       showError: false,
-      valid: Boolean((getCapabilities() as any)?.password_policy) ? false : true,
       dialogId: DIALOG_ID,
       titleText: t('Authentication required'),
       subtitleText: t('This action requires you to confirm your password'),
