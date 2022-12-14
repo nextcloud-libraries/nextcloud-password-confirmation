@@ -53,7 +53,10 @@
 <script lang="ts">
 import Vue from 'vue'
 import axios from '@nextcloud/axios'
-import { NcButton, NcModal, NcNoteCard, NcPasswordField } from '@nextcloud/vue'
+import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
+import NcModal from '@nextcloud/vue/dist/Components/NcModal.js'
+import NcNoteCard from '@nextcloud/vue/dist/Components/NcNoteCard.js'
+import NcPasswordField from '@nextcloud/vue/dist/Components/NcPasswordField.js'
 import { generateUrl } from '@nextcloud/router'
 import { DIALOG_ID } from '../globals.js'
 import { t } from '../utils/l10n.js'
