@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 4.0.3 - 2022-12-14
+
+### Fixed
+
+- Bump @nextcloud/vue to fix focus trap
+
 ## 4.0.2 - 2022-09-26
 
 ### Fixed
