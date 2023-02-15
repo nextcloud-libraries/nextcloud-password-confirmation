@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## 4.0.4 - 2023-02-15
+
+### Fixed
+
+- Do not import the entire vue library to fix package resolution errors
+
+### Changed
+
+- Dependency updates
+
 ## 4.0.3 - 2022-12-14
 
 ### Fixed
