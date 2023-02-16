@@ -4,6 +4,7 @@ import gettextParser from 'gettext-parser'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue2'
 import browserslistToEsbuild from 'browserslist-to-esbuild'
+import { dependencies } from './package.json'
 
 const translations = fs
   .readdirSync('./l10n')
@@ -31,6 +32,18 @@ export default defineConfig({
       entry: resolve(__dirname, 'src/main.ts'),
       fileName: 'main',
       formats: ['cjs'], // es format removed to fix https://github.com/nextcloud/server build error
+    },
+    rollupOptions: {
+      external: [
+		  ...Object.keys(dependencies),
+		  '@nextcloud/vue/dist/Components/NcButton.js',
+		  '@nextcloud/vue/dist/Components/NcModal.js',
+		  '@nextcloud/vue/dist/Components/NcPasswordField.js',
+		  '@nextcloud/vue/dist/Components/NcNoteCard.js',
+	  ],
+      output: {
+        globals: { vue: 'Vue' }
+      },
     },
   },
 })
