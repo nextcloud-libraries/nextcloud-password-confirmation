@@ -12,7 +12,9 @@
     "dev": "vite build --mode development",
     "watch": "vite build --mode development --watch",
     "build": "vue-tsc && vite build && tsup src/main.ts --silent --dts-only",
-    "l10n:extract": "node build/extract-l10n.mjs"
+    "l10n:extract": "node build/extract-l10n.mjs",
+    "lint": "eslint --ignore-pattern dist/**/* .",
+    "lint:fix": "eslint --fix --ignore-pattern dist/**/* ."
   },
   "keywords": [
     "nextcloud"
@@ -30,6 +32,7 @@
   },
   "devDependencies": {
     "@nextcloud/browserslist-config": "^2.3.0",
+    "@nextcloud/eslint-config": "^8.2.1",
     "@types/gettext-parser": "^4.0.1",
     "@types/node": "^18.7.15",
     "@types/node-gettext": "^3.0.3",
@@ -46,6 +49,11 @@
   "browserslist": [
     "extends @nextcloud/browserslist-config"
   ],
+  "eslintConfig": {
+    "extends": [
+      "@nextcloud"
+    ]
+  },
   "engines": {
     "node": "^16.0.0",
     "npm": "^7.0.0 || ^8.0.0"
