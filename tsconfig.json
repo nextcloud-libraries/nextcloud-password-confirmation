@@ -13,6 +13,9 @@
     "skipLibCheck": true,
     "noImplicitAny": false, // Allow implicit any to fix type check errors of some dependencies on build
     "noEmit": true,
+    "types": [
+      "vite/client",
+    ],
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }],
