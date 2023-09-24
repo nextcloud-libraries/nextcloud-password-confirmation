@@ -1,6 +1,6 @@
 import * as fs from 'node:fs'
 import { resolve } from 'node:path'
-import gettextParser from 'gettext-parser'
+import { po as poParser } from 'gettext-parser'
 import { createLibConfig } from '@nextcloud/vite-config'
 
 const translations = fs
@@ -11,7 +11,7 @@ const translations = fs
 		const locale = file.slice(0, -'.pot'.length)
 
 		const po = fs.readFileSync(path)
-		const json = gettextParser.po.parse(po)
+		const json = poParser.parse(po)
 
 		return { locale, json }
 	})
@@ -21,7 +21,7 @@ export default createLibConfig({
 }, {
 	libraryFormats: ['cjs', 'es'],
 	replace: {
-		__TRANSLATIONS__: JSON.stringify(translations),
+		__TRANSLATIONS__: `;${JSON.stringify(translations)}`,
 	},
 	DTSPluginOptions: {
 		rollupTypes: true,

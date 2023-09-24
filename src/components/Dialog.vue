@@ -21,33 +21,35 @@
 -->
 
 <template>
-  <NcModal :id="dialogId"
-    class="dialog"
-    size="small"
-    :container="null"
-    @close="close">
-    <div class="dialog__container">
-      <h2 class="dialog__title">{{ titleText }}</h2>
-      <p>{{ subtitleText }}</p>
+	<NcModal :id="dialogId"
+		class="dialog"
+		size="small"
+		:container="null"
+		@close="close">
+		<div class="dialog__container">
+			<h2 class="dialog__title">
+				{{ titleText }}
+			</h2>
+			<p>{{ subtitleText }}</p>
 
-      <NcPasswordField ref="field"
-        :value.sync="password"
-        :label="passwordLabelText"
-        @keydown.enter="confirm" />
+			<NcPasswordField ref="field"
+				:value.sync="password"
+				:label="passwordLabelText"
+				@keydown.enter="confirm" />
 
-      <NcNoteCard v-if="showError"
-        :show-alert="true">
-        <p>{{ errorText }}</p>
-      </NcNoteCard>
+			<NcNoteCard v-if="showError"
+				:show-alert="true">
+				<p>{{ errorText }}</p>
+			</NcNoteCard>
 
-      <NcButton type="primary"
-        class="dialog__button"
-        :aria-label="confirmText"
-        @click="confirm">
-        {{ confirmText }}
-      </NcButton>
-    </div>
-  </NcModal>
+			<NcButton type="primary"
+				class="dialog__button"
+				:aria-label="confirmText"
+				@click="confirm">
+				{{ confirmText }}
+			</NcButton>
+		</div>
+	</NcModal>
 </template>
 
 <script lang="ts">
@@ -64,52 +66,52 @@ import { t } from '../utils/l10n.js'
 import type { ComponentInstance } from 'vue'
 
 export default Vue.extend({
-  name: 'Dialog',
+	name: 'Dialog',
 
-  components: {
-    NcButton,
-    NcModal,
-    NcNoteCard,
-    NcPasswordField,
-  },
+	components: {
+		NcButton,
+		NcModal,
+		NcNoteCard,
+		NcPasswordField,
+	},
 
-  data() {
-    return {
-      password: '',
-      showError: false,
-      dialogId: DIALOG_ID,
-      titleText: t('Authentication required'),
-      subtitleText: t('This action requires you to confirm your password'),
-      passwordLabelText: t('Password'),
-      errorText: t('Failed to authenticate, please try again'),
-      confirmText: t('Confirm'),
-    }
-  },
+	data() {
+		return {
+			password: '',
+			showError: false,
+			dialogId: DIALOG_ID,
+			titleText: t('Authentication required'),
+			subtitleText: t('This action requires you to confirm your password'),
+			passwordLabelText: t('Password'),
+			errorText: t('Failed to authenticate, please try again'),
+			confirmText: t('Confirm'),
+		}
+	},
 
-  mounted() {
-    this.$nextTick(() => {
-      ;((this.$refs.field as ComponentInstance).$el.querySelector('input[type="password"]') as HTMLInputElement).focus()
-    })
-  },
+	mounted() {
+		this.$nextTick(() => {
+			((this.$refs.field as ComponentInstance).$el.querySelector('input[type="password"]') as HTMLInputElement).focus()
+		})
+	},
 
-  methods: {
-    async confirm(): Promise<void> {
-      this.showError = false
+	methods: {
+		async confirm(): Promise<void> {
+			this.showError = false
 
-      const url = generateUrl('/login/confirm')
-      try {
-        const { data } = await axios.post(url, { password: this.password })
-        window.nc_lastLogin = data.lastLogin
-        this.$emit('confirmed')
-      } catch (e) {
-        this.showError = true
-      }
-    },
+			const url = generateUrl('/login/confirm')
+			try {
+				const { data } = await axios.post(url, { password: this.password })
+				window.nc_lastLogin = data.lastLogin
+				this.$emit('confirmed')
+			} catch (e) {
+				this.showError = true
+			}
+		},
 
-    close(): void {
-      this.$emit('close')
-    },
-  },
+		close(): void {
+			this.$emit('close')
+		},
+	},
 })
 </script>
 
