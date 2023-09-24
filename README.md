@@ -1,8 +1,8 @@
 # @nextcloud/password-confirmation
 
 [![npm](https://img.shields.io/npm/v/@nextcloud/password-confirmation?style=for-the-badge)](https://www.npmjs.com/package/@nextcloud/password-confirmation)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/nextcloud/nextcloud-password-confirmation/node.yml?branch=master&label=Build&style=for-the-badge)](https://github.com/nextcloud/nextcloud-password-confirmation/actions?query=branch%3Amaster)
-[![License](https://img.shields.io/github/license/nextcloud/nextcloud-password-confirmation?style=for-the-badge)](https://github.com/nextcloud/nextcloud-password-confirmation/blob/master/LICENSE)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/nextcloud-libraries/nextcloud-password-confirmation/node.yml?branch=master&label=Build&style=for-the-badge)](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/actions?query=branch%3Amaster)
+[![License](https://img.shields.io/github/license/nextcloud-libraries/nextcloud-password-confirmation?style=for-the-badge)](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/blob/master/LICENSE)
 
 Promise-based password confirmation for Nextcloud.
 
@@ -16,7 +16,7 @@ npm add @nextcloud/password-confirmation
 ## Usage
 ```js
 import { confirmPassword } from '@nextcloud/password-confirmation'
-import '@nextcloud/password-confirmation/dist/style.css' // Required for dialog styles
+import '@nextcloud/password-confirmation/style.css' // Required for dialog styles
 
 const foo = async () => {
     try {

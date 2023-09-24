@@ -28,9 +28,9 @@
   "keywords": [
     "nextcloud"
   ],
-  "homepage": "https://github.com/nextcloud/nextcloud-password-confirmation#readme",
-  "repository": "github:nextcloud/nextcloud-password-confirmation",
-  "bugs": "https://github.com/nextcloud/nextcloud-password-confirmation/issues",
+  "homepage": "https://github.com/nextcloud-libraries/nextcloud-password-confirmation#readme",
+  "repository": "github:nextcloud-libraries/nextcloud-password-confirmation",
+  "bugs": "https://github.com/nextcloud-libraries/nextcloud-password-confirmation/issues",
   "license": "MIT",
   "dependencies": {
     "@nextcloud/axios": "^2.0.0",
