@@ -66,7 +66,7 @@ import { t } from '../utils/l10n.js'
 import type { ComponentInstance } from 'vue'
 
 export default Vue.extend({
-	name: 'Dialog',
+	name: 'PasswordDialog',
 
 	components: {
 		NcButton,
