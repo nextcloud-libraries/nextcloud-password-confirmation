@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import DialogComponent from './components/Dialog.vue'
+import PasswordDialogVue from './components/PasswordDialog.vue'
 import { DIALOG_ID, MODAL_CLASS } from './globals'
 import { t } from './utils/l10n'
 
@@ -38,7 +38,7 @@ export const confirmPassword = (): Promise<void> => {
 		document.body.prepend(mountPoint)
 	}
 
-	const DialogClass = Vue.extend(DialogComponent)
+	const DialogClass = Vue.extend(PasswordDialogVue)
 	// Mount point element is replaced by the component
 	const dialog = (new DialogClass() as ComponentInstance).$mount(mountPoint)
 
