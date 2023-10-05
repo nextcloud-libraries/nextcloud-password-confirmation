@@ -35,15 +35,14 @@
 			<NcPasswordField ref="field"
 				:value.sync="password"
 				:label="passwordLabelText"
+				:helper-text="showError ? errorText : ''"
+				:error="showError"
+				required
 				@keydown.enter="confirm" />
-
-			<NcNoteCard v-if="showError"
-				:show-alert="true">
-				<p>{{ errorText }}</p>
-			</NcNoteCard>
 
 			<NcButton type="primary"
 				class="dialog__button"
+				:disabled="!password"
 				:aria-label="confirmText"
 				@click="confirm">
 				{{ confirmText }}
@@ -57,7 +56,6 @@ import Vue from 'vue'
 import axios from '@nextcloud/axios'
 import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
 import NcModal from '@nextcloud/vue/dist/Components/NcModal.js'
-import NcNoteCard from '@nextcloud/vue/dist/Components/NcNoteCard.js'
 import NcPasswordField from '@nextcloud/vue/dist/Components/NcPasswordField.js'
 import { generateUrl } from '@nextcloud/router'
 import { DIALOG_ID } from '../globals.js'
@@ -71,7 +69,6 @@ export default Vue.extend({
 	components: {
 		NcButton,
 		NcModal,
-		NcNoteCard,
 		NcPasswordField,
 	},
 
@@ -80,10 +77,10 @@ export default Vue.extend({
 			password: '',
 			showError: false,
 			dialogId: DIALOG_ID,
-			titleText: t('Authentication required'),
-			subtitleText: t('This action requires you to confirm your password'),
+			titleText: t('Confirm your password'),
+			subtitleText: t('This action needs authentication'),
 			passwordLabelText: t('Password'),
-			errorText: t('Failed to authenticate, please try again'),
+			errorText: t('Wrong password'),
 			confirmText: t('Confirm'),
 		}
 	},
@@ -100,9 +97,11 @@ export default Vue.extend({
 
 			const url = generateUrl('/login/confirm')
 			try {
-				const { data } = await axios.post(url, { password: this.password })
-				window.nc_lastLogin = data.lastLogin
-				this.$emit('confirmed')
+				if (this.password !== '') {
+					const { data } = await axios.post(url, { password: this.password })
+					window.nc_lastLogin = data.lastLogin
+					this.$emit('confirmed')
+				}
 			} catch (e) {
 				this.showError = true
 			}
