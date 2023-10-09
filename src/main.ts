@@ -7,7 +7,7 @@ import type { ComponentInstance } from 'vue'
 
 const PAGE_LOAD_TIME = Date.now()
 
-const isPasswordConfirmationRequired = (): boolean => {
+export const isPasswordConfirmationRequired = (): boolean => {
 	const serverTimeDiff = PAGE_LOAD_TIME - (window.nc_pageLoad * 1000)
 	const timeSinceLogin = Date.now() - (serverTimeDiff + (window.nc_lastLogin * 1000))
 
