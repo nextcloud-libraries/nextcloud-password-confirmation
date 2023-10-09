@@ -28,6 +28,28 @@ const foo = async () => {
 }
 ```
 
+## API Reference
+```ts
+/**
+ * Check if password confirmation is required according to the last confirmation time.
+ * Use as a replacement of deprecated `OC.PasswordConfirmation.requiresPasswordConfirmation()`.
+ * Not needed if `confirmPassword()` can be used, because it checks requirements itself.
+ *
+ * @return {boolean} Whether password confirmation is required or was confirmed recently
+ */
+declare function isPasswordConfirmationRequired(): boolean
+
+/**
+ * Confirm password if needed.
+ * Replacement of deprecated `OC.PasswordConfirmation.requirePasswordConfirmation(callback)`
+ *
+ * @return {Promise<void>} Promise that resolves when password is confirmed or not needded.
+ *                         Rejects if password confirmation was cancelled
+ *                         or confirmation is already in process.
+ */
+declare function confirmPassword(): Promise<void>
+```
+
 ## Releasing
 
 1) Create release branch
