@@ -2,13 +2,10 @@ msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 
-msgid "Authentication required"
-msgstr ""
-
 msgid "Confirm"
 msgstr ""
 
-msgid "Failed to authenticate, please try again"
+msgid "Confirm your password"
 msgstr ""
 
 msgid "Password"
@@ -17,5 +14,8 @@ msgstr ""
 msgid "Password confirmation dialog already mounted"
 msgstr ""
 
-msgid "This action requires you to confirm your password"
+msgid "This action needs authentication"
+msgstr ""
+
+msgid "Wrong password"
 msgstr ""
