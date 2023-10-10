@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## 4.1.0 - 2023-10-09
+
+### Added
+
+- `isPasswordConfirmationRequired(): boolean` function to replace deprecated `OC.PasswordConfirmation.requiresPasswordConfirmation()`
+
+### Fixed
+
+- Fix compatibility with `@nextcloud/l10n@^2`
+
+### Changed
+
+- Add `package.json/exports`
+- Move to `nextcloud-libraries` organization
+- Add ESLint for linting files
+- Dependency updates
+
 ## 4.0.4 - 2023-02-15
 
 ### Fixed
