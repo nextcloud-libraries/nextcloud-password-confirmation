@@ -7,7 +7,14 @@ import type { ComponentInstance } from 'vue'
 
 const PAGE_LOAD_TIME = Date.now()
 
-const isPasswordConfirmationRequired = (): boolean => {
+/**
+ * Check if password confirmation is required according to the last confirmation time.
+ * Use as a replacement of deprecated `OC.PasswordConfirmation.requiresPasswordConfirmation()`.
+ * Not needed if `confirmPassword()` can be used, because it checks requirements itself.
+ *
+ * @return {boolean} Whether password confirmation is required or was confirmed recently
+ */
+export const isPasswordConfirmationRequired = (): boolean => {
 	const serverTimeDiff = PAGE_LOAD_TIME - (window.nc_pageLoad * 1000)
 	const timeSinceLogin = Date.now() - (serverTimeDiff + (window.nc_lastLogin * 1000))
 
@@ -15,6 +22,14 @@ const isPasswordConfirmationRequired = (): boolean => {
 	return (window.backendAllowsPasswordConfirmation && timeSinceLogin > 30 * 60 * 1000)
 }
 
+/**
+ * Confirm password if needed.
+ * Replacement of deprecated `OC.PasswordConfirmation.requirePasswordConfirmation(callback)`
+ *
+ * @return {Promise<void>} Promise that resolves when password is confirmed or not needded.
+ *                         Rejects if password confirmation was cancelled
+ *                         or confirmation is already in process.
+ */
 export const confirmPassword = (): Promise<void> => {
 	const isDialogMounted = Boolean(document.getElementById(DIALOG_ID))
 	if (isDialogMounted) {
