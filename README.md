@@ -8,6 +8,15 @@ Promise-based password confirmation for Nextcloud.
 
 This library exports a function that displays a password confirmation dialog when called and returns a promise. This makes it easier to integrate with other asynchronous operations.
 
+## Versions compatibility
+
+Nextcloud   | @nextcloud/vue | @nextcloud/password-confirmation
+------------|----------------|---------------------------------
+28.x        | 8.x            | 5.x
+25.x - 27.x | 7.x            | 2.x - 4.x
+< 25.x      | -              | 1.x
+
+
 ## Installation
 ```sh
 npm add @nextcloud/password-confirmation
