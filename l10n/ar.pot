@@ -1,0 +1,29 @@
+# 
+# Translators:
+# Ali <alimahwer@yahoo.com>, 2023
+# 
+msgid ""
+msgstr ""
+"Last-Translator: Ali <alimahwer@yahoo.com>, 2023\n"
+"Language-Team: Arabic (https://app.transifex.com/nextcloud/teams/64236/ar/)\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+msgid "Confirm"
+msgstr "تأكيد"
+
+msgid "Confirm your password"
+msgstr "أكِّد على كلمة المرور"
+
+msgid "Password"
+msgstr "كلمة المرور"
+
+msgid "Password confirmation dialog already mounted"
+msgstr "تمّ بالفعل إقامة مربع حوار تأكيد كلمة المرور"
+
+msgid "This action needs authentication"
+msgstr "هذا الإجراء يتطلب التحقُّق من الشخصية"
+
+msgid "Wrong password"
+msgstr "كلمة مرور غير مٌطابقة"
