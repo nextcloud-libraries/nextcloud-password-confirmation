@@ -11,7 +11,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Confirm"
-msgstr "确定"
+msgstr "确认"
 
 msgid "Confirm your password"
 msgstr "确认你的密码"
