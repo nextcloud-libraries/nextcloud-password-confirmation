@@ -1,11 +1,11 @@
 # 
 # Translators:
-# Mordecai, 2023
 # Ldm Public <ldmpub@gmail.com>, 2023
+# Mordecai, 2023
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Ldm Public <ldmpub@gmail.com>, 2023\n"
+"Last-Translator: Mordecai, 2023\n"
 "Language-Team: French (https://app.transifex.com/nextcloud/teams/64236/fr/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: fr\n"
@@ -24,7 +24,7 @@ msgid "Password confirmation dialog already mounted"
 msgstr "La fenêtre de confirmation du mot de passe a déjà été affichée"
 
 msgid "This action needs authentication"
-msgstr "Cette action nécessite d'être authentifiée"
+msgstr "Cette action nécessite d'être authentifié"
 
 msgid "Wrong password"
 msgstr "Mot de passe incorrect"
