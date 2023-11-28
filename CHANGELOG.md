@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## 5.0.1 - 2023-11-28
+
+### Fixed
+
+- fix: do not mount to hidden modal by @ShGKme in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/666
+- build: fix dev and watch build by specifying CSS chunk path by @ShGKme in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/667
+
+### Changed
+
+- Setup for Transifex by @ShGKme in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/634
+- Dependency updates
+
 ## 5.0.0 - 2023-10-09
 
 ### Fixed
