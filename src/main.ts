@@ -53,7 +53,7 @@ export const confirmPassword = (): Promise<void> => {
 		const previousModal = modals[modals.length - 1]
 		previousModal.prepend(mountPoint)
 	} else {
-		document.body.prepend(mountPoint)
+		document.body.appendChild(mountPoint)
 	}
 
 	const DialogClass = Vue.extend(PasswordDialogVue)
