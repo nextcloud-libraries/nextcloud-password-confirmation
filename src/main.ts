@@ -43,14 +43,17 @@ export const confirmPassword = (): Promise<void> => {
 	const mountPoint = document.createElement('div')
 	mountPoint.setAttribute('id', DIALOG_ID)
 
-	const modals = document.querySelectorAll(`.${MODAL_CLASS}`)
+	const modals = Array.from(document.querySelectorAll(`.${MODAL_CLASS}`) as NodeListOf<HTMLElement>)
+		// Filter out hidden modals
+		.filter((modal) => modal.style.display !== 'none')
+
 	const isModalMounted = Boolean(modals.length)
 
 	if (isModalMounted) {
 		const previousModal = modals[modals.length - 1]
 		previousModal.prepend(mountPoint)
 	} else {
-		document.body.prepend(mountPoint)
+		document.body.appendChild(mountPoint)
 	}
 
 	const DialogClass = Vue.extend(PasswordDialogVue)
