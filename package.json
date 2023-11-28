@@ -20,7 +20,7 @@
   "scripts": {
     "dev": "vite build --mode development",
     "watch": "vite build --mode development --watch",
-    "build": "vite build --mode production && mv dist/main.css dist/style.css",
+    "build": "vite build --mode production",
     "l10n:extract": "node build/extract-l10n.mjs",
     "lint": "eslint --ignore-pattern dist/**/* .",
     "lint:fix": "eslint --fix --ignore-pattern dist/**/* ."
