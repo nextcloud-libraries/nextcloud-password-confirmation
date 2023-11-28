@@ -20,6 +20,8 @@ export default createLibConfig({
 	index: resolve(__dirname, 'src/main.ts'),
 }, {
 	libraryFormats: ['cjs', 'es'],
+	// Rename CSS chunk
+	assetFileNames: (chunkInfo) => chunkInfo.name.endsWith('.css') ? 'style.css' : undefined,
 	replace: {
 		__TRANSLATIONS__: `;${JSON.stringify(translations)}`,
 	},
