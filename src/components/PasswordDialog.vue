@@ -116,20 +116,20 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .dialog {
-  &__container {
-    display: flex;
-    flex-direction: column;
-    margin: 30px;
-    gap: 10px 0;
-  }
+	&__container {
+		display: flex;
+		flex-direction: column;
+		margin: 30px;
+		gap: 10px 0;
+	}
 
-  &__title {
-    margin-bottom: 0;
-  }
+	&__title {
+		margin-bottom: 0;
+	}
 
-  &__button {
-    margin-top: 6px;
-    align-self: flex-end;
-  }
+	&__button {
+		margin-top: 6px;
+		align-self: flex-end;
+	}
 }
 </style>
