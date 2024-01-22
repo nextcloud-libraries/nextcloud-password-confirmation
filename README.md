@@ -1,8 +1,8 @@
 # @nextcloud/password-confirmation
 
 [![npm](https://img.shields.io/npm/v/@nextcloud/password-confirmation?style=for-the-badge)](https://www.npmjs.com/package/@nextcloud/password-confirmation)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/nextcloud-libraries/nextcloud-password-confirmation/node.yml?branch=master&label=Build&style=for-the-badge)](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/actions?query=branch%3Amaster)
-[![License](https://img.shields.io/github/license/nextcloud-libraries/nextcloud-password-confirmation?style=for-the-badge)](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/blob/master/LICENSE)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/nextcloud-libraries/nextcloud-password-confirmation/node.yml?branch=main&label=Build&style=for-the-badge)](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/actions?query=branch%3Amain)
+[![License](https://img.shields.io/github/license/nextcloud-libraries/nextcloud-password-confirmation?style=for-the-badge)](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/blob/main/LICENSE)
 
 Promise-based password confirmation for Nextcloud.
 
@@ -65,7 +65,7 @@ declare function confirmPassword(): Promise<void>
 2) Adjust version using `npm version vx.y.z --no-git-tag-version`
 3) Update `CHANGELOG.md`
 4) Commit and open PR
-5) After merge, pull latest master
+5) After merge, pull latest main
 6) `git tag vx.y.z`
 7) `git push origin vx.y.z`
 8) `npm ci && npm run build && npm publish`
