@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import PasswordDialogVue from './components/PasswordDialog.vue'
 import { DIALOG_ID, MODAL_CLASS } from './globals'
-import { t } from './utils/l10n'
 
 import type { ComponentInstance } from 'vue'
 
@@ -33,7 +32,7 @@ export const isPasswordConfirmationRequired = (): boolean => {
 export const confirmPassword = (): Promise<void> => {
 	const isDialogMounted = Boolean(document.getElementById(DIALOG_ID))
 	if (isDialogMounted) {
-		return Promise.reject(new Error(t('Password confirmation dialog already mounted')))
+		return Promise.reject(new Error('Password confirmation dialog already mounted'))
 	}
 
 	if (!isPasswordConfirmationRequired()) {

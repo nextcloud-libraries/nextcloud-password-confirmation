@@ -11,9 +11,6 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-msgid "Password confirmation dialog already mounted"
-msgstr ""
-
 msgid "This action needs authentication"
 msgstr ""
 
