@@ -2,6 +2,7 @@
   "name": "@nextcloud/password-confirmation",
   "version": "5.0.1",
   "description": "Password confirmation for Nextcloud",
+  "type": "module",
   "main": "./dist/index.cjs",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -21,7 +22,7 @@
     "dev": "vite build --mode development",
     "watch": "vite build --mode development --watch",
     "build": "vite build --mode production",
-    "l10n:extract": "node build/extract-l10n.mjs",
+    "l10n:extract": "node build/extract-l10n.js",
     "lint": "eslint --ignore-pattern dist/**/* .",
     "lint:fix": "eslint --fix --ignore-pattern dist/**/* ."
   },
