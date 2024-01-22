@@ -13,7 +13,16 @@ const translations = fs
 		const po = fs.readFileSync(path)
 		const json = poParser.parse(po)
 
-		return { locale, json }
+		// Compress translations by removing everything not needed
+		const translations = Object.values(json.translations[''])
+			.filter((value) => value.msgid !== '')
+			.map((value) => ({
+				msgid: value.msgid,
+				msgid_plural: value.msgid_plural,
+				msgstr: value.msgstr,
+			}))
+
+		return { locale, translations }
 	})
 
 export default createLibConfig({
@@ -21,7 +30,7 @@ export default createLibConfig({
 }, {
 	libraryFormats: ['cjs', 'es'],
 	// Rename CSS chunk
-	assetFileNames: (chunkInfo) => chunkInfo.name.endsWith('.css') ? 'style.css' : undefined,
+	assetFileNames: (chunkInfo) => chunkInfo.name?.endsWith('.css') ? 'style.css' : undefined,
 	replace: {
 		__TRANSLATIONS__: `;${JSON.stringify(translations)}`,
 	},
