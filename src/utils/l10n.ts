@@ -4,7 +4,11 @@ const gtBuilder = getGettextBuilder()
 	.detectLocale()
 
 __TRANSLATIONS__
-	.map(({ locale, json }) => gtBuilder.addTranslation(locale, json))
+	.map(({ locale, translations }) => gtBuilder.addTranslation(locale, {
+		translations: {
+			'': Object.fromEntries(translations.map((t) => [t.msgid, t])),
+		},
+	}))
 
 const gt = gtBuilder.build()
 
