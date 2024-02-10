@@ -50,7 +50,7 @@
     "@types/node": "^20.11.5",
     "@types/node-gettext": "^3.0.6",
     "gettext-extractor": "^3.8.0",
-    "gettext-parser": "^7.0.1",
+    "gettext-parser": "^8.0.0",
     "sass": "^1.70.0",
     "typescript": "^5.3.3",
     "vite": "^5.0.12"
