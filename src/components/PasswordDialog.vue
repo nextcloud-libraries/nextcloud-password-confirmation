@@ -21,115 +21,156 @@
 -->
 
 <template>
-	<NcModal :id="dialogId"
-		class="dialog"
-		size="small"
+	<NcDialog :id="dialogId"
+		:name="t('Confirm your password')"
 		:container="null"
-		@close="close">
-		<div class="dialog__container">
-			<h2 class="dialog__title">
-				{{ titleText }}
-			</h2>
-			<p>{{ subtitleText }}</p>
-
+		content-classes="vue-password-confirmation"
+		@update:open="close">
+		<!-- Dialog content -->
+		<p>{{ t('This action needs authentication') }}</p>
+		<form class="vue-password-confirmation__form" @submit.prevent="confirm">
 			<NcPasswordField ref="field"
 				:value.sync="password"
-				:label="passwordLabelText"
-				:helper-text="showError ? errorText : ''"
+				:label="t('Password')"
+				:helper-text="helperText"
 				:error="showError"
-				required
-				@keydown.enter="confirm" />
-
-			<NcButton type="primary"
-				class="dialog__button"
-				:disabled="!password"
-				:aria-label="confirmText"
-				@click="confirm">
-				{{ confirmText }}
+				required />
+			<NcButton class="vue-password-confirmation__submit"
+				type="primary"
+				native-type="submit"
+				:disabled="!password">
+				<template v-if="loading" #icon>
+					<NcLoadingIcon :size="20" />
+				</template>
+				{{ t('Confirm') }}
 			</NcButton>
-		</div>
-	</NcModal>
+		</form>
+	</NcDialog>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
 import axios from '@nextcloud/axios'
 import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
-import NcModal from '@nextcloud/vue/dist/Components/NcModal.js'
+import NcDialog from '@nextcloud/vue/dist/Components/NcDialog.js'
+import NcLoadingIcon from '@nextcloud/vue/dist/Components/NcLoadingIcon.js'
 import NcPasswordField from '@nextcloud/vue/dist/Components/NcPasswordField.js'
 import { generateUrl } from '@nextcloud/router'
+import { defineComponent } from 'vue'
 import { DIALOG_ID } from '../globals.js'
 import { t } from '../utils/l10n.js'
 
 import type { ComponentInstance } from 'vue'
 
-export default Vue.extend({
+type ICanFocus = ComponentInstance & {
+	focus: () => void
+	select: () => void
+}
+
+export default defineComponent({
 	name: 'PasswordDialog',
 
 	components: {
 		NcButton,
-		NcModal,
+		NcDialog,
+		NcLoadingIcon,
 		NcPasswordField,
+	},
+
+	setup() {
+		// non reactive props
+		return {
+			dialogId: DIALOG_ID,
+		}
 	},
 
 	data() {
 		return {
 			password: '',
+			loading: false,
 			showError: false,
-			dialogId: DIALOG_ID,
-			titleText: t('Confirm your password'),
-			subtitleText: t('This action needs authentication'),
-			passwordLabelText: t('Password'),
-			errorText: t('Wrong password'),
-			confirmText: t('Confirm'),
 		}
 	},
 
+	computed: {
+		helperText() {
+			if (this.showError) {
+				return this.password === '' ? t('Please enter your password') : t('Wrong password')
+			}
+			if (this.loading) {
+				return t('Checking password …')
+			}
+			return ''
+		},
+	},
+
 	mounted() {
-		this.$nextTick(() => {
-			((this.$refs.field as ComponentInstance).$el.querySelector('input[type="password"]') as HTMLInputElement).focus()
-		})
+		this.focusPasswordField()
 	},
 
 	methods: {
+		t,
+
 		async confirm(): Promise<void> {
 			this.showError = false
+			this.loading = true
+
+			if (this.password === '') {
+				this.showError = true
+				return
+			}
 
 			const url = generateUrl('/login/confirm')
 			try {
-				if (this.password !== '') {
-					const { data } = await axios.post(url, { password: this.password })
-					window.nc_lastLogin = data.lastLogin
-					this.$emit('confirmed')
-				}
+				const { data } = await axios.post(url, { password: this.password })
+				window.nc_lastLogin = data.lastLogin
+				this.$emit('confirmed')
 			} catch (e) {
 				this.showError = true
+				this.selectPasswordField()
+			} finally {
+				this.loading = false
 			}
 		},
 
-		close(): void {
-			this.$emit('close')
+		close(open: boolean): void {
+			if (!open) {
+				this.$emit('close')
+			}
+		},
+
+		focusPasswordField() {
+			this.$nextTick(() => {
+				(this.$refs.field as ICanFocus).focus()
+			})
+		},
+
+		selectPasswordField() {
+			this.$nextTick(() => {
+				(this.$refs.field as ICanFocus).select()
+			})
 		},
 	},
 })
 </script>
 
-<style lang="scss" scoped>
-.dialog {
-	&__container {
+<style lang="scss">
+.vue-password-confirmation {
+	display: flex;
+	flex-direction: column;
+	margin-inline: 6px;
+	margin-block-end: 6px;
+	gap: 10px 0;
+
+	&__form {
 		display: flex;
 		flex-direction: column;
-		margin: 30px;
-		gap: 10px 0;
+		gap: 8px 0;
+		// allow focus visible outlines
+		padding: 2px;
 	}
 
-	&__title {
-		margin-bottom: 0;
-	}
-
-	&__button {
-		margin-top: 6px;
-		align-self: flex-end;
+	&__submit {
+		align-self: end;
 	}
 }
 </style>
