@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## 5.1.0 - 2024-03-22
+**Full Changelog**: https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v5.0.1...v5.1.0
+
+### Added
+* enh: Migrate to NcDialog by @susnux in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/697
+* enh: Compress translations to reduce bundle size by @susnux in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/698
+
+### Fixed
+* fix: Adjust code indention to be consistent (tabs) by @susnux in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/692
+* fix: Do not translate Exception error message by @susnux in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/691
+* fix: Adjust peer dependency on `@nextcloud/vue` to allow stable version by @susnux in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/693
+
+### Changed
+* Updated translations
+* Updated `@nextcloud/router` to 3.0.0
+* Updated development dependencies
+* Update NPM to v10 to align with the version provided by LTS Node 20
+* Make package ESM by default by @susnux in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/696
+
 ## 5.0.1 - 2023-11-28
 
 ### Fixed

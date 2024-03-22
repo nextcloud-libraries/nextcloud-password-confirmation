@@ -1,6 +1,6 @@
 {
   "name": "@nextcloud/password-confirmation",
-  "version": "5.0.1",
+  "version": "5.1.0",
   "description": "Password confirmation for Nextcloud",
   "type": "module",
   "main": "./dist/index.cjs",
