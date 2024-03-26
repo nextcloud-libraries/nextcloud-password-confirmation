@@ -1,14 +1,18 @@
 # 
 # Translators:
-# Joas Schilling, 2023
+# Joas Schilling, 2024
+# Mario Siegmann <mario_siegmann@web.de>, 2024
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Joas Schilling, 2023\n"
+"Last-Translator: Mario Siegmann <mario_siegmann@web.de>, 2024\n"
 "Language-Team: German (https://app.transifex.com/nextcloud/teams/64236/de/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Checking password …"
+msgstr "Passwort prüfen …"
 
 msgid "Confirm"
 msgstr "Bestätigen"
@@ -19,8 +23,8 @@ msgstr "Bestätige dein Passwort"
 msgid "Password"
 msgstr "Passwort"
 
-msgid "Password confirmation dialog already mounted"
-msgstr "Der Dialog zur Passwortbestätigung ist bereits eingeladen"
+msgid "Please enter your password"
+msgstr "Bitte geben Sie Ihr Passwort ein"
 
 msgid "This action needs authentication"
 msgstr "Diese Aktion benötigt eine Passwortbestätigung"
