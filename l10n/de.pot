@@ -2,17 +2,18 @@
 # Translators:
 # Joas Schilling, 2024
 # Mario Siegmann <mario_siegmann@web.de>, 2024
+# Ferdinand Thiessen, 2024
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Mario Siegmann <mario_siegmann@web.de>, 2024\n"
+"Last-Translator: Ferdinand Thiessen, 2024\n"
 "Language-Team: German (https://app.transifex.com/nextcloud/teams/64236/de/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Checking password …"
-msgstr "Passwort prüfen …"
+msgstr "Prüfe Passwort …"
 
 msgid "Confirm"
 msgstr "Bestätigen"
