@@ -97,7 +97,7 @@ export default defineComponent({
 				return this.password === '' ? t('Please enter your password') : t('Wrong password')
 			}
 			if (this.loading) {
-				return t('Checking password …')
+				return t('Checking password …') // TRANSLATORS: This is a status message, shown when the system is checking the users password
 			}
 			return ''
 		},
