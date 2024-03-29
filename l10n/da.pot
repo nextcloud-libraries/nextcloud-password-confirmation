@@ -20,7 +20,7 @@ msgid "Confirm"
 msgstr "Bekræft"
 
 msgid "Confirm your password"
-msgstr "Bekræft din Adgangskode"
+msgstr "Bekræft din adgangskode"
 
 msgid "Password"
 msgstr "Adgangskode"
