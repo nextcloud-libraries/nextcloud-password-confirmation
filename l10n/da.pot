@@ -1,14 +1,20 @@
 # 
 # Translators:
-# Lennert Löw, 2024
+# Joas Schilling, 2024
+# Martin Bonde <Martin@maboni.dk>, 2024
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Lennert Löw, 2024\n"
+"Last-Translator: Martin Bonde <Martin@maboni.dk>, 2024\n"
 "Language-Team: Danish (https://app.transifex.com/nextcloud/teams/64236/da/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. TRANSLATORS: This is a status message, shown when the system is checking
+#. the users password
+msgid "Checking password …"
+msgstr "Kontrollerer adgangskoden..."
 
 msgid "Confirm"
 msgstr "Bekræft"
@@ -19,8 +25,8 @@ msgstr "Bekræft din Adgangskode"
 msgid "Password"
 msgstr "Adgangskode"
 
-msgid "Password confirmation dialog already mounted"
-msgstr "Dialogboksen til bekræftelse af adgangskode er allerede monteret"
+msgid "Please enter your password"
+msgstr "Indtast venligst dit kodeord"
 
 msgid "This action needs authentication"
 msgstr "Denne handling kræver godkendelse"
