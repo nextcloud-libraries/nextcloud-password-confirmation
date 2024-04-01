@@ -1,14 +1,20 @@
 # 
 # Translators:
-# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2023
+# Joas Schilling, 2024
+# Pablo Baladron <pablof@uvigo.es>, 2024
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2023\n"
+"Last-Translator: Pablo Baladron <pablof@uvigo.es>, 2024\n"
 "Language-Team: Galician (https://app.transifex.com/nextcloud/teams/64236/gl/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: gl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. TRANSLATORS: This is a status message, shown when the system is checking
+#. the users password
+msgid "Checking password …"
+msgstr "Comprobando contrasinal ..."
 
 msgid "Confirm"
 msgstr "Confirmar"
@@ -19,8 +25,8 @@ msgstr "Confirmar o seu contrasinal"
 msgid "Password"
 msgstr "Contrasinal"
 
-msgid "Password confirmation dialog already mounted"
-msgstr "O diálogo de confirmación do contrasinal xa está montado"
+msgid "Please enter your password"
+msgstr "Por favor introduza o seu contrasinal"
 
 msgid "This action needs authentication"
 msgstr "Esta acción necesita autenticación"
