@@ -1,14 +1,20 @@
 # 
 # Translators:
-# Jiri Grönroos <jiri.gronroos@iki.fi>, 2023
+# Joas Schilling, 2024
+# Jiri Grönroos <jiri.gronroos@iki.fi>, 2024
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>, 2023\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>, 2024\n"
 "Language-Team: Finnish (Finland) (https://app.transifex.com/nextcloud/teams/64236/fi_FI/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: fi_FI\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. TRANSLATORS: This is a status message, shown when the system is checking
+#. the users password
+msgid "Checking password …"
+msgstr "Tarkistetaan salasanaa…"
 
 msgid "Confirm"
 msgstr "Vahvista"
@@ -19,8 +25,8 @@ msgstr "Vahvista salasanasi"
 msgid "Password"
 msgstr "Salasana"
 
-msgid "Password confirmation dialog already mounted"
-msgstr "Salasanan vahvistusikkuna on jo liitetty"
+msgid "Please enter your password"
+msgstr "Kirjoita salasanasi"
 
 msgid "This action needs authentication"
 msgstr "Tämä toiminto vaatii tunnistautumisen"
