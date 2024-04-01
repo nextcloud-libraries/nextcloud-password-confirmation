@@ -1,14 +1,20 @@
 # 
 # Translators:
-# FranciscoFJ <dev-ooo@satel-sa.com>, 2023
+# Joas Schilling, 2024
+# José Vidal <joviarts@gmail.com>, 2024
 # 
 msgid ""
 msgstr ""
-"Last-Translator: FranciscoFJ <dev-ooo@satel-sa.com>, 2023\n"
+"Last-Translator: José Vidal <joviarts@gmail.com>, 2024\n"
 "Language-Team: Spanish (https://app.transifex.com/nextcloud/teams/64236/es/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: es\n"
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+#. TRANSLATORS: This is a status message, shown when the system is checking
+#. the users password
+msgid "Checking password …"
+msgstr "Verificando contraseña..."
 
 msgid "Confirm"
 msgstr "Confirmar"
@@ -19,8 +25,8 @@ msgstr "Confirme su contraseña"
 msgid "Password"
 msgstr "Contraseña"
 
-msgid "Password confirmation dialog already mounted"
-msgstr "El cuadro de diálogo de confirmación de contraseña ya está montado."
+msgid "Please enter your password"
+msgstr "Introduzca su contraseña"
 
 msgid "This action needs authentication"
 msgstr "Esta acción necesita autenticación"
