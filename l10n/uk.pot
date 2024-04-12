@@ -20,7 +20,7 @@ msgid "Confirm"
 msgstr "Підтвердити"
 
 msgid "Confirm your password"
-msgstr "Підтвердити ваш пароль"
+msgstr "Підтвердіть ваш пароль"
 
 msgid "Password"
 msgstr "Пароль"
