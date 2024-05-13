@@ -2,10 +2,11 @@
 # Translators:
 # Joas Schilling, 2024
 # Pablo Baladron <pablof@uvigo.es>, 2024
+# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2024
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Pablo Baladron <pablof@uvigo.es>, 2024\n"
+"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2024\n"
 "Language-Team: Galician (https://app.transifex.com/nextcloud/teams/64236/gl/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: gl\n"
@@ -14,7 +15,7 @@ msgstr ""
 #. TRANSLATORS: This is a status message, shown when the system is checking
 #. the users password
 msgid "Checking password …"
-msgstr "Comprobando contrasinal ..."
+msgstr "Comprobando o contrasinal…"
 
 msgid "Confirm"
 msgstr "Confirmar"
