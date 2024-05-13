@@ -1,7 +1,6 @@
 # 
 # Translators:
 # Joas Schilling, 2024
-# Pablo Baladron <pablof@uvigo.es>, 2024
 # Miguel Anxo Bouzada <mbouzada@gmail.com>, 2024
 # 
 msgid ""
@@ -27,7 +26,7 @@ msgid "Password"
 msgstr "Contrasinal"
 
 msgid "Please enter your password"
-msgstr "Por favor introduza o seu contrasinal"
+msgstr "Introduza o seu contrasinal"
 
 msgid "This action needs authentication"
 msgstr "Esta acción necesita autenticación"
