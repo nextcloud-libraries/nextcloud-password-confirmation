@@ -1,14 +1,20 @@
 # 
 # Translators:
-# Liviu Milies, 2023
+# Joas Schilling, 2024
+# Georgeuhm, 2024
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Liviu Milies, 2023\n"
+"Last-Translator: Georgeuhm, 2024\n"
 "Language-Team: Romanian (https://app.transifex.com/nextcloud/teams/64236/ro/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: ro\n"
 "Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
+
+#. TRANSLATORS: This is a status message, shown when the system is checking
+#. the users password
+msgid "Checking password …"
+msgstr "Se verifică parola ..."
 
 msgid "Confirm"
 msgstr "Confirmare"
@@ -19,8 +25,8 @@ msgstr "Confirmare parolă"
 msgid "Password"
 msgstr "Parolă"
 
-msgid "Password confirmation dialog already mounted"
-msgstr "Dialog confirmare parolă deja atașat"
+msgid "Please enter your password"
+msgstr "Vă rugăm să introduceți parola"
 
 msgid "This action needs authentication"
 msgstr "Această acțiune necesită autentificare"
