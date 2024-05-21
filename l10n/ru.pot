@@ -1,14 +1,20 @@
 # 
 # Translators:
-# Elena Mishina, 2023
+# Joas Schilling, 2024
+# Влад, 2024
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Elena Mishina, 2023\n"
+"Last-Translator: Влад, 2024\n"
 "Language-Team: Russian (https://app.transifex.com/nextcloud/teams/64236/ru/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#. TRANSLATORS: This is a status message, shown when the system is checking
+#. the users password
+msgid "Checking password …"
+msgstr "Проверка пароля …"
 
 msgid "Confirm"
 msgstr "Подтвердить"
@@ -19,8 +25,8 @@ msgstr "Подтвердите пароль"
 msgid "Password"
 msgstr "Пароль"
 
-msgid "Password confirmation dialog already mounted"
-msgstr "Диалоговое окно подтверждения пароля уже установлено"
+msgid "Please enter your password"
+msgstr "Пожалуйста, введите свой пароль"
 
 msgid "This action needs authentication"
 msgstr "Для этого действия требуется аутентификация"
