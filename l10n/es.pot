@@ -2,10 +2,11 @@
 # Translators:
 # Joas Schilling, 2024
 # José Vidal <joviarts@gmail.com>, 2024
+# Julio C. Ortega, 2024
 # 
 msgid ""
 msgstr ""
-"Last-Translator: José Vidal <joviarts@gmail.com>, 2024\n"
+"Last-Translator: Julio C. Ortega, 2024\n"
 "Language-Team: Spanish (https://app.transifex.com/nextcloud/teams/64236/es/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: es\n"
@@ -14,7 +15,7 @@ msgstr ""
 #. TRANSLATORS: This is a status message, shown when the system is checking
 #. the users password
 msgid "Checking password …"
-msgstr "Verificando contraseña..."
+msgstr "Verificando contraseña …"
 
 msgid "Confirm"
 msgstr "Confirmar"
