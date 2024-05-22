@@ -1,7 +1,6 @@
 # 
 # Translators:
 # Joas Schilling, 2024
-# José Vidal <joviarts@gmail.com>, 2024
 # Julio C. Ortega, 2024
 # 
 msgid ""
@@ -27,7 +26,7 @@ msgid "Password"
 msgstr "Contraseña"
 
 msgid "Please enter your password"
-msgstr "Introduzca su contraseña"
+msgstr "Por favor, Introduzca su contraseña"
 
 msgid "This action needs authentication"
 msgstr "Esta acción necesita autenticación"
