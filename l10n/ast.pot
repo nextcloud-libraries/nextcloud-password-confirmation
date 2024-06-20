@@ -1,14 +1,20 @@
 # 
 # Translators:
-# enolp <enolp@softastur.org>, 2023
+# Joas Schilling, 2024
+# enolp <enolp@softastur.org>, 2024
 # 
 msgid ""
 msgstr ""
-"Last-Translator: enolp <enolp@softastur.org>, 2023\n"
+"Last-Translator: enolp <enolp@softastur.org>, 2024\n"
 "Language-Team: Asturian (https://app.transifex.com/nextcloud/teams/64236/ast/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: ast\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. TRANSLATORS: This is a status message, shown when the system is checking
+#. the users password
+msgid "Checking password …"
+msgstr "Comprobando la contraseña…"
 
 msgid "Confirm"
 msgstr "Confirmación"
@@ -19,8 +25,8 @@ msgstr "Confirma la contraseña"
 msgid "Password"
 msgstr "Contraseña"
 
-msgid "Password confirmation dialog already mounted"
-msgstr "Yá se montó'l diálogu de confirmación de la contraseña"
+msgid "Please enter your password"
+msgstr "Introduz la contraseña"
 
 msgid "This action needs authentication"
 msgstr "Esta aición precisa l'autenticación"
