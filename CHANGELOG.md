@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## 5.1.1 - 2024-06-25
+[Full Changelog](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v5.1.0...v5.1.1)
+
+### Fixed
+* fix: Correctly export Typescript types in `exports` [\#795](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/795)
+
+### Changed
+* Updated translations
+* chore(deps): Bump @nextcloud/router to 3.0.1
+* chore(deps): Bump @nextcloud/axios to 2.5.0
+* chore(deps): Bump @nextcloud/l10n to 3.1.0
+* chore(dev-deps): Update development dependencies [\#794](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/794)
+* chore: Update workflows from organization [\#797](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/797)
+
 ## 5.1.0 - 2024-03-22
 **Full Changelog**: https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v5.0.1...v5.1.0
 
