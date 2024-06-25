@@ -1,5 +1,6 @@
 # @nextcloud/password-confirmation
 
+[![REUSE status](https://api.reuse.software/badge/github.com/nextcloud-libraries/nextcloud-password-confirmation)](https://api.reuse.software/info/github.com/nextcloud-libraries/nextcloud-password-confirmation)
 [![npm](https://img.shields.io/npm/v/@nextcloud/password-confirmation?style=for-the-badge)](https://www.npmjs.com/package/@nextcloud/password-confirmation)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/nextcloud-libraries/nextcloud-password-confirmation/node.yml?branch=main&label=Build&style=for-the-badge)](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/actions?query=branch%3Amain)
 [![License](https://img.shields.io/github/license/nextcloud-libraries/nextcloud-password-confirmation?style=for-the-badge)](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/blob/main/LICENSE)
