@@ -34,9 +34,9 @@
   "bugs": "https://github.com/nextcloud-libraries/nextcloud-password-confirmation/issues",
   "license": "MIT",
   "dependencies": {
-    "@nextcloud/axios": "^2.4.0",
+    "@nextcloud/axios": "^2.5.0",
     "@nextcloud/l10n": "^3.1.0",
-    "@nextcloud/router": "^3.0.0"
+    "@nextcloud/router": "^3.0.1"
   },
   "peerDependencies": {
     "@nextcloud/vue": "^8.0.0",
