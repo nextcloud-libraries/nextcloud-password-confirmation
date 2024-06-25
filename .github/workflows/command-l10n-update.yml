@@ -1,3 +1,5 @@
+# SPDX-FileCopyrightText: 2021-2024 Nextcloud GmbH and Nextcloud contributors
+# SPDX-License-Identifier: MIT
 name: Command L10n Update
 on:
   issue_comment:
@@ -52,8 +54,8 @@ jobs:
         uses: skjnldsv/read-package-engines-version-actions@v2
         id: package-engines-versions
         with:
-          fallbackNode: '^14'
-          fallbackNpm: '^7'
+          fallbackNode: '^20'
+          fallbackNpm: '^10'
 
       - name: Set up node ${{ steps.package-engines-versions.outputs.nodeVersion }}
         uses: actions/setup-node@v4
