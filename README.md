@@ -1,8 +1,14 @@
 # @nextcloud/password-confirmation
 
+[![REUSE status](https://api.reuse.software/badge/github.com/nextcloud-libraries/nextcloud-password-confirmation)](https://api.reuse.software/info/github.com/nextcloud-libraries/nextcloud-password-confirmation)
 [![npm](https://img.shields.io/npm/v/@nextcloud/password-confirmation?style=for-the-badge)](https://www.npmjs.com/package/@nextcloud/password-confirmation)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/nextcloud-libraries/nextcloud-password-confirmation/node.yml?branch=main&label=Build&style=for-the-badge)](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/actions?query=branch%3Amain)
 [![License](https://img.shields.io/github/license/nextcloud-libraries/nextcloud-password-confirmation?style=for-the-badge)](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/blob/main/LICENSE)
+
+<!--
+ - SPDX-FileCopyrightText: 2020 Nextcloud GmbH and Nextcloud contributors
+ - SPDX-License-Identifier: MIT
+ -->
 
 Promise-based password confirmation for Nextcloud.
 
@@ -15,7 +21,6 @@ Nextcloud   | @nextcloud/vue | @nextcloud/password-confirmation
 28.x        | 8.x            | 5.x
 25.x - 27.x | 7.x            | 2.x - 4.x
 < 25.x      | -              | 1.x
-
 
 ## Installation
 ```sh

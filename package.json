@@ -2,6 +2,9 @@
   "name": "@nextcloud/password-confirmation",
   "version": "5.1.1",
   "description": "Password confirmation for Nextcloud",
+  "author": {
+    "name": "Nextcloud GmbH and Nextcloud contributors"
+  },
   "type": "module",
   "main": "./dist/index.cjs",
   "types": "./dist/index.d.ts",
@@ -16,6 +19,7 @@
   },
   "files": [
     "dist",
+    "LICENSES",
     "CHANGELOG.md"
   ],
   "scripts": {
