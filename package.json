@@ -35,7 +35,7 @@
   "license": "MIT",
   "dependencies": {
     "@nextcloud/axios": "^2.4.0",
-    "@nextcloud/l10n": "^2.2.0",
+    "@nextcloud/l10n": "^3.1.0",
     "@nextcloud/router": "^3.0.0"
   },
   "peerDependencies": {
