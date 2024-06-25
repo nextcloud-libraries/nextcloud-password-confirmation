@@ -1,3 +1,7 @@
+/*!
+ * SPDX-FileCopyrightText: 2020 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: MIT
+ */
 import Vue from 'vue'
 import PasswordDialogVue from './components/PasswordDialog.vue'
 import { DIALOG_ID, MODAL_CLASS } from './globals'

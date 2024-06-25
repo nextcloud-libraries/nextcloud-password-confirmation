@@ -1,6 +1,10 @@
 # Changelog
-
 All notable changes to this project will be documented in this file.
+
+<!--
+ - SPDX-FileCopyrightText: 2020 Nextcloud GmbH and Nextcloud contributors
+ - SPDX-License-Identifier: MIT
+ -->
 
 ## 5.1.1 - 2024-06-25
 [Full Changelog](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v5.1.0...v5.1.1)

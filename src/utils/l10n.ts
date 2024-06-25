@@ -1,3 +1,8 @@
+/*!
+ * SPDX-FileCopyrightText: 2022 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: MIT
+ */
+
 import { getGettextBuilder } from '@nextcloud/l10n/gettext'
 
 const gtBuilder = getGettextBuilder()

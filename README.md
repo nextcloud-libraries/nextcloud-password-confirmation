@@ -4,6 +4,11 @@
 [![Build Status](https://img.shields.io/github/actions/workflow/status/nextcloud-libraries/nextcloud-password-confirmation/node.yml?branch=main&label=Build&style=for-the-badge)](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/actions?query=branch%3Amain)
 [![License](https://img.shields.io/github/license/nextcloud-libraries/nextcloud-password-confirmation?style=for-the-badge)](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/blob/main/LICENSE)
 
+<!--
+ - SPDX-FileCopyrightText: 2020 Nextcloud GmbH and Nextcloud contributors
+ - SPDX-License-Identifier: MIT
+ -->
+
 Promise-based password confirmation for Nextcloud.
 
 This library exports a function that displays a password confirmation dialog when called and returns a promise. This makes it easier to integrate with other asynchronous operations.
@@ -15,7 +20,6 @@ Nextcloud   | @nextcloud/vue | @nextcloud/password-confirmation
 28.x        | 8.x            | 5.x
 25.x - 27.x | 7.x            | 2.x - 4.x
 < 25.x      | -              | 1.x
-
 
 ## Installation
 ```sh

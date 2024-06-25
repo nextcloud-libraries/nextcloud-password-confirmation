@@ -1,3 +1,8 @@
+/*!
+ * SPDX-FileCopyrightText: 2022 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: MIT
+ */
+
 import { GettextExtractor, JsExtractors, HtmlExtractors } from 'gettext-extractor'
 
 const extractor = new GettextExtractor()
