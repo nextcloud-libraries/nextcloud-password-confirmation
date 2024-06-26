@@ -13,7 +13,7 @@ msgstr ""
 #. TRANSLATORS: This is a status message, shown when the system is checking
 #. the users password
 msgid "Checking password …"
-msgstr "Pasfhocal á sheiceáil…"
+msgstr "Pasfhocal á sheiceáil …"
 
 msgid "Confirm"
 msgstr "Deimhnigh"
