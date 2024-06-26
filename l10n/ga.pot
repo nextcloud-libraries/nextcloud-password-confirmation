@@ -31,4 +31,4 @@ msgid "This action needs authentication"
 msgstr "Teastaíonn fíordheimhniú ón ngníomh seo"
 
 msgid "Wrong password"
-msgstr "Focal faire mícheart"
+msgstr "Pasfhocal mícheart"
