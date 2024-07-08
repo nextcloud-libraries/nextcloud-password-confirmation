@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2024 Nextcloud GmbH and Nextcloud contributors
+# SPDX-License-Identifier: MIT
+version = 1
+SPDX-PackageName = "Nextcloud Password Confirmation library"
+SPDX-PackageSupplier = "Nextcloud GmbH <https://nextcloud.com/impressum/>"
+SPDX-PackageDownloadLocation = "https://github.com/nextcloud-libraries/nextcloud-password-confirmation"
+
+[[annotations]]
+path = ["package.json", "package-lock.json", ".github/pull_request_template.md"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Nextcloud GmbH and Nextcloud contributors"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "l10n/**.pot"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2020-2024 Nextcloud translators"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = ["tsconfig.json", "tsconfig.node.json"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2022-2024 Nextcloud GmbH and Nextcloud contributors"
+SPDX-License-Identifier = "CC0-1.0"
