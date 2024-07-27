@@ -1,11 +1,11 @@
 # 
 # Translators:
 # Joas Schilling, 2024
-# Michal Šmahel <ceskyDJ@seznam.cz>, 2024
+# Pavel Borecki <pavel.borecki@gmail.com>, 2024
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Michal Šmahel <ceskyDJ@seznam.cz>, 2024\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2024\n"
 "Language-Team: Czech (Czech Republic) (https://app.transifex.com/nextcloud/teams/64236/cs_CZ/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: cs_CZ\n"
@@ -14,7 +14,7 @@ msgstr ""
 #. TRANSLATORS: This is a status message, shown when the system is checking
 #. the users password
 msgid "Checking password …"
-msgstr "Ověřuji heslo…"
+msgstr "Ověřování hesla…"
 
 msgid "Confirm"
 msgstr "Potvrdit"
@@ -26,7 +26,7 @@ msgid "Password"
 msgstr "Heslo"
 
 msgid "Please enter your password"
-msgstr "Zadejte prosím heslo"
+msgstr "Zadejte heslo"
 
 msgid "This action needs authentication"
 msgstr "Tato akce vyžaduje ověření se"
