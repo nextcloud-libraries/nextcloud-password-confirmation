@@ -1,7 +1,6 @@
 # 
 # Translators:
 # Joas Schilling, 2024
-# Michal Šmahel <ceskyDJ@seznam.cz>, 2024
 # Pavel Borecki <pavel.borecki@gmail.com>, 2024
 # 
 msgid ""
@@ -27,7 +26,7 @@ msgid "Password"
 msgstr "Heslo"
 
 msgid "Please enter your password"
-msgstr "Zadejte prosím heslo"
+msgstr "Zadejte heslo"
 
 msgid "This action needs authentication"
 msgstr "Tato akce vyžaduje ověření se"
