@@ -1,14 +1,20 @@
 # 
 # Translators:
-# Főnyedi Áron <sajtman@gmail.com>, 2023
+# Joas Schilling, 2024
+# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2024
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Főnyedi Áron <sajtman@gmail.com>, 2023\n"
+"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2024\n"
 "Language-Team: Hungarian (Hungary) (https://app.transifex.com/nextcloud/teams/64236/hu_HU/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: hu_HU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. TRANSLATORS: This is a status message, shown when the system is checking
+#. the users password
+msgid "Checking password …"
+msgstr "Jelszó ellenőrzése…"
 
 msgid "Confirm"
 msgstr "Jóváhagyás"
@@ -19,8 +25,8 @@ msgstr "Hagyja jóvá a jelszavát"
 msgid "Password"
 msgstr "Jelszó"
 
-msgid "Password confirmation dialog already mounted"
-msgstr "A jelszó jóváhagyási dialógus már fel van csatolva"
+msgid "Please enter your password"
+msgstr "Adja meg a jelszavát"
 
 msgid "This action needs authentication"
 msgstr "A művelethez bejelentkezés szükséges"
