@@ -21,7 +21,7 @@
 			<NcButton class="vue-password-confirmation__submit"
 				type="primary"
 				native-type="submit"
-				:disabled="!password">
+				:disabled="!password || loading">
 				<template v-if="loading" #icon>
 					<NcLoadingIcon :size="20" />
 				</template>
@@ -32,12 +32,10 @@
 </template>
 
 <script lang="ts">
-import axios from '@nextcloud/axios'
 import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
 import NcDialog from '@nextcloud/vue/dist/Components/NcDialog.js'
 import NcLoadingIcon from '@nextcloud/vue/dist/Components/NcLoadingIcon.js'
 import NcPasswordField from '@nextcloud/vue/dist/Components/NcPasswordField.js'
-import { generateUrl } from '@nextcloud/router'
 import { defineComponent } from 'vue'
 import { DIALOG_ID } from '../globals.js'
 import { t } from '../utils/l10n.js'
@@ -57,6 +55,13 @@ export default defineComponent({
 		NcDialog,
 		NcLoadingIcon,
 		NcPasswordField,
+	},
+
+	props: {
+		validate: {
+			type: Function,
+			default: () => {},
+		},
 	},
 
 	setup() {
@@ -102,10 +107,8 @@ export default defineComponent({
 				return
 			}
 
-			const url = generateUrl('/login/confirm')
 			try {
-				const { data } = await axios.post(url, { password: this.password })
-				window.nc_lastLogin = data.lastLogin
+				await this.validate(this.password)
 				this.$emit('confirmed')
 			} catch (e) {
 				this.showError = true
