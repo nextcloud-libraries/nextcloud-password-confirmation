@@ -33,4 +33,4 @@ msgid "This action needs authentication"
 msgstr "هذا الإجراء يتطلب التحقق من الهوية"
 
 msgid "Wrong password"
-msgstr "كلمة مرور غير مٌطابقة"
+msgstr "كلمة المرور غير صحيحة"
