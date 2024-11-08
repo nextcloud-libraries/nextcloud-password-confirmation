@@ -2,10 +2,11 @@
 # Translators:
 # Joas Schilling, 2024
 # Ali <alimahwer@yahoo.com>, 2024
+# abusaud, 2024
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Ali <alimahwer@yahoo.com>, 2024\n"
+"Last-Translator: abusaud, 2024\n"
 "Language-Team: Arabic (https://app.transifex.com/nextcloud/teams/64236/ar/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: ar\n"
@@ -20,7 +21,7 @@ msgid "Confirm"
 msgstr "تأكيد"
 
 msgid "Confirm your password"
-msgstr "أكِّد على كلمة المرور"
+msgstr "تأكيد كلمة المرور"
 
 msgid "Password"
 msgstr "كلمة المرور"
