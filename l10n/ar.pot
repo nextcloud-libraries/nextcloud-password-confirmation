@@ -27,7 +27,7 @@ msgid "Password"
 msgstr "كلمة المرور"
 
 msgid "Please enter your password"
-msgstr "أدخِل كلمة مرورك من فضلك"
+msgstr "يرجى إدخال كلمة المرور الخاصة بك"
 
 msgid "This action needs authentication"
 msgstr "هذا الإجراء يتطلب التحقُّق من الشخصية"
