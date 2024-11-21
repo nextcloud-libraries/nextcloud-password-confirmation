@@ -26,7 +26,7 @@ msgid "Password"
 msgstr "Parole"
 
 msgid "Please enter your password"
-msgstr "Lūdzu, ievadiet Jūsu paroli"
+msgstr "Lūgums ievadīt savu paroli"
 
 msgid "This action needs authentication"
 msgstr "Šajai darbībai nepieciešama autentifikācija"
