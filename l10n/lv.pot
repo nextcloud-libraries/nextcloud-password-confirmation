@@ -29,7 +29,7 @@ msgid "Please enter your password"
 msgstr "Lūgums ievadīt savu paroli"
 
 msgid "This action needs authentication"
-msgstr "Šajai darbībai nepieciešama autentifikācija"
+msgstr "Šai darbībai ir nepieciešama autentificēšanās"
 
 msgid "Wrong password"
 msgstr "Nepareiza parole"
