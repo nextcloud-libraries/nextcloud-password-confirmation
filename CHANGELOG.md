@@ -6,6 +6,48 @@ All notable changes to this project will be documented in this file.
  - SPDX-License-Identifier: MIT
  -->
 
+## 5.2.0 - 2024-11-27
+
+### What's Changed
+
+### Features
+
+* feat: Expose axios interceptors by @artonge in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/881
+
+### Dependencies
+
+* chore(deps): Bump skjnldsv/read-package-engines-version-actions to 3
+* chore(deps): Bump actions/setup-node to 4.1.0
+* chore(deps): Bump axios to 1.7.4
+* chore(deps): Bump @nextcloud/axios to 2.5.1
+* chore(deps): Bump pascalgn/automerge-action to 0.16.4
+* chore(deps): Bump rollup to 4.22.4
+* chore(deps): Bump actions/checkout to 4.2.2
+* chore(deps): Bump dompurify to 3.1.7
+
+### Development dependencies
+
+* chore(deps-dev): Bump @types/node to 20.14.12
+* chore(deps-dev): Bump vite to 5.4.11
+* chore(deps-dev): Bump typescript to 5.7.2
+* chore(deps-dev): Bump sass to 1.81.0
+* chore(deps-dev): Bump @nextcloud/vite-config to 1.4.2
+* chore(deps-dev): Bump elliptic to 6.6.0
+
+### Miscellaneous
+
+* chore: Add SPDX license headers by @susnux in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/805
+* Migrate REUSE to TOML by @AndyScherzinger in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/815
+* Updates for project Nextcloud password confirmation library by @transifex-integration in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/807
+* CI. Update dependabot-approve-merge.yml by @AndyScherzinger in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/843
+
+### New Contributors
+
+* @AndyScherzinger made their first contribution in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/815
+* @artonge made their first contribution in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/881
+
+**Full Changelog**: https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v5.1.1...v5.2.0
+
 ## 5.1.1 - 2024-06-25
 [Full Changelog](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v5.1.0...v5.1.1)
 
