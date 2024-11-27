@@ -4,8 +4,7 @@
  -->
 
 <template>
-	<NcDialog :id="dialogId"
-		:name="t('Confirm your password')"
+	<NcDialog :name="t('Confirm your password')"
 		:container="null"
 		content-classes="vue-password-confirmation"
 		@update:open="close">
@@ -37,7 +36,6 @@ import NcDialog from '@nextcloud/vue/dist/Components/NcDialog.js'
 import NcLoadingIcon from '@nextcloud/vue/dist/Components/NcLoadingIcon.js'
 import NcPasswordField from '@nextcloud/vue/dist/Components/NcPasswordField.js'
 import { defineComponent } from 'vue'
-import { DIALOG_ID } from '../globals.js'
 import { t } from '../utils/l10n.js'
 
 import type { ComponentInstance } from 'vue'
@@ -62,13 +60,6 @@ export default defineComponent({
 			type: Function,
 			default: () => {},
 		},
-	},
-
-	setup() {
-		// non reactive props
-		return {
-			dialogId: DIALOG_ID,
-		}
 	},
 
 	data() {

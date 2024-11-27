@@ -3,15 +3,15 @@
  * SPDX-License-Identifier: MIT
  */
 import Vue from 'vue'
-import type { ComponentInstance } from 'vue'
 
 import type { AxiosInstance } from '@nextcloud/axios'
 import axios from '@nextcloud/axios'
 import { getCurrentUser } from '@nextcloud/auth'
 import { generateUrl } from '@nextcloud/router'
+import { spawnDialog } from '@nextcloud/dialogs'
 
 import PasswordDialogVue from './components/PasswordDialog.vue'
-import { DIALOG_ID, MODAL_CLASS, PwdConfirmationMode } from './globals'
+import { PwdConfirmationMode } from './globals'
 export { PwdConfirmationMode } from './globals'
 
 const PAGE_LOAD_TIME = Date.now()
@@ -81,29 +81,11 @@ async function _confirmPassword(password: string) {
 function getDialog(): Vue {
 	if (window._nc_password_confirmation_dialog === undefined) {
 		console.debug('Prompting password form')
-
-		const mountPoint = document.createElement('div')
-		mountPoint.setAttribute('id', DIALOG_ID)
-
-		const modals = Array.from(document.querySelectorAll(`.${MODAL_CLASS}`) as NodeListOf<HTMLElement>)
-			// Filter out hidden modals
-			.filter((modal) => modal.style.display !== 'none')
-
-		const isModalMounted = Boolean(modals.length)
-
-		if (isModalMounted) {
-			const previousModal = modals[modals.length - 1]
-			previousModal.prepend(mountPoint)
-		} else {
-			document.body.appendChild(mountPoint)
-		}
-
-		const DialogClass = Vue.extend(PasswordDialogVue as never)
-		// Mount point element is replaced by the component
-		window._nc_password_confirmation_dialog = (new DialogClass() as ComponentInstance).$mount(mountPoint)
+		const dialog = spawnDialog(PasswordDialogVue, {}, () => {})
+		window._nc_password_confirmation_dialog = dialog
 	}
 
-	return window._nc_password_confirmation_dialog
+	return window._nc_password_confirmation_dialog?.$children[0] as Vue
 }
 
 /**
