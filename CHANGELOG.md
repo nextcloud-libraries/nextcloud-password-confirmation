@@ -6,6 +6,16 @@ All notable changes to this project will be documented in this file.
  - SPDX-License-Identifier: MIT
  -->
 
+## 5.3.0 - 2024-11-27
+
+### What's Changed
+
+### Fixes
+
+* fix: Use spawnDialog from @nc/dialogs #895  by @artonge in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/895
+
+**Full Changelog**: https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v5.2.0...v5.3.0
+
 ## 5.2.0 - 2024-11-27
 
 ### What's Changed
