@@ -6,6 +6,16 @@ All notable changes to this project will be documented in this file.
  - SPDX-License-Identifier: MIT
  -->
 
+## 5.3.1 - 2024-12-16
+
+### What's Changed
+
+### Fixes
+
+* fix: Improve pwd confirmation condition #906 by @artonge in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/906
+
+**Full Changelog**: https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v5.3.0...v5.3.1
+
 ## 5.3.0 - 2024-11-27
 
 ### What's Changed
