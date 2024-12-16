@@ -26,6 +26,10 @@ let INTERCEPTOR_INITIALIZED = false
  * @return {boolean} Whether password confirmation is required or was confirmed recently
  */
 export const isPasswordConfirmationRequired = (mode: PwdConfirmationMode): boolean => {
+	if (!window.backendAllowsPasswordConfirmation) {
+		return false
+	}
+
 	if (mode === PwdConfirmationMode.Strict) {
 		return true
 	}
@@ -33,8 +37,8 @@ export const isPasswordConfirmationRequired = (mode: PwdConfirmationMode): boole
 	const serverTimeDiff = PAGE_LOAD_TIME - (window.nc_pageLoad * 1000)
 	const timeSinceLogin = Date.now() - (serverTimeDiff + (window.nc_lastLogin * 1000))
 
-	// If timeSinceLogin > 30 minutes and user backend allows password confirmation
-	return (window.backendAllowsPasswordConfirmation && timeSinceLogin > 30 * 60 * 1000)
+	// If timeSinceLogin > 30 minutes
+	return timeSinceLogin > 30 * 60 * 1000
 }
 
 /**
