@@ -1,10 +1,11 @@
 # 
 # Translators:
 # Roger Knutsen, 2024
+# Magnus Granås, 2025
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Roger Knutsen, 2024\n"
+"Last-Translator: Magnus Granås, 2025\n"
 "Language-Team: Norwegian Bokmål (Norway) (https://app.transifex.com/nextcloud/teams/64236/nb_NO/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: nb_NO\n"
@@ -13,7 +14,7 @@ msgstr ""
 #. TRANSLATORS: This is a status message, shown when the system is checking
 #. the users password
 msgid "Checking password …"
-msgstr "Sjekker passord..."
+msgstr "Sjekker passord …"
 
 msgid "Confirm"
 msgstr "Bekreft"
