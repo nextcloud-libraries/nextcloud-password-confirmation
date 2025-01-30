@@ -1,14 +1,20 @@
 # 
 # Translators:
-# Sveinn í Felli <sv1@fellsnet.is>, 2023
+# Joas Schilling, 2024
+# Sveinn í Felli <sv1@fellsnet.is>, 2025
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>, 2023\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>, 2025\n"
 "Language-Team: Icelandic (https://app.transifex.com/nextcloud/teams/64236/is/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: is\n"
 "Plural-Forms: nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);\n"
+
+#. TRANSLATORS: This is a status message, shown when the system is checking
+#. the users password
+msgid "Checking password …"
+msgstr "Athuga lykilorð …"
 
 msgid "Confirm"
 msgstr "Staðfesta"
@@ -19,8 +25,8 @@ msgstr "Staðfestu lykilorðið þitt"
 msgid "Password"
 msgstr "Lykilorð"
 
-msgid "Password confirmation dialog already mounted"
-msgstr "Gluggi fyrir staðfestingu á lykilorði er þegar tengdur"
+msgid "Please enter your password"
+msgstr "Settu inn lykilorðið þitt"
 
 msgid "This action needs authentication"
 msgstr "Þessi aðgerð krefst auðkenningar"
