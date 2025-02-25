@@ -29,7 +29,7 @@ msgid "Please enter your password"
 msgstr "Bitte gib dein Passwort ein"
 
 msgid "This action needs authentication"
-msgstr "Diese Aktion benötigt eine Passwortbestätigung"
+msgstr "Diese Aktion erfordert eine Authentifizierung"
 
 msgid "Wrong password"
 msgstr "Falsches Passwort"
