@@ -16,11 +16,11 @@ This library exports a function that displays a password confirmation dialog whe
 
 ## Versions compatibility
 
-Nextcloud   | @nextcloud/vue | @nextcloud/password-confirmation
-------------|----------------|---------------------------------
-28.x        | 8.x            | 5.x
-25.x - 27.x | 7.x            | 2.x - 4.x
-< 25.x      | -              | 1.x
+| Nextcloud   | @nextcloud/vue | @nextcloud/password-confirmation |
+| ----------- | -------------- | -------------------------------- |
+| 28+         | 8.x            | 5.x                              |
+| 25.x - 27.x | 7.x            | 2.x - 4.x                        |
+| < 25.x      | -              | 1.x                              |
 
 ## Installation
 ```sh
@@ -28,6 +28,9 @@ npm add @nextcloud/password-confirmation
 ```
 
 ## Usage
+
+### Direct usage
+
 ```js
 import { confirmPassword } from '@nextcloud/password-confirmation'
 import '@nextcloud/password-confirmation/style.css' // Required for dialog styles
@@ -35,6 +38,30 @@ import '@nextcloud/password-confirmation/style.css' // Required for dialog style
 const foo = async () => {
     try {
         await confirmPassword()
+        // Your logic
+    } catch (error) {
+        // Your error handling logic
+    }
+}
+```
+
+### Usage with axios interceptor
+
+```js
+import axios from '@nextcloud/axios'
+import { addPasswordConfirmationInterceptors, PwdConfirmationMode } from '@nextcloud/password-confirmation'
+import '@nextcloud/password-confirmation/style.css' // Required for dialog styles
+
+addPasswordConfirmationInterceptors(axios)
+
+const foo = async () => {
+    try {
+        const response = await axios.request({
+            confirmPassword: PwdConfirmationMode.Strict,
+            method,
+            url,
+            data: this.getData(),
+        })
         // Your logic
     } catch (error) {
         // Your error handling logic
@@ -62,6 +89,15 @@ declare function isPasswordConfirmationRequired(): boolean
  *                         or confirmation is already in process.
  */
 declare function confirmPassword(): Promise<void>
+
+/**
+ * Lax: Confirm password if needed.
+ * Strict: Confirm in the request.
+ */
+export enum PwdConfirmationMode {
+	Lax = 'lax',
+	Strict = 'strict',
+}
 ```
 
 ## Releasing
