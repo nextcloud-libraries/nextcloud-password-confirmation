@@ -3,6 +3,10 @@
  * SPDX-License-Identifier: MIT
  */
 
+/**
+ * Lax: Confirm password if needed.
+ * Strict: Confirm in the request.
+ */
 export enum PwdConfirmationMode {
 	Lax = 'lax',
 	Strict = 'strict',
