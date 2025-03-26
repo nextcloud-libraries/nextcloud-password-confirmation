@@ -12,7 +12,7 @@
 		<p>{{ t('This action needs authentication') }}</p>
 		<form class="vue-password-confirmation__form" @submit.prevent="confirm">
 			<NcPasswordField ref="field"
-				:value.sync="password"
+				v-model="password"
 				:label="t('Password')"
 				:helper-text="helperText"
 				:error="showError"
@@ -31,10 +31,10 @@
 </template>
 
 <script lang="ts">
-import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
-import NcDialog from '@nextcloud/vue/dist/Components/NcDialog.js'
-import NcLoadingIcon from '@nextcloud/vue/dist/Components/NcLoadingIcon.js'
-import NcPasswordField from '@nextcloud/vue/dist/Components/NcPasswordField.js'
+import NcButton from '@nextcloud/vue/components/NcButton'
+import NcDialog from '@nextcloud/vue/components/NcDialog'
+import NcLoadingIcon from '@nextcloud/vue/components/NcLoadingIcon'
+import NcPasswordField from '@nextcloud/vue/components/NcPasswordField'
 import { defineComponent } from 'vue'
 import { t } from '../utils/l10n.js'
 
