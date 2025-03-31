@@ -27,7 +27,7 @@ msgid "Password"
 msgstr "Senha"
 
 msgid "Please enter your password"
-msgstr "Por favor insira sua senha"
+msgstr "Por favor, insira sua senha"
 
 msgid "This action needs authentication"
 msgstr "Essa ação precisa de autenticação"
