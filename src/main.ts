@@ -2,15 +2,16 @@
  * SPDX-FileCopyrightText: 2020 Nextcloud GmbH and Nextcloud contributors
  * SPDX-License-Identifier: MIT
  */
-import Vue from 'vue'
+import { type App } from 'vue'
 
 import type { AxiosInstance } from '@nextcloud/axios'
 import axios from '@nextcloud/axios'
 import { getCurrentUser } from '@nextcloud/auth'
 import { generateUrl } from '@nextcloud/router'
 import { spawnDialog } from '@nextcloud/dialogs'
+import mitt, { type Emitter } from 'mitt'
 
-import PasswordDialogVue from './components/PasswordDialog.vue'
+import PasswordDialogVue, { type PasswordDialogEvents } from './components/PasswordDialog.vue'
 import { PwdConfirmationMode } from './globals'
 export { PwdConfirmationMode } from './globals'
 
@@ -57,10 +58,14 @@ export const confirmPassword = (): Promise<void> => {
 	return new Promise((resolve, reject) => {
 		promptPassword(
 			async (password: string) => {
+				console.log('confirmPassword.validate', password)
 				await _confirmPassword(password)
 				resolve()
 			},
-			() => reject(new Error('Dialog closed')),
+			() => {
+				console.log('confirmPassword.reject')
+				reject(new Error('Dialog closed'))
+			},
 		)
 	})
 }
@@ -82,14 +87,25 @@ async function _confirmPassword(password: string) {
 /**
  *
  */
-function getDialog(): Vue {
-	if (window._nc_password_confirmation_dialog === undefined) {
+function getDialog(validate: (password: string) => Promise<void>): { dialog: App, eventBus: Emitter<PasswordDialogEvents> } {
+	//if (window._nc_password_confirmation_dialog === undefined) {
 		console.debug('Prompting password form')
-		const dialog = spawnDialog(PasswordDialogVue, {}, () => {})
-		window._nc_password_confirmation_dialog = dialog
-	}
+		const eventBus = mitt<PasswordDialogEvents>()
+		const dialog = spawnDialog(PasswordDialogVue, { eventBus, validate }, () => {})
+		/*
+		window._nc_password_confirmation_dialog = {
+			dialog,
+			eventBus,
+		}
+		*/
+	//}
+	console.log('getDialog.spawnDialog', dialog, eventBus)
 
-	return window._nc_password_confirmation_dialog?.$children[0] as Vue
+	//return window._nc_password_confirmation_dialog
+	return {
+		dialog,
+		eventBus,
+	}
 }
 
 /**
@@ -101,18 +117,24 @@ function promptPassword(
 	validate: (password: string) => Promise<void>,
 	close: () => void,
 ) {
-	const dialog = getDialog()
+	const {
+		dialog,
+		eventBus,
+	} = getDialog(validate)
+	console.log('promptPassword.getDialog', dialog, eventBus)
 
-	dialog.$props.validate = validate
+	//dialog._props!.validate = validate
 
-	dialog.$on('confirmed', () => {
-		dialog.$destroy()
-		delete window._nc_password_confirmation_dialog
+	eventBus.on('confirmed', () => {
+		console.log('password.confirmed')
+		dialog.unmount()
+		//delete window._nc_password_confirmation_dialog
 	})
-	dialog.$on('close', () => {
-		dialog.$destroy()
+	eventBus.on('close', () => {
+		console.log('password.close')
+		dialog.unmount()
 		close()
-		delete window._nc_password_confirmation_dialog
+		//delete window._nc_password_confirmation_dialog
 	})
 }
 

@@ -40,6 +40,8 @@ import { t } from '../utils/l10n.js'
 
 import type { ComponentInstance } from 'vue'
 
+export type PasswordDialogEvents = Record<'confirmed' | 'close', void>
+
 type ICanFocus = ComponentInstance & {
 	focus: () => void
 	select: () => void
@@ -58,6 +60,10 @@ export default defineComponent({
 	props: {
 		validate: {
 			type: Function,
+			default: () => {},
+		},
+		eventBus: {
+			type: Object,
 			default: () => {},
 		},
 	},
@@ -83,6 +89,7 @@ export default defineComponent({
 	},
 
 	mounted() {
+		console.log('PasswordDialog.mounted', this.validate, this.eventBus)
 		this.focusPasswordField()
 	},
 
@@ -90,6 +97,7 @@ export default defineComponent({
 		t,
 
 		async confirm(): Promise<void> {
+			console.log('submit password dialog')
 			this.showError = false
 			this.loading = true
 
@@ -99,8 +107,11 @@ export default defineComponent({
 			}
 
 			try {
+				console.log('config.validate before')
 				await this.validate(this.password)
+				console.log('config.validate after')
 				this.$emit('confirmed')
+				this.eventBus?.emit('confirmed')
 			} catch (e) {
 				this.showError = true
 				this.selectPasswordField()
@@ -112,6 +123,7 @@ export default defineComponent({
 		close(open: boolean): void {
 			if (!open) {
 				this.$emit('close')
+				this.eventBus?.emit('close')
 			}
 		},
 
