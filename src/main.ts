@@ -2,15 +2,16 @@
  * SPDX-FileCopyrightText: 2020 Nextcloud GmbH and Nextcloud contributors
  * SPDX-License-Identifier: MIT
  */
-import Vue from 'vue'
+import { type App } from 'vue'
 
 import type { AxiosInstance } from '@nextcloud/axios'
 import axios from '@nextcloud/axios'
 import { getCurrentUser } from '@nextcloud/auth'
 import { generateUrl } from '@nextcloud/router'
 import { spawnDialog } from '@nextcloud/dialogs'
+import mitt, { type Emitter } from 'mitt'
 
-import PasswordDialogVue from './components/PasswordDialog.vue'
+import PasswordDialogVue, { type PasswordDialogEvents } from './components/PasswordDialog.vue'
 import { PwdConfirmationMode } from './globals'
 export { PwdConfirmationMode } from './globals'
 
@@ -82,14 +83,15 @@ async function _confirmPassword(password: string) {
 /**
  *
  */
-function getDialog(): Vue {
-	if (window._nc_password_confirmation_dialog === undefined) {
-		console.debug('Prompting password form')
-		const dialog = spawnDialog(PasswordDialogVue, {}, () => {})
-		window._nc_password_confirmation_dialog = dialog
-	}
+function getDialog(validate: (password: string) => Promise<void>): { dialog: App, eventBus: Emitter<PasswordDialogEvents> } {
+	console.debug('Prompting password form')
+	const eventBus = mitt<PasswordDialogEvents>()
+	const dialog = spawnDialog(PasswordDialogVue, { eventBus, validate }, () => {})
 
-	return window._nc_password_confirmation_dialog?.$children[0] as Vue
+	return {
+		dialog,
+		eventBus,
+	}
 }
 
 /**
@@ -101,18 +103,17 @@ function promptPassword(
 	validate: (password: string) => Promise<void>,
 	close: () => void,
 ) {
-	const dialog = getDialog()
+	const {
+		dialog,
+		eventBus,
+	} = getDialog(validate)
 
-	dialog.$props.validate = validate
-
-	dialog.$on('confirmed', () => {
-		dialog.$destroy()
-		delete window._nc_password_confirmation_dialog
+	eventBus.on('confirmed', () => {
+		dialog.unmount()
 	})
-	dialog.$on('close', () => {
-		dialog.$destroy()
+	eventBus.on('close', () => {
+		dialog.unmount()
 		close()
-		delete window._nc_password_confirmation_dialog
 	})
 }
 
