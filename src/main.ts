@@ -58,14 +58,10 @@ export const confirmPassword = (): Promise<void> => {
 	return new Promise((resolve, reject) => {
 		promptPassword(
 			async (password: string) => {
-				console.log('confirmPassword.validate', password)
 				await _confirmPassword(password)
 				resolve()
 			},
-			() => {
-				console.log('confirmPassword.reject')
-				reject(new Error('Dialog closed'))
-			},
+			() => reject(new Error('Dialog closed')),
 		)
 	})
 }
@@ -88,20 +84,10 @@ async function _confirmPassword(password: string) {
  *
  */
 function getDialog(validate: (password: string) => Promise<void>): { dialog: App, eventBus: Emitter<PasswordDialogEvents> } {
-	//if (window._nc_password_confirmation_dialog === undefined) {
-		console.debug('Prompting password form')
-		const eventBus = mitt<PasswordDialogEvents>()
-		const dialog = spawnDialog(PasswordDialogVue, { eventBus, validate }, () => {})
-		/*
-		window._nc_password_confirmation_dialog = {
-			dialog,
-			eventBus,
-		}
-		*/
-	//}
-	console.log('getDialog.spawnDialog', dialog, eventBus)
+	console.debug('Prompting password form')
+	const eventBus = mitt<PasswordDialogEvents>()
+	const dialog = spawnDialog(PasswordDialogVue, { eventBus, validate }, () => {})
 
-	//return window._nc_password_confirmation_dialog
 	return {
 		dialog,
 		eventBus,
@@ -121,20 +107,13 @@ function promptPassword(
 		dialog,
 		eventBus,
 	} = getDialog(validate)
-	console.log('promptPassword.getDialog', dialog, eventBus)
-
-	//dialog._props!.validate = validate
 
 	eventBus.on('confirmed', () => {
-		console.log('password.confirmed')
 		dialog.unmount()
-		//delete window._nc_password_confirmation_dialog
 	})
 	eventBus.on('close', () => {
-		console.log('password.close')
 		dialog.unmount()
 		close()
-		//delete window._nc_password_confirmation_dialog
 	})
 }
 
