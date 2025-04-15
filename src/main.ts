@@ -8,10 +8,9 @@ import type { AxiosInstance } from '@nextcloud/axios'
 import axios from '@nextcloud/axios'
 import { getCurrentUser } from '@nextcloud/auth'
 import { generateUrl } from '@nextcloud/router'
-import { spawnDialog } from '@nextcloud/dialogs'
-import mitt, { type Emitter } from 'mitt'
+import { spawnDialog } from '@nextcloud/vue/functions/dialog'
 
-import PasswordDialogVue, { type PasswordDialogEvents } from './components/PasswordDialog.vue'
+import PasswordDialogVue from './components/PasswordDialog.vue'
 import { PwdConfirmationMode } from './globals'
 export { PwdConfirmationMode } from './globals'
 
@@ -50,19 +49,13 @@ export const isPasswordConfirmationRequired = (mode: PwdConfirmationMode): boole
  *                         Rejects if password confirmation was cancelled
  *                         or confirmation is already in process.
  */
-export const confirmPassword = (): Promise<void> => {
+export const confirmPassword = async (): Promise<void> => {
 	if (!isPasswordConfirmationRequired(PwdConfirmationMode.Lax)) {
 		return Promise.resolve()
 	}
 
-	return new Promise((resolve, reject) => {
-		promptPassword(
-			async (password: string) => {
-				await _confirmPassword(password)
-				resolve()
-			},
-			() => reject(new Error('Dialog closed')),
-		)
+	await promptPassword(async (password: string) => {
+		await _confirmPassword(password)
 	})
 }
 
@@ -81,40 +74,16 @@ async function _confirmPassword(password: string) {
 }
 
 /**
+ * Spawn a dialog to prompt the password.
  *
+ * @param onValidate Is called to validate the user's password
+ * @param onClose Is called when the dialog is closed
  */
-function getDialog(validate: (password: string) => Promise<void>): { dialog: App, eventBus: Emitter<PasswordDialogEvents> } {
-	console.debug('Prompting password form')
-	const eventBus = mitt<PasswordDialogEvents>()
-	const dialog = spawnDialog(PasswordDialogVue, { eventBus, validate }, () => {})
-
-	return {
-		dialog,
-		eventBus,
+async function promptPassword(validate: (password: string) => Promise<void>) {
+	const result = await spawnDialog(PasswordDialogVue, { validate })
+	if (!result) {
+		throw new Error('Dialog closed')
 	}
-}
-
-/**
- *
- * @param validate
- * @param close
- */
-function promptPassword(
-	validate: (password: string) => Promise<void>,
-	close: () => void,
-) {
-	const {
-		dialog,
-		eventBus,
-	} = getDialog(validate)
-
-	eventBus.on('confirmed', () => {
-		dialog.unmount()
-	})
-	eventBus.on('close', () => {
-		dialog.unmount()
-		close()
-	})
 }
 
 /**
@@ -141,31 +110,32 @@ export function addPasswordConfirmationInterceptors(axios: AxiosInstance): void 
 				return config
 			}
 
-			return new Promise((resolve, reject) => {
-				promptPassword(
-					async (password: string) => {
-						switch (config.confirmPassword) {
-						case PwdConfirmationMode.Lax: {
-							await _confirmPassword(password)
-							resolve(config)
-							return Promise.resolve()
-						}
-						case PwdConfirmationMode.Strict:
-							console.debug('Adding auth info to the request', { config })
-							config.auth = {
-								username: getCurrentUser()?.uid ?? '',
-								password,
+			return new Promise(async (resolve, reject) => {
+				try {
+					await promptPassword(
+						async (password: string) => {
+							switch (config.confirmPassword) {
+							case PwdConfirmationMode.Lax: {
+								await _confirmPassword(password)
+								resolve(config)
+								return Promise.resolve()
 							}
-							resolve(config)
+							case PwdConfirmationMode.Strict:
+								console.debug('Adding auth info to the request', { config })
+								config.auth = {
+									username: getCurrentUser()?.uid ?? '',
+									password,
+								}
+								resolve(config)
 
-							validatePromise = Promise.withResolvers<void>()
-							return validatePromise.promise
+								validatePromise = Promise.withResolvers<void>()
+								return validatePromise.promise
+							}
 						}
-					},
-					() => {
-						reject(new Error('Dialog closed'))
-					},
-				)
+					)
+				} catch (error) {
+					reject(error)
+				}
 			})
 		},
 	)
