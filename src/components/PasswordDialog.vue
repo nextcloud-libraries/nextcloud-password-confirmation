@@ -4,12 +4,12 @@
  -->
 
 <template>
-	<NcDialog :name="t('Confirm your password')"
+	<NcDialog :name="t('Authentication required')"
 		:container="null"
 		content-classes="vue-password-confirmation"
 		@update:open="close">
 		<!-- Dialog content -->
-		<p>{{ t('This action needs authentication') }}</p>
+		<p>{{ t('This action needs authentication, please confirm it by entering your password.') }}</p>
 		<form class="vue-password-confirmation__form" @submit.prevent="confirm">
 			<NcPasswordField ref="field"
 				v-model="password"
