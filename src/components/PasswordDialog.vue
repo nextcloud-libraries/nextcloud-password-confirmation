@@ -4,19 +4,22 @@
  -->
 
 <template>
-	<NcDialog :name="t('Authentication required')"
+	<NcDialog
+		:name="t('Authentication required')"
 		content-classes="vue-password-confirmation"
 		@update:open="close">
 		<!-- Dialog content -->
 		<p>{{ t('This action needs authentication, please confirm it by entering your password.') }}</p>
 		<form class="vue-password-confirmation__form" @submit.prevent="confirm">
-			<NcPasswordField ref="field"
+			<NcPasswordField
+				ref="field"
 				v-model="password"
 				:label="t('Password')"
 				:helper-text="helperText"
 				:error="showError"
 				required />
-			<NcButton class="vue-password-confirmation__submit"
+			<NcButton
+				class="vue-password-confirmation__submit"
 				variant="primary"
 				type="submit"
 				:disabled="!password || loading">
@@ -30,11 +33,11 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from 'vue'
 import NcButton from '@nextcloud/vue/components/NcButton'
 import NcDialog from '@nextcloud/vue/components/NcDialog'
 import NcLoadingIcon from '@nextcloud/vue/components/NcLoadingIcon'
 import NcPasswordField from '@nextcloud/vue/components/NcPasswordField'
-import { defineComponent } from 'vue'
 import { t } from '../utils/l10n.js'
 
 type ICanFocus = {
@@ -53,11 +56,16 @@ export default defineComponent({
 	},
 
 	props: {
+		/**
+		 * Function to call to validate password
+		 */
 		validate: {
 			type: Function,
 			required: true,
 		},
 	},
+
+	emits: ['close'],
 
 	data() {
 		return {
@@ -73,7 +81,7 @@ export default defineComponent({
 				return this.password === '' ? t('Please enter your password') : t('Wrong password')
 			}
 			if (this.loading) {
-				return t('Checking password …') // TRANSLATORS: This is a status message, shown when the system is checking the users password
+				return t('Checking password …') // TRANSLATORS: This is a status message, shown when the system is checking the users password
 			}
 			return ''
 		},
@@ -98,7 +106,8 @@ export default defineComponent({
 			try {
 				await this.validate(this.password)
 				this.$emit('close', true)
-			} catch (e) {
+			} catch (error) {
+				console.debug('Exception during password confirmation', { error })
 				this.showError = true
 				this.selectPasswordField()
 			} finally {

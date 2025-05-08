@@ -4,14 +4,14 @@
  */
 
 import type { AxiosInstance, InternalAxiosRequestConfig } from '@nextcloud/axios'
-import axios from '@nextcloud/axios'
+
 import { getCurrentUser } from '@nextcloud/auth'
+import axios from '@nextcloud/axios'
 import { generateUrl } from '@nextcloud/router'
 import { spawnDialog } from '@nextcloud/vue/functions/dialog'
-
 import PasswordDialogVue from './components/PasswordDialog.vue'
-import { PwdConfirmationMode } from './globals'
-export { PwdConfirmationMode } from './globals'
+import { PwdConfirmationMode } from './globals.ts'
+export { PwdConfirmationMode } from './globals.ts'
 
 const PAGE_LOAD_TIME = Date.now()
 let INTERCEPTOR_INITIALIZED = false
@@ -21,8 +21,8 @@ let INTERCEPTOR_INITIALIZED = false
  * Use as a replacement of deprecated `OC.PasswordConfirmation.requiresPasswordConfirmation()`.
  * Not needed if `confirmPassword()` can be used, because it checks requirements itself.
  *
- * @param mode
- * @return {boolean} Whether password confirmation is required or was confirmed recently
+ * @param mode - The confirmation mode for which to check the requirement
+ * @return Whether password confirmation is required or was confirmed recently
  */
 export const isPasswordConfirmationRequired = (mode: PwdConfirmationMode): boolean => {
 	if (!window.backendAllowsPasswordConfirmation) {
@@ -44,7 +44,7 @@ export const isPasswordConfirmationRequired = (mode: PwdConfirmationMode): boole
  * Confirm password if needed.
  * Replacement of deprecated `OC.PasswordConfirmation.requirePasswordConfirmation(callback)`
  *
- * @return {Promise<void>} Promise that resolves when password is confirmed or not needed.
+ * @return Promise that resolves when password is confirmed or not needed.
  *                         Rejects if password confirmation was cancelled
  *                         or confirmation is already in process.
  */
@@ -59,8 +59,7 @@ export const confirmPassword = async (): Promise<void> => {
 }
 
 /**
- *
- * @param password
+ * @param password - Password to be confirmed
  */
 async function _confirmPassword(password: string) {
 	console.debug('Confirming password')
@@ -87,7 +86,8 @@ async function promptPassword(validate: (password: string) => Promise<void>) {
 /**
  * Add axios interceptors to an axios instance that will ask for
  * password confirmation to add it as Basic Auth for every requests.
- * @param axios
+ *
+ * @param axios - The axios instance to add intercepters to
  */
 export function addPasswordConfirmationInterceptors(axios: AxiosInstance): void {
 	if (INTERCEPTOR_INITIALIZED) {
@@ -98,42 +98,38 @@ export function addPasswordConfirmationInterceptors(axios: AxiosInstance): void 
 
 	let validatePromise: PromiseWithResolvers<void>
 
-	axios.interceptors.request.use(
-		async (config) => {
-			if (config.confirmPassword === undefined) {
-				return config
-			}
+	axios.interceptors.request.use(async (config) => {
+		if (config.confirmPassword === undefined) {
+			return config
+		}
 
-			if (!isPasswordConfirmationRequired(config.confirmPassword)) {
-				return config
-			}
+		if (!isPasswordConfirmationRequired(config.confirmPassword)) {
+			return config
+		}
 
-			const { promise, resolve } = Promise.withResolvers<InternalAxiosRequestConfig>()
-			await promptPassword(
-				async (password: string) => {
-					switch (config.confirmPassword) {
-					case PwdConfirmationMode.Lax: {
-						await _confirmPassword(password)
-						resolve(config)
-						return Promise.resolve()
-					}
-					case PwdConfirmationMode.Strict:
-						console.debug('Adding auth info to the request', { config })
-						config.auth = {
-							username: getCurrentUser()?.uid ?? '',
-							password,
-						}
-						resolve(config)
-
-						validatePromise = Promise.withResolvers<void>()
-						return validatePromise.promise
-					}
+		const { promise, resolve } = Promise.withResolvers<InternalAxiosRequestConfig>()
+		await promptPassword(async (password: string) => {
+			switch (config.confirmPassword) {
+				case PwdConfirmationMode.Lax: {
+					await _confirmPassword(password)
+					resolve(config)
+					return Promise.resolve()
 				}
-			)
+				case PwdConfirmationMode.Strict:
+					console.debug('Adding auth info to the request', { config })
+					config.auth = {
+						username: getCurrentUser()?.uid ?? '',
+						password,
+					}
+					resolve(config)
 
-			return promise
-		},
-	)
+					validatePromise = Promise.withResolvers<void>()
+					return validatePromise.promise
+			}
+		})
+
+		return promise
+	})
 
 	axios.interceptors.response.use(
 		(response) => {

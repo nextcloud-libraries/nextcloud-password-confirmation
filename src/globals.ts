@@ -15,12 +15,6 @@ export enum PwdConfirmationMode {
 declare module '@nextcloud/axios' {
 	export interface AxiosRequestConfig {
 		/** To use this property you need to use the addPasswordConfirmationInterceptors function. */
-		confirmPassword?: PwdConfirmationMode;
-	}
-}
-
-declare global {
-	interface Window {
-		_nc_password_confirmation_dialog?: Vue
+		confirmPassword?: PwdConfirmationMode
 	}
 }

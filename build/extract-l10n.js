@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-import { GettextExtractor, JsExtractors, HtmlExtractors } from 'gettext-extractor'
+import { GettextExtractor, HtmlExtractors, JsExtractors } from 'gettext-extractor'
 
 const extractor = new GettextExtractor()
 
