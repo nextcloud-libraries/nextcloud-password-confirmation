@@ -3,15 +3,6 @@
 
 version: 2
 updates:
-- package-ecosystem: npm
-  directory: "/"
-  schedule:
-    interval: weekly
-    day: saturday
-    time: "03:00"
-    timezone: Europe/Paris
-  open-pull-requests-limit: 10
-
 - package-ecosystem: github-actions
   directory: "/"
   schedule:
@@ -21,3 +12,29 @@ updates:
   labels:
   - 3. to review
   - dependencies
+
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: weekly
+    day: saturday
+    time: "03:00"
+    timezone: Europe/Paris
+  versioning-strategy: increase
+  open-pull-requests-limit: 10
+
+# maintained stable branch
+- package-ecosystem: npm
+  target-branch: stable5
+  directory: "/"
+  schedule:
+    interval: weekly
+    day: saturday
+    time: "03:00"
+    timezone: Europe/Paris
+  versioning-strategy: increase
+  open-pull-requests-limit: 
+  ignore:
+    # no major updates on stable branches
+    - dependency-name: "*"
+      update-types: ["version-update:semver-major"]
