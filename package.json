@@ -54,7 +54,7 @@
     "@types/gettext-parser": "^8.0.0",
     "@types/node": "^22.10.2",
     "@types/node-gettext": "^3.0.6",
-    "@vue/tsconfig": "^0.5.1",
+    "@vue/tsconfig": "^0.7.0",
     "gettext-extractor": "^3.8.0",
     "gettext-parser": "^8.0.0",
     "sass": "^1.77.6",
