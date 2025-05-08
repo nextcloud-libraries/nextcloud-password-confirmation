@@ -2,13 +2,12 @@
  * SPDX-FileCopyrightText: 2020 Nextcloud GmbH and Nextcloud contributors
  * SPDX-License-Identifier: MIT
  */
-import Vue from 'vue'
 
-import type { AxiosInstance } from '@nextcloud/axios'
+import type { AxiosInstance, InternalAxiosRequestConfig } from '@nextcloud/axios'
 import axios from '@nextcloud/axios'
 import { getCurrentUser } from '@nextcloud/auth'
 import { generateUrl } from '@nextcloud/router'
-import { spawnDialog } from '@nextcloud/dialogs'
+import { spawnDialog } from '@nextcloud/vue/functions/dialog'
 
 import PasswordDialogVue from './components/PasswordDialog.vue'
 import { PwdConfirmationMode } from './globals'
@@ -49,19 +48,13 @@ export const isPasswordConfirmationRequired = (mode: PwdConfirmationMode): boole
  *                         Rejects if password confirmation was cancelled
  *                         or confirmation is already in process.
  */
-export const confirmPassword = (): Promise<void> => {
+export const confirmPassword = async (): Promise<void> => {
 	if (!isPasswordConfirmationRequired(PwdConfirmationMode.Lax)) {
 		return Promise.resolve()
 	}
 
-	return new Promise((resolve, reject) => {
-		promptPassword(
-			async (password: string) => {
-				await _confirmPassword(password)
-				resolve()
-			},
-			() => reject(new Error('Dialog closed')),
-		)
+	await promptPassword(async (password: string) => {
+		await _confirmPassword(password)
 	})
 }
 
@@ -80,40 +73,15 @@ async function _confirmPassword(password: string) {
 }
 
 /**
+ * Spawn a dialog to prompt the password.
  *
+ * @param validate Is called to validate the user's password
  */
-function getDialog(): Vue {
-	if (window._nc_password_confirmation_dialog === undefined) {
-		console.debug('Prompting password form')
-		const dialog = spawnDialog(PasswordDialogVue, {}, () => {})
-		window._nc_password_confirmation_dialog = dialog
+async function promptPassword(validate: (password: string) => Promise<void>) {
+	const result = await spawnDialog(PasswordDialogVue, { validate })
+	if (!result) {
+		throw new Error('Dialog closed')
 	}
-
-	return window._nc_password_confirmation_dialog?.$children[0] as Vue
-}
-
-/**
- *
- * @param validate
- * @param close
- */
-function promptPassword(
-	validate: (password: string) => Promise<void>,
-	close: () => void,
-) {
-	const dialog = getDialog()
-
-	dialog.$props.validate = validate
-
-	dialog.$on('confirmed', () => {
-		dialog.$destroy()
-		delete window._nc_password_confirmation_dialog
-	})
-	dialog.$on('close', () => {
-		dialog.$destroy()
-		close()
-		delete window._nc_password_confirmation_dialog
-	})
 }
 
 /**
@@ -140,32 +108,30 @@ export function addPasswordConfirmationInterceptors(axios: AxiosInstance): void 
 				return config
 			}
 
-			return new Promise((resolve, reject) => {
-				promptPassword(
-					async (password: string) => {
-						switch (config.confirmPassword) {
-						case PwdConfirmationMode.Lax: {
-							await _confirmPassword(password)
-							resolve(config)
-							return Promise.resolve()
+			const { promise, resolve } = Promise.withResolvers<InternalAxiosRequestConfig>()
+			await promptPassword(
+				async (password: string) => {
+					switch (config.confirmPassword) {
+					case PwdConfirmationMode.Lax: {
+						await _confirmPassword(password)
+						resolve(config)
+						return Promise.resolve()
+					}
+					case PwdConfirmationMode.Strict:
+						console.debug('Adding auth info to the request', { config })
+						config.auth = {
+							username: getCurrentUser()?.uid ?? '',
+							password,
 						}
-						case PwdConfirmationMode.Strict:
-							console.debug('Adding auth info to the request', { config })
-							config.auth = {
-								username: getCurrentUser()?.uid ?? '',
-								password,
-							}
-							resolve(config)
+						resolve(config)
 
-							validatePromise = Promise.withResolvers<void>()
-							return validatePromise.promise
-						}
-					},
-					() => {
-						reject(new Error('Dialog closed'))
-					},
-				)
-			})
+						validatePromise = Promise.withResolvers<void>()
+						return validatePromise.promise
+					}
+				}
+			)
+
+			return promise
 		},
 	)
 

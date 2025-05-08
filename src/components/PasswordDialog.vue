@@ -5,7 +5,6 @@
 
 <template>
 	<NcDialog :name="t('Authentication required')"
-		:container="null"
 		content-classes="vue-password-confirmation"
 		@update:open="close">
 		<!-- Dialog content -->
@@ -18,8 +17,8 @@
 				:error="showError"
 				required />
 			<NcButton class="vue-password-confirmation__submit"
-				type="primary"
-				native-type="submit"
+				variant="primary"
+				type="submit"
 				:disabled="!password || loading">
 				<template v-if="loading" #icon>
 					<NcLoadingIcon :size="20" />
@@ -38,9 +37,7 @@ import NcPasswordField from '@nextcloud/vue/components/NcPasswordField'
 import { defineComponent } from 'vue'
 import { t } from '../utils/l10n.js'
 
-import type { ComponentInstance } from 'vue'
-
-type ICanFocus = ComponentInstance & {
+type ICanFocus = {
 	focus: () => void
 	select: () => void
 }
@@ -58,7 +55,7 @@ export default defineComponent({
 	props: {
 		validate: {
 			type: Function,
-			default: () => {},
+			required: true,
 		},
 	},
 
@@ -100,7 +97,7 @@ export default defineComponent({
 
 			try {
 				await this.validate(this.password)
-				this.$emit('confirmed')
+				this.$emit('close', true)
 			} catch (e) {
 				this.showError = true
 				this.selectPasswordField()
@@ -111,7 +108,7 @@ export default defineComponent({
 
 		close(open: boolean): void {
 			if (!open) {
-				this.$emit('close')
+				this.$emit('close', false)
 			}
 		},
 
