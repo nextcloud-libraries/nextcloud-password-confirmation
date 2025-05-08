@@ -18,10 +18,15 @@ This library exports a function that displays a password confirmation dialog whe
 
 | `@nextcloud/password-confirmation` | Maintained | Nextcloud   | `@nextcloud/vue` |
 | ---------------------------------- | ---------- | ----------- | ---------------- |
-| 6.x                                | ✅         | 30+         | 9.x (Vue 3)      |
+| 6.x                                | ✅         | 30+         | *9.x (Vue 3)* ¹  |
 | 5.x                                | ✅         | 28-31       | 8.x              |
 | 2.x - 4.x                          | ❌         | 25-27       | 7.x              |
 | 1.x                                | ❌         | < 25        | -                |
+
+¹: In version 6.x the `@nextcloud/vue` dependency is moved to `dependencies` so you can also use this library
+with an old version of `@nextcloud/vue` in your app dependencies if your app still uses Vue 2.
+Note that this might increase the bundled app size.
+If your app also already uses `@nextcloud/vue` version 9.x and Vue 3 then the bundle size will not increase.
 
 ## Installation
 ```sh
