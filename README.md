@@ -1,9 +1,9 @@
 # @nextcloud/password-confirmation
 
+[![npm](https://img.shields.io/npm/v/@nextcloud/password-confirmation)](https://www.npmjs.com/package/@nextcloud/password-confirmation)
+[![Build status](https://img.shields.io/github/actions/workflow/status/nextcloud-libraries/nextcloud-password-confirmation/node.yml?label=Build)](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/actions?query=branch%3Amain)
 [![REUSE status](https://api.reuse.software/badge/github.com/nextcloud-libraries/nextcloud-password-confirmation)](https://api.reuse.software/info/github.com/nextcloud-libraries/nextcloud-password-confirmation)
-[![npm](https://img.shields.io/npm/v/@nextcloud/password-confirmation?style=for-the-badge)](https://www.npmjs.com/package/@nextcloud/password-confirmation)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/nextcloud-libraries/nextcloud-password-confirmation/node.yml?branch=main&label=Build&style=for-the-badge)](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/actions?query=branch%3Amain)
-[![License](https://img.shields.io/github/license/nextcloud-libraries/nextcloud-password-confirmation?style=for-the-badge)](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/blob/main/LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-blue?label=License)](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/blob/main/LICENSES/MIT.txt)
 
 <!--
  - SPDX-FileCopyrightText: 2020 Nextcloud GmbH and Nextcloud contributors
@@ -16,15 +16,16 @@ This library exports a function that displays a password confirmation dialog whe
 
 ## Versions compatibility
 
-| Nextcloud   | @nextcloud/vue | @nextcloud/password-confirmation |
-| ----------- | -------------- | -------------------------------- |
-| 28+         | 8.x            | 5.x                              |
-| 25.x - 27.x | 7.x            | 2.x - 4.x                        |
-| < 25.x      | -              | 1.x                              |
+| `@nextcloud/password-confirmation` | Maintained | Nextcloud   | `@nextcloud/vue` |
+| ---------------------------------- | ---------- | ----------- | ---------------- |
+| 6.x                                | ✅         | 30+         | 9.x (Vue 3)      |
+| 5.x                                | ✅         | 28-31       | 8.x              |
+| 2.x - 4.x                          | ❌         | 25-27       | 7.x              |
+| 1.x                                | ❌         | < 25        | -                |
 
 ## Installation
 ```sh
-npm add @nextcloud/password-confirmation
+npm install @nextcloud/password-confirmation
 ```
 
 ## Usage
