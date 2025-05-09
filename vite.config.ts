@@ -3,10 +3,10 @@
  * SPDX-License-Identifier: CC0-1.0
  */
 
+import { createLibConfig } from '@nextcloud/vite-config'
+import { po as poParser } from 'gettext-parser'
 import * as fs from 'node:fs'
 import { resolve } from 'node:path'
-import { po as poParser } from 'gettext-parser'
-import { createLibConfig } from '@nextcloud/vite-config'
 
 const translations = fs
 	.readdirSync('./l10n')

@@ -2,12 +2,17 @@
   "name": "@nextcloud/password-confirmation",
   "version": "6.0.0-alpha",
   "description": "Password confirmation for Nextcloud",
+  "keywords": [
+    "nextcloud"
+  ],
+  "homepage": "https://github.com/nextcloud-libraries/nextcloud-password-confirmation#readme",
+  "bugs": "https://github.com/nextcloud-libraries/nextcloud-password-confirmation/issues",
+  "repository": "github:nextcloud-libraries/nextcloud-password-confirmation",
+  "license": "MIT",
   "author": {
     "name": "Nextcloud GmbH and Nextcloud contributors"
   },
   "type": "module",
-  "main": "./dist/index.cjs",
-  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -17,39 +22,33 @@
     "./style.css": "./dist/style.css",
     "./dist/style.css": "./dist/style.css"
   },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist",
     "LICENSES",
     "CHANGELOG.md"
   ],
   "scripts": {
-    "dev": "vite build --mode development",
-    "watch": "vite build --mode development --watch",
     "build": "vite build --mode production",
+    "dev": "vite build --mode development",
     "l10n:extract": "node build/extract-l10n.js",
-    "lint": "eslint --ignore-pattern dist/**/* .",
-    "lint:fix": "eslint --fix --ignore-pattern dist/**/* ."
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "watch": "vite build --mode development --watch"
   },
-  "keywords": [
-    "nextcloud"
+  "browserslist": [
+    "extends @nextcloud/browserslist-config"
   ],
-  "homepage": "https://github.com/nextcloud-libraries/nextcloud-password-confirmation#readme",
-  "repository": "github:nextcloud-libraries/nextcloud-password-confirmation",
-  "bugs": "https://github.com/nextcloud-libraries/nextcloud-password-confirmation/issues",
-  "license": "MIT",
   "dependencies": {
     "@nextcloud/auth": "^2.4.0",
     "@nextcloud/axios": "^2.5.0",
     "@nextcloud/l10n": "^3.1.0",
     "@nextcloud/router": "^3.0.1"
   },
-  "peerDependencies": {
-    "@nextcloud/vue": "^9.0.0-rc.0",
-    "vue": "^3.5.13"
-  },
   "devDependencies": {
     "@nextcloud/browserslist-config": "^3.0.1",
-    "@nextcloud/eslint-config": "^8.3.0",
+    "@nextcloud/eslint-config": "^9.0.0-rc.1",
     "@nextcloud/vite-config": "^2.3.2",
     "@types/gettext-parser": "^8.0.0",
     "@types/node": "^22.10.2",
@@ -61,13 +60,9 @@
     "typescript": "^5.4.3",
     "vite": "^6.2.6"
   },
-  "browserslist": [
-    "extends @nextcloud/browserslist-config"
-  ],
-  "eslintConfig": {
-    "extends": [
-      "@nextcloud/eslint-config/vue3"
-    ]
+  "peerDependencies": {
+    "@nextcloud/vue": "^9.0.0-rc.0",
+    "vue": "^3.5.13"
   },
   "engines": {
     "node": "^20.0.0",
