@@ -51,7 +51,7 @@
   "devDependencies": {
     "@nextcloud/browserslist-config": "^3.0.1",
     "@nextcloud/eslint-config": "^8.3.0",
-    "@nextcloud/vite-config": "^1.2.5",
+    "@nextcloud/vite-config": "^1.5.6",
     "@types/gettext-parser": "^8.0.0",
     "@types/node": "^22.15.17",
     "@types/node-gettext": "^3.0.6",
