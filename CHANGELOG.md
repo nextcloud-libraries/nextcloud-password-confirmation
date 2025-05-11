@@ -6,6 +6,31 @@ All notable changes to this project will be documented in this file.
  - SPDX-License-Identifier: MIT
  -->
 
+## 6.0.0 - UNRELEASED
+### Notes
+
+This package now builds on top of `@nextcloud/vue` version 9 using Vue 3.
+While this package uses Vue 3 it is also possible to use it within a Vue 2 project,
+in this case the Vue dependency will not be shared as the dependency was moved from a peer dependency to a plain dependency.
+This also means that if you are using Vue 2 you have to ensure you do not use bundler
+configurations that enforce resolving Vue to the same version as this will fail now,
+instead let the bundler choose the matching Vue version.
+
+For example if using Webpack this will no longer work in **Vue 2** apps:
+```js
+  resolve: {
+                alias: {
+                        vue$: path.resolve('./node_modules/vue'),
+                },
+  }
+```
+
+For Vue 3 apps nothing changed, meaning the app and this library will share the same Vue dependency as long as the versions are compatible.
+
+### Breaking
+
+* This package now uses Vue 3 internally.
+
 ## 5.3.1 - 2024-12-16
 
 ### What's Changed

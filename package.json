@@ -42,9 +42,11 @@
   ],
   "dependencies": {
     "@nextcloud/auth": "^2.4.0",
-    "@nextcloud/axios": "^2.5.0",
-    "@nextcloud/l10n": "^3.1.0",
-    "@nextcloud/router": "^3.0.1"
+    "@nextcloud/axios": "^2.5.1",
+    "@nextcloud/l10n": "^3.2.0",
+    "@nextcloud/router": "^3.0.1",
+    "@nextcloud/vue": "^9.0.0-rc.0",
+    "vue": "^3.5.13"
   },
   "devDependencies": {
     "@nextcloud/browserslist-config": "^3.0.1",
@@ -52,17 +54,12 @@
     "@nextcloud/vite-config": "^2.3.2",
     "@types/gettext-parser": "^8.0.0",
     "@types/node": "^22.10.2",
-    "@types/node-gettext": "^3.0.6",
     "@vue/tsconfig": "^0.7.0",
     "gettext-extractor": "^3.8.0",
     "gettext-parser": "^8.0.0",
-    "sass": "^1.77.6",
+    "sass": "^1.87.0",
     "typescript": "^5.4.3",
-    "vite": "^6.2.6"
-  },
-  "peerDependencies": {
-    "@nextcloud/vue": "^9.0.0-rc.0",
-    "vue": "^3.5.13"
+    "vite": "^6.3.5"
   },
   "engines": {
     "node": "^20.0.0",

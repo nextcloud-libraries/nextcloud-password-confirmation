@@ -33,7 +33,7 @@ updates:
     time: "03:00"
     timezone: Europe/Paris
   versioning-strategy: increase
-  open-pull-requests-limit: 
+  open-pull-requests-limit: 10
   ignore:
     # no major updates on stable branches
     - dependency-name: "*"
