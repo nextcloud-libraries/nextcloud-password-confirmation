@@ -32,7 +32,7 @@ const translations = fs
 	})
 
 export default createLibConfig({
-	index: resolve(__dirname, 'src/main.ts'),
+	index: resolve(__dirname, 'src/index.ts'),
 }, {
 	libraryFormats: ['cjs', 'es'],
 	// Rename CSS chunk
