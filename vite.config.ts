@@ -7,6 +7,7 @@ import { createLibConfig } from '@nextcloud/vite-config'
 import { po as poParser } from 'gettext-parser'
 import * as fs from 'node:fs'
 import { resolve } from 'node:path'
+import { defineConfig } from 'vitest/config'
 
 const translations = fs
 	.readdirSync('./l10n')
@@ -42,4 +43,9 @@ export default createLibConfig({
 	DTSPluginOptions: {
 		rollupTypes: true,
 	},
+	config: defineConfig({
+		test: {
+			environment: 'happy-dom',
+		},
+	}),
 })
