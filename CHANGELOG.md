@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
  - SPDX-License-Identifier: MIT
  -->
 
-## 6.0.0 - UNRELEASED
+## [6.0.0](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v5.3.1...v6.0.0-rc.0) - UNRELEASED
 ### Notes
 
 This package now builds on top of `@nextcloud/vue` version 9 using Vue 3.
