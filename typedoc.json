@@ -1,0 +1,9 @@
+{
+    "$schema": "https://typedoc.org/schema.json",
+    "entryPoints": ["./src/index.ts"],
+    "out": "dist/doc",
+    "githubPages": true,
+    "navigationLinks": {
+        "GitHub": "https://github.com/nextcloud-libraries/nextcloud-password-confirmation"
+    }
+}
