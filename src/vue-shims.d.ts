@@ -3,12 +3,9 @@
  * SPDX-License-Identifier: MIT
  */
 
-declare module '*.vue' {
-	import Vue from 'vue'
-	export default Vue
-}
+declare module '@nextcloud/vue/components/NcPasswordField' {
+	import type { Component } from 'vue'
+	const component: Component
 
-declare module '@nextcloud/vue/components/*' {
-	import Vue from 'vue'
-	export default Vue
+	export default component
 }
