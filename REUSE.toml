@@ -18,7 +18,7 @@ SPDX-FileCopyrightText = "2020-2024 Nextcloud translators"
 SPDX-License-Identifier = "MIT"
 
 [[annotations]]
-path = ["tsconfig.json", "tsconfig.node.json", "typedoc.json"]
+path = ["tsconfig.json", "tsconfig.node.json", "tsconfig.typedoc.json", "typedoc.json"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2022-2024 Nextcloud GmbH and Nextcloud contributors"
 SPDX-License-Identifier = "CC0-1.0"

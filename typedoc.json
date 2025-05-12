@@ -5,5 +5,6 @@
     "githubPages": true,
     "navigationLinks": {
         "GitHub": "https://github.com/nextcloud-libraries/nextcloud-password-confirmation"
-    }
+    },
+    "tsconfig": "./tsconfig.typedoc.json"
 }
