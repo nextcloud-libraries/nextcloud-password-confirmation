@@ -30,6 +30,7 @@ For Vue 3 apps nothing changed, meaning the app and this library will share the 
 ### Breaking
 
 * This package now uses Vue 3 internally.
+* The legacy common js entry point is removed.
 * The legacy, deprecated, `dist/style.css` entry point was removed. If you still use it please adjust as following:
 ```diff
 - import '@nextcloud/password-confirmation/dist/style.css'
