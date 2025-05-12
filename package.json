@@ -29,6 +29,7 @@
   ],
   "scripts": {
     "build": "vite build --mode production",
+    "build:doc": "typedoc",
     "dev": "vite build --mode development",
     "l10n:extract": "node build/extract-l10n.js",
     "lint": "eslint",
@@ -61,6 +62,7 @@
     "gettext-parser": "^8.0.0",
     "happy-dom": "^17.4.7",
     "sass": "^1.88.0",
+    "typedoc": "^0.28.4",
     "typescript": "^5.8.3",
     "vite": "^6.3.5",
     "vitest": "^3.1.3"
