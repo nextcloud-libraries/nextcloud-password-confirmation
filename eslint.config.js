@@ -5,13 +5,4 @@
 
 import { recommendedLibrary } from '@nextcloud/eslint-config'
 
-export default [
-	...recommendedLibrary,
-
-	{
-		rules: {
-			// TODO: migrate to nextcloud-logger to respect defined logging level
-			'no-console': 'warn',
-		},
-	},
-]
+export default [...recommendedLibrary]
