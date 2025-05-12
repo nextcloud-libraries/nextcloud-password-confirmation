@@ -39,6 +39,7 @@ import NcDialog from '@nextcloud/vue/components/NcDialog'
 import NcLoadingIcon from '@nextcloud/vue/components/NcLoadingIcon'
 import NcPasswordField from '@nextcloud/vue/components/NcPasswordField'
 import { t } from '../utils/l10n.js'
+import { logger } from '../utils/logger.js'
 
 type ICanFocus = {
 	focus: () => void
@@ -107,7 +108,7 @@ export default defineComponent({
 				await this.validate(this.password)
 				this.$emit('close', true)
 			} catch (error) {
-				console.debug('Exception during password confirmation', { error })
+				logger.debug('Exception during password confirmation', { error })
 				this.showError = true
 				this.selectPasswordField()
 			} finally {

@@ -12,6 +12,7 @@ import { spawnDialog } from '@nextcloud/vue/functions/dialog'
 import PasswordDialogVue from './components/PasswordDialog.vue'
 import { PwdConfirmationMode } from './globals.ts'
 import { isPasswordConfirmationRequired } from './is-required.ts'
+import { logger } from './utils/logger.ts'
 
 let INTERCEPTOR_INITIALIZED = false
 
@@ -37,13 +38,13 @@ export const confirmPassword = async (): Promise<void> => {
  * @param password - Password to be confirmed
  */
 async function _confirmPassword(password: string) {
-	console.debug('Confirming password')
+	logger.debug('Confirming password')
 
 	const url = generateUrl('/login/confirm')
 	const { data } = await axios.post(url, { password })
 	window.nc_lastLogin = data.lastLogin
 
-	console.debug('Password confirmed')
+	logger.debug('Password confirmed')
 }
 
 /**
@@ -91,7 +92,7 @@ export function addPasswordConfirmationInterceptors(axios: AxiosInstance): void 
 					return Promise.resolve()
 				}
 				case PwdConfirmationMode.Strict:
-					console.debug('Adding auth info to the request', { config })
+					logger.debug('Adding auth info to the request', { config })
 					config.auth = {
 						username: getCurrentUser()?.uid ?? '',
 						password,
@@ -112,7 +113,7 @@ export function addPasswordConfirmationInterceptors(axios: AxiosInstance): void 
 				return response
 			}
 
-			console.debug('Password confirmation succeeded', { response })
+			logger.debug('Password confirmation succeeded', { response })
 			window.nc_lastLogin = Date.now() / 1000
 			validatePromise.resolve()
 
@@ -123,7 +124,7 @@ export function addPasswordConfirmationInterceptors(axios: AxiosInstance): void 
 				throw error
 			}
 
-			console.debug('Password confirmation failed', { error })
+			logger.debug('Password confirmation failed', { error })
 			validatePromise.reject(error)
 
 			if (!(error.response?.status === 403 && error.response.data.message === 'Password confirmation is required')) {
@@ -132,7 +133,7 @@ export function addPasswordConfirmationInterceptors(axios: AxiosInstance): void 
 
 			// If the password confirmation failed, we trigger another request.
 			// that will go through the password confirmation flow again.
-			console.debug('Triggering new request', { error })
+			logger.debug('Triggering new request', { error })
 			return axios.request(error.config)
 		},
 	)
