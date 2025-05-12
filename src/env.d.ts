@@ -10,7 +10,7 @@ declare global {
 		backendAllowsPasswordConfirmation: boolean
 	}
 
-	const __TRANSLATIONS__: Array<{ locale: string, translations: { msgid: string, msgid_plural?: string, msgstr: string }[] }>
+	const __TRANSLATIONS__: Array<{ locale: string, translations: { msgid: string, msgid_plural?: string, msgstr: string[] }[] }>
 }
 
 export {}

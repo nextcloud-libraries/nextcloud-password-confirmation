@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2020 Nextcloud GmbH and Nextcloud contributors
 # SPDX-License-Identifier: CC0-1.0
 
+/coverage
 /node_modules
 /dist
 /dist-ssr
