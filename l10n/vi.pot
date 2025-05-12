@@ -35,4 +35,4 @@ msgstr ""
 "bạn."
 
 msgid "Wrong password"
-msgstr "Sai mật khẩu"
+msgstr "Mật khẩu sai"
