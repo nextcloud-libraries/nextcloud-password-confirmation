@@ -1,9 +1,10 @@
 {
   "extends": "@vue/tsconfig",
   "compilerOptions": {
-    "strict": true,
+    "allowImportingTsExtensions": true,
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
+    "strict": true,
   },
   "include": [
     "src/**/*.ts",
