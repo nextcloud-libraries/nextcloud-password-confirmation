@@ -1,0 +1,38 @@
+# 
+# Translators:
+# nhatCreA, 2025
+# 
+msgid ""
+msgstr ""
+"Last-Translator: nhatCreA, 2025\n"
+"Language-Team: Vietnamese (https://app.transifex.com/nextcloud/teams/64236/vi/)\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: vi\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Authentication required"
+msgstr "Yêu cầu xác thực"
+
+#. TRANSLATORS: This is a status message, shown when the system is checking
+#. the users password
+msgid "Checking password …"
+msgstr "Đang kiểm tra mật khẩu ..."
+
+msgid "Confirm"
+msgstr "Chấp nhận"
+
+msgid "Password"
+msgstr "Mật khẩu"
+
+msgid "Please enter your password"
+msgstr "Vui lòng nhập mật khẩu của bạn"
+
+msgid ""
+"This action needs authentication, please confirm it by entering your "
+"password."
+msgstr ""
+"Thao tác này cần xác thực, vui lòng xác nhận bằng cách nhập mật khẩu của "
+"bạn."
+
+msgid "Wrong password"
+msgstr "Sai mật khẩu"
