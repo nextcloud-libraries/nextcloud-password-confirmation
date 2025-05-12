@@ -2,7 +2,7 @@
   "extends": "@vue/tsconfig",
   "compilerOptions": {
     "strict": true,
-    "moduleResolution": "Bundler",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
   },
   "include": [

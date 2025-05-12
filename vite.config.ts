@@ -34,7 +34,6 @@ const translations = fs
 export default createLibConfig({
 	index: resolve(__dirname, 'src/index.ts'),
 }, {
-	libraryFormats: ['cjs', 'es'],
 	// Rename CSS chunk
 	assetFileNames: (chunkInfo) => chunkInfo.name?.endsWith('.css') ? 'style.css' : undefined,
 	replace: {
