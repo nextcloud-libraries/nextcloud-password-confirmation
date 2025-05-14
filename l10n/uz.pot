@@ -15,7 +15,7 @@ msgstr "Autentifikatsiya talab qilinadi"
 
 #. TRANSLATORS: This is a status message, shown when the system is checking
 #. the users password
-msgid "Checking password …"
+msgid "Checking password …"
 msgstr "Parol tekshirilmoqda…"
 
 msgid "Confirm"
