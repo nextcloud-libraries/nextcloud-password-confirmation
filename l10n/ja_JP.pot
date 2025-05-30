@@ -30,7 +30,7 @@ msgstr "パスワードを入力してください"
 msgid ""
 "This action needs authentication, please confirm it by entering your "
 "password."
-msgstr "この操作には認証が必要です。パスワードを入力して確認してください。"
+msgstr "この操作には認証が必要です。パスワードを入力して承認してください。"
 
 msgid "Wrong password"
 msgstr "間違ったパスワード"
