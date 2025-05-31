@@ -48,7 +48,7 @@
     "@nextcloud/logger": "^3.0.2",
     "@nextcloud/router": "^3.0.1",
     "@nextcloud/vue": "^9.0.0-rc.2",
-    "vue": "^3.5.14"
+    "vue": "^3.5.16"
   },
   "devDependencies": {
     "@nextcloud/browserslist-config": "^3.0.1",
