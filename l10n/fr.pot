@@ -3,10 +3,11 @@
 # Joas Schilling, 2024
 # JEEEEEEEEEEEEEEEEEEEEEED, 2024
 # Matsac42, 2025
+# Gabriel Gaudreault, 2025
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Matsac42, 2025\n"
+"Last-Translator: Gabriel Gaudreault, 2025\n"
 "Language-Team: French (https://app.transifex.com/nextcloud/teams/64236/fr/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: fr\n"
@@ -17,8 +18,8 @@ msgstr "Authentification requise"
 
 #. TRANSLATORS: This is a status message, shown when the system is checking
 #. the users password
-msgid "Checking password …"
-msgstr "Vérification du mot de passe"
+msgid "Checking password …"
+msgstr "Vérification du mot de passe ..."
 
 msgid "Confirm"
 msgstr "Confirmer"
