@@ -32,7 +32,7 @@ msgstr "Voer je wachtwoord in"
 msgid ""
 "This action needs authentication, please confirm it by entering your "
 "password."
-msgstr "Deze actie vereist authenticatie, voer alstublieft uw wachtwoord in."
+msgstr "Deze actie vereist authenticatie, voer je wachtwoord in."
 
 msgid "Wrong password"
 msgstr "Incorrect wachtwoord"
