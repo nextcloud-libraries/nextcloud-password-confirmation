@@ -60,7 +60,7 @@
     "@vue/tsconfig": "^0.7.0",
     "gettext-extractor": "^3.8.0",
     "gettext-parser": "^8.0.0",
-    "happy-dom": "^17.6.3",
+    "happy-dom": "^18.0.1",
     "sass": "^1.89.2",
     "typedoc": "^0.28.5",
     "typescript": "^5.8.3",
