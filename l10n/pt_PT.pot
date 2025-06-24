@@ -1,0 +1,37 @@
+# 
+# Translators:
+# artur25 <arturdiogo1997@hotmail.com>, 2025
+# 
+msgid ""
+msgstr ""
+"Last-Translator: artur25 <arturdiogo1997@hotmail.com>, 2025\n"
+"Language-Team: Portuguese (Portugal) (https://app.transifex.com/nextcloud/teams/64236/pt_PT/)\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: pt_PT\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+msgid "Authentication required"
+msgstr "Autenticação necessária"
+
+#. TRANSLATORS: This is a status message, shown when the system is checking
+#. the users password
+msgid "Checking password …"
+msgstr "A verificar palavra-passe…"
+
+msgid "Confirm"
+msgstr "Confirmar"
+
+msgid "Password"
+msgstr "Palavra-passe"
+
+msgid "Please enter your password"
+msgstr "Introduza a sua palavra-passe, por favor"
+
+msgid ""
+"This action needs authentication, please confirm it by entering your "
+"password."
+msgstr ""
+"Esta ação requer autenticação; confirme-a introduzindo a sua palavra-passe."
+
+msgid "Wrong password"
+msgstr "Palavra-passe incorreta"
