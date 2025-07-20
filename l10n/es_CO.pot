@@ -1,0 +1,38 @@
+# 
+# Translators:
+# Ruben Gaitan, 2025
+# 
+msgid ""
+msgstr ""
+"Last-Translator: Ruben Gaitan, 2025\n"
+"Language-Team: Spanish (Colombia) (https://app.transifex.com/nextcloud/teams/64236/es_CO/)\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: es_CO\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+msgid "Authentication required"
+msgstr "Autenticación requerida"
+
+#. TRANSLATORS: This is a status message, shown when the system is checking
+#. the users password
+msgid "Checking password …"
+msgstr "Verificando contraseña …"
+
+msgid "Confirm"
+msgstr "Confirmar"
+
+msgid "Password"
+msgstr "Contraseña"
+
+msgid "Please enter your password"
+msgstr "Por favor introduzca su contraseña"
+
+msgid ""
+"This action needs authentication, please confirm it by entering your "
+"password."
+msgstr ""
+"Esta acción necesita autentificación, por favor confírmela introduciendo su "
+"contraseña."
+
+msgid "Wrong password"
+msgstr "Contraseña incorrecta"
