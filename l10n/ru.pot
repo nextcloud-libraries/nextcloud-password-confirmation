@@ -3,10 +3,11 @@
 # Joas Schilling, 2024
 # Влад, 2024
 # Igor Orlov, 2025
+# Leonid Fedotov, 2025
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Igor Orlov, 2025\n"
+"Last-Translator: Leonid Fedotov, 2025\n"
 "Language-Team: Russian (https://app.transifex.com/nextcloud/teams/64236/ru/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: ru\n"
@@ -34,7 +35,7 @@ msgid ""
 "password."
 msgstr ""
 "Это действие требует аутентификации, пожалуйста подтвердите его вводом "
-"пароля."
+"вашего пароля."
 
 msgid "Wrong password"
 msgstr "Неправильный пароль"
