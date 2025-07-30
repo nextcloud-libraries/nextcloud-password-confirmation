@@ -1,0 +1,37 @@
+# 
+# Translators:
+# Сашко Тодоров <sasetodorov@gmail.com>, 2025
+# 
+msgid ""
+msgstr ""
+"Last-Translator: Сашко Тодоров <sasetodorov@gmail.com>, 2025\n"
+"Language-Team: Macedonian (https://app.transifex.com/nextcloud/teams/64236/mk/)\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: mk\n"
+"Plural-Forms: nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;\n"
+
+msgid "Authentication required"
+msgstr "Потребна е автентификација"
+
+#. TRANSLATORS: This is a status message, shown when the system is checking
+#. the users password
+msgid "Checking password …"
+msgstr "Проверка на лозинка …"
+
+msgid "Confirm"
+msgstr "Потврди"
+
+msgid "Password"
+msgstr "Лозинка"
+
+msgid "Please enter your password"
+msgstr "Внесете ја вашата лозинка"
+
+msgid ""
+"This action needs authentication, please confirm it by entering your "
+"password."
+msgstr ""
+"Оваа акција бара автентикација, потврдете ја со внесување на вашата лозинка."
+
+msgid "Wrong password"
+msgstr "Погрешна лозинка"
