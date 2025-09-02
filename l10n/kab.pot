@@ -1,0 +1,38 @@
+# 
+# Translators:
+# ButterflyOfFire, 2025
+# 
+msgid ""
+msgstr ""
+"Last-Translator: ButterflyOfFire, 2025\n"
+"Language-Team: Kabyle (https://app.transifex.com/nextcloud/teams/64236/kab/)\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: kab\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Authentication required"
+msgstr "Asesteb yettwasra"
+
+#. TRANSLATORS: This is a status message, shown when the system is checking
+#. the users password
+msgid "Checking password …"
+msgstr "Asenqed n wawal n uɛeddi …"
+
+msgid "Confirm"
+msgstr "Sentem"
+
+msgid "Password"
+msgstr "Awal n uɛeddi"
+
+msgid "Please enter your password"
+msgstr "Txil, sekcem-d awal-ik·im n uɛeddi"
+
+msgid ""
+"This action needs authentication, please confirm it by entering your "
+"password."
+msgstr ""
+"Tigawt-a tesra asesteb, ttxil-k·m, wekked-itt-id s usekcem n wawal-inek·inem"
+" n uɛeddi."
+
+msgid "Wrong password"
+msgstr "Awal n uɛeddi d arameɣtu"
