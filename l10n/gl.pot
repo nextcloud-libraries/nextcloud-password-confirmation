@@ -32,7 +32,7 @@ msgid ""
 "This action needs authentication, please confirm it by entering your "
 "password."
 msgstr ""
-"Esta acción precisa de autenticación, confirmea introducindo o seu "
+"Esta acción precisa de autenticación, confírmea introducindo o seu "
 "contrasinal."
 
 msgid "Wrong password"
