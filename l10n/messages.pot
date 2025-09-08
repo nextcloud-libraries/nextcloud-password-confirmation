@@ -21,5 +21,8 @@ msgstr ""
 msgid "This action needs authentication, please confirm it by entering your password."
 msgstr ""
 
+msgid "Unknown error while checking password"
+msgstr ""
+
 msgid "Wrong password"
 msgstr ""

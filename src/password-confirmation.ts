@@ -127,10 +127,6 @@ export function addPasswordConfirmationInterceptors(axios: AxiosInstance): void 
 			logger.debug('Password confirmation failed', { error })
 			validatePromise.reject(error)
 
-			if (!(error.response?.status === 403 && error.response.data.message === 'Password confirmation is required')) {
-				throw error
-			}
-
 			// If the password confirmation failed, we trigger another request.
 			// that will go through the password confirmation flow again.
 			logger.debug('Triggering new request', { error })
