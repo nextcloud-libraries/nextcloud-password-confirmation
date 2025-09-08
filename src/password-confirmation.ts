@@ -24,7 +24,7 @@ let INTERCEPTOR_INITIALIZED = false
  *                         Rejects if password confirmation was cancelled
  *                         or confirmation is already in process.
  */
-export const confirmPassword = async (): Promise<void> => {
+export async function confirmPassword(): Promise<void> {
 	if (!isPasswordConfirmationRequired(PwdConfirmationMode.Lax)) {
 		return Promise.resolve()
 	}
