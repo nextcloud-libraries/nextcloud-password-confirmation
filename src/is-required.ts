@@ -15,7 +15,7 @@ const PAGE_LOAD_TIME = Date.now()
  * @param mode - The confirmation mode for which to check the requirement
  * @return Whether password confirmation is required or was confirmed recently
  */
-export const isPasswordConfirmationRequired = (mode: PwdConfirmationMode): boolean => {
+export function isPasswordConfirmationRequired(mode: PwdConfirmationMode): boolean {
 	if (!window.backendAllowsPasswordConfirmation) {
 		return false
 	}
