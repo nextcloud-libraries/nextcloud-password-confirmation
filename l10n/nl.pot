@@ -34,5 +34,8 @@ msgid ""
 "password."
 msgstr "Deze actie vereist authenticatie, voer je wachtwoord in."
 
+msgid "Unknown error while checking password"
+msgstr "Onbekende fout bij wachtwoord controleren"
+
 msgid "Wrong password"
 msgstr "Incorrect wachtwoord"
