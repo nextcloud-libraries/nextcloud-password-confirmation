@@ -16,7 +16,7 @@
 				v-model="password"
 				:label="t('Password')"
 				:helper-text="helperText"
-				:error="showError"
+				:error="error !== false"
 				required />
 			<NcButton
 				class="vue-password-confirmation__submit"
@@ -33,6 +33,7 @@
 </template>
 
 <script lang="ts">
+import { isAxiosError } from '@nextcloud/axios'
 import { defineComponent } from 'vue'
 import NcButton from '@nextcloud/vue/components/NcButton'
 import NcDialog from '@nextcloud/vue/components/NcDialog'
@@ -72,18 +73,29 @@ export default defineComponent({
 		return {
 			password: '',
 			loading: false,
-			showError: false,
+			error: false as boolean | 403,
 		}
 	},
 
 	computed: {
 		helperText() {
-			if (this.showError) {
-				return this.password === '' ? t('Please enter your password') : t('Wrong password')
+			if (this.error !== false) {
+				if (this.password === '') {
+					return t('Please enter your password')
+				}
+
+				switch (this.error) {
+					case true:
+						return t('Unknown error while checking password')
+					case 403:
+						return t('Wrong password')
+				}
 			}
+
 			if (this.loading) {
 				return t('Checking password …') // TRANSLATORS: This is a status message, shown when the system is checking the users password
 			}
+
 			return ''
 		},
 	},
@@ -96,11 +108,11 @@ export default defineComponent({
 		t,
 
 		async confirm(): Promise<void> {
-			this.showError = false
+			this.error = false
 			this.loading = true
 
 			if (this.password === '') {
-				this.showError = true
+				this.error = true
 				return
 			}
 
@@ -108,8 +120,13 @@ export default defineComponent({
 				await this.validate(this.password)
 				this.$emit('close', true)
 			} catch (error) {
-				logger.debug('Exception during password confirmation', { error })
-				this.showError = true
+				if (isAxiosError(error) && error.response?.status === 403) {
+					this.error = 403
+				} else {
+					this.error = true
+				}
+
+				logger.error('Exception during password confirmation', { error })
 				this.selectPasswordField()
 			} finally {
 				this.loading = false
