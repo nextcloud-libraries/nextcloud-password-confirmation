@@ -4,10 +4,11 @@
 # JEEEEEEEEEEEEEEEEEEEEEED, 2024
 # Matsac42, 2025
 # Gabriel Gaudreault, 2025
+# Caro Leviia, 2025
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Gabriel Gaudreault, 2025\n"
+"Last-Translator: Caro Leviia, 2025\n"
 "Language-Team: French (https://app.transifex.com/nextcloud/teams/64236/fr/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: fr\n"
@@ -34,8 +35,11 @@ msgid ""
 "This action needs authentication, please confirm it by entering your "
 "password."
 msgstr ""
-"Cette action nécessite l'authentification, veuillez confirmer en entrant "
-"votre mot de passe."
+"Cette action nécessite une authentification, veuillez confirmer en "
+"saisissant votre mot de passe."
+
+msgid "Unknown error while checking password"
+msgstr "Erreur inconnue lors de la vérification du mot de passe"
 
 msgid "Wrong password"
 msgstr "Mot de passe incorrect"
