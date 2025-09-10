@@ -3,10 +3,11 @@
 # Joas Schilling, 2024
 # Martin Bonde <Martin@maboni.dk>, 2024
 # hhjuhl, 2025
+# Ronny Buelund <mail@rbuelund.dk>, 2025
 # 
 msgid ""
 msgstr ""
-"Last-Translator: hhjuhl, 2025\n"
+"Last-Translator: Ronny Buelund <mail@rbuelund.dk>, 2025\n"
 "Language-Team: Danish (https://app.transifex.com/nextcloud/teams/64236/da/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: da\n"
@@ -18,7 +19,7 @@ msgstr "Bekræft din identitet"
 #. TRANSLATORS: This is a status message, shown when the system is checking
 #. the users password
 msgid "Checking password …"
-msgstr "Kontrollerer adgangskode…"
+msgstr "Kontrollerer adgangskode …"
 
 msgid "Confirm"
 msgstr "Bekræft"
@@ -34,6 +35,9 @@ msgid ""
 "password."
 msgstr ""
 "Denne handling kræver godkendelse. Indtast din adgangskode for at bekræfte."
+
+msgid "Unknown error while checking password"
+msgstr "Ukendt fejl under kontrol af adgangskode"
 
 msgid "Wrong password"
 msgstr "forkert Adgangskode"
