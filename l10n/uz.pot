@@ -34,5 +34,8 @@ msgstr ""
 "Ushbu amaliyot autentifikatsiya talab etadi, parolingizni kiritish orqali "
 "buni tasdiqlang."
 
+msgid "Unknown error while checking password"
+msgstr "Parolni tekshirishda noma'lum xatolik yuz berdi"
+
 msgid "Wrong password"
 msgstr "Parol noto'g'ri "
