@@ -36,5 +36,8 @@ msgstr ""
 "Für diese Aktion ist eine Authentifizierung erforderlich. Bitte bestätige "
 "diese durch Eingabe deines Passworts."
 
+msgid "Unknown error while checking password"
+msgstr "Unbekannter Fehler beim Überprüfen des Passworts"
+
 msgid "Wrong password"
 msgstr "Falsches Passwort"
