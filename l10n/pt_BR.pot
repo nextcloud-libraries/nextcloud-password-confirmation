@@ -35,5 +35,8 @@ msgstr ""
 "Esta ação precisa de autenticação. Por favor, confirme-a digitando sua "
 "senha."
 
+msgid "Unknown error while checking password"
+msgstr "Erro desconhecido ao verificar a senha"
+
 msgid "Wrong password"
 msgstr "Senha incorreta"
