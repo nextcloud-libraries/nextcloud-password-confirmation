@@ -33,5 +33,8 @@ msgid ""
 "password."
 msgstr "Tato akce vyžaduje ověření se – potvrďte ji zadáním svého hesla."
 
+msgid "Unknown error while checking password"
+msgstr "Neznámá chyba při kontrolování hesla"
+
 msgid "Wrong password"
 msgstr "Nesprávné heslo"
