@@ -36,5 +36,8 @@ msgstr ""
 "Den här åtgärden kräver autentisering, bekräfta genom att ange ditt "
 "lösenord."
 
+msgid "Unknown error while checking password"
+msgstr "Okänt fel vid kontroll av lösenord"
+
 msgid "Wrong password"
 msgstr "Fel lösenord"
