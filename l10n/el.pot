@@ -1,25 +1,26 @@
 # 
 # Translators:
 # Efstathios Iosifidis <iefstathios@gmail.com>, 2025
+# Γιάννος, 2025
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Efstathios Iosifidis <iefstathios@gmail.com>, 2025\n"
+"Last-Translator: Γιάννος, 2025\n"
 "Language-Team: Greek (https://app.transifex.com/nextcloud/teams/64236/el/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid "Authentication required"
+msgstr "Απαιτείται πιστοποίηση"
+
 #. TRANSLATORS: This is a status message, shown when the system is checking
 #. the users password
-msgid "Checking password …"
-msgstr "Έλεγχος συνθηματικού …"
+msgid "Checking password …"
+msgstr "Έλεγχος κωδικού πρόσβασης …"
 
 msgid "Confirm"
 msgstr "Επιβεβαίωση"
-
-msgid "Confirm your password"
-msgstr "Επιβεβαιώστε το συνθηματικό σας"
 
 msgid "Password"
 msgstr "Συνθηματικό"
@@ -27,8 +28,15 @@ msgstr "Συνθηματικό"
 msgid "Please enter your password"
 msgstr "Παρακαλώ εισάγετε το συνθηματικό σας"
 
-msgid "This action needs authentication"
-msgstr "Αυτή η ενέργεια απαιτεί πιστοποίηση"
+msgid ""
+"This action needs authentication, please confirm it by entering your "
+"password."
+msgstr ""
+"Αυτή η ενέργεια απαιτεί πιστοποίηση. Επιβεβαιώστε την εισάγοντας τον κωδικό "
+"πρόσβασής σας."
+
+msgid "Unknown error while checking password"
+msgstr "Άγνωστο σφάλμα κατά τον έλεγχο του κωδικού πρόσβασης"
 
 msgid "Wrong password"
 msgstr "Λάθος συνθηματικό"
