@@ -35,5 +35,8 @@ msgstr ""
 "Esta acción precisa de autenticación, confírmea introducindo o seu "
 "contrasinal."
 
+msgid "Unknown error while checking password"
+msgstr "Produciuse un erro descoñecido ao comprobar o contrasinal"
+
 msgid "Wrong password"
 msgstr "Contrasinal incorrecto"
