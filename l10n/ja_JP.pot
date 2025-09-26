@@ -32,5 +32,8 @@ msgid ""
 "password."
 msgstr "この操作には認証が必要です。パスワードを入力して承認してください。"
 
+msgid "Unknown error while checking password"
+msgstr "パスワードのチェック中に不明なエラーが発生しました"
+
 msgid "Wrong password"
 msgstr "間違ったパスワード"
