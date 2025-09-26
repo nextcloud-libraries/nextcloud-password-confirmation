@@ -33,5 +33,8 @@ msgid ""
 msgstr ""
 "Оваа акција бара автентикација, потврдете ја со внесување на вашата лозинка."
 
+msgid "Unknown error while checking password"
+msgstr "Непозната грешка додека се проверува лозинката"
+
 msgid "Wrong password"
 msgstr "Погрешна лозинка"
