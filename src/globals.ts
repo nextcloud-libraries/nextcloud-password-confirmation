@@ -11,10 +11,3 @@ export enum PwdConfirmationMode {
 	Lax = 'lax',
 	Strict = 'strict',
 }
-
-declare module '@nextcloud/axios' {
-	export interface AxiosRequestConfig {
-		/** To use this property you need to use the addPasswordConfirmationInterceptors function. */
-		confirmPassword?: PwdConfirmationMode
-	}
-}

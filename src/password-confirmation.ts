@@ -14,6 +14,13 @@ import { PwdConfirmationMode } from './globals.ts'
 import { isPasswordConfirmationRequired } from './is-required.ts'
 import { logger } from './utils/logger.ts'
 
+declare module '@nextcloud/axios' {
+	export interface AxiosRequestConfig {
+		/** To use this property you need to use the addPasswordConfirmationInterceptors function. */
+		confirmPassword?: PwdConfirmationMode
+	}
+}
+
 let INTERCEPTOR_INITIALIZED = false
 
 /**
