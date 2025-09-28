@@ -38,35 +38,28 @@ For Vue 3 apps nothing changed, meaning the app and this library will share the 
 ```
 
 ## 5.3.1 - 2024-12-16
+[Full Changelog](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v5.3.0...v5.3.1)
 
-### What's Changed
-
-### Fixes
-
+### Fixed
 * fix: Improve pwd confirmation condition #906 by @artonge in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/906
 
-**Full Changelog**: https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v5.3.0...v5.3.1
-
 ## 5.3.0 - 2024-11-27
+[Full Changelog](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v5.2.0...v5.3.0)
 
-### What's Changed
-
-### Fixes
-
+### Fixed
 * fix: Use spawnDialog from @nc/dialogs #895  by @artonge in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/895
 
-**Full Changelog**: https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v5.2.0...v5.3.0
-
 ## 5.2.0 - 2024-11-27
+[Full Changelog](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v5.1.1...v5.2.0)
 
-### What's Changed
-
-### Features
-
+### Added
 * feat: Expose axios interceptors by @artonge in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/881
 
-### Dependencies
-
+### Changed
+* chore: Add SPDX license headers by @susnux in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/805
+* Migrate REUSE to TOML by @AndyScherzinger in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/815
+* Updates for project Nextcloud password confirmation library by @transifex-integration in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/807
+* CI. Update dependabot-approve-merge.yml by @AndyScherzinger in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/843
 * chore(deps): Bump skjnldsv/read-package-engines-version-actions to 3
 * chore(deps): Bump actions/setup-node to 4.1.0
 * chore(deps): Bump axios to 1.7.4
@@ -75,29 +68,6 @@ For Vue 3 apps nothing changed, meaning the app and this library will share the 
 * chore(deps): Bump rollup to 4.22.4
 * chore(deps): Bump actions/checkout to 4.2.2
 * chore(deps): Bump dompurify to 3.1.7
-
-### Development dependencies
-
-* chore(deps-dev): Bump @types/node to 20.14.12
-* chore(deps-dev): Bump vite to 5.4.11
-* chore(deps-dev): Bump typescript to 5.7.2
-* chore(deps-dev): Bump sass to 1.81.0
-* chore(deps-dev): Bump @nextcloud/vite-config to 1.4.2
-* chore(deps-dev): Bump elliptic to 6.6.0
-
-### Miscellaneous
-
-* chore: Add SPDX license headers by @susnux in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/805
-* Migrate REUSE to TOML by @AndyScherzinger in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/815
-* Updates for project Nextcloud password confirmation library by @transifex-integration in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/807
-* CI. Update dependabot-approve-merge.yml by @AndyScherzinger in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/843
-
-### New Contributors
-
-* @AndyScherzinger made their first contribution in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/815
-* @artonge made their first contribution in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/881
-
-**Full Changelog**: https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v5.1.1...v5.2.0
 
 ## 5.1.1 - 2024-06-25
 [Full Changelog](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v5.1.0...v5.1.1)
