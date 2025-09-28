@@ -38,7 +38,7 @@
   "bugs": "https://github.com/nextcloud-libraries/nextcloud-password-confirmation/issues",
   "license": "MIT",
   "dependencies": {
-    "@nextcloud/auth": "^2.5.1",
+    "@nextcloud/auth": "^2.5.2",
     "@nextcloud/axios": "^2.5.2",
     "@nextcloud/dialogs": "^6.3.1",
     "@nextcloud/l10n": "^3.3.0",
