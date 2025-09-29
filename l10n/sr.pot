@@ -35,5 +35,8 @@ msgstr ""
 "За ову акцију је потребна провера идентитета, молимо вас да га потврдите "
 "уносом своје лозинке."
 
+msgid "Unknown error while checking password"
+msgstr "Непозната грешка током провере лозинке"
+
 msgid "Wrong password"
 msgstr "Погрешна лозинка"
