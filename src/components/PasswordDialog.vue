@@ -120,11 +120,11 @@ function selectPasswordField() {
 <template>
 	<NcDialog
 		:name="t('Authentication required')"
-		content-classes="vue-password-confirmation"
+		:content-classes="$style.passwordDialog"
 		@update:open="close">
 		<!-- Dialog content -->
 		<p>{{ t('This action needs authentication, please confirm it by entering your password.') }}</p>
-		<form class="vue-password-confirmation__form" @submit.prevent="confirm">
+		<form :class="$style.passwordDialogForm" @submit.prevent="confirm">
 			<NcPasswordField
 				ref="field"
 				v-model="password"
@@ -133,7 +133,7 @@ function selectPasswordField() {
 				:error="hasError !== false"
 				required />
 			<NcButton
-				class="vue-password-confirmation__submit"
+				:class="$style.passwordDialogSubmit"
 				variant="primary"
 				type="submit"
 				:disabled="!password || loading">
@@ -146,24 +146,24 @@ function selectPasswordField() {
 	</NcDialog>
 </template>
 
-<style lang="scss">
-.vue-password-confirmation {
+<style module>
+.passwordDialog {
 	display: flex;
 	flex-direction: column;
 	margin-inline: 6px;
 	margin-block-end: 6px;
 	gap: 10px 0;
+}
 
-	&__form {
-		display: flex;
-		flex-direction: column;
-		gap: 8px 0;
-		// allow focus visible outlines
-		padding: 2px;
-	}
+.passwordDialogForm {
+	display: flex;
+	flex-direction: column;
+	gap: 8px 0;
+	/* allow focus visible outlines */
+	padding: 2px;
+}
 
-	&__submit {
-		align-self: end;
-	}
+.passwordDialogSubmit {
+	align-self: end;
 }
 </style>
