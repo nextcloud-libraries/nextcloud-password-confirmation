@@ -6,17 +6,12 @@
 <script setup lang="ts">
 import { isAxiosError } from '@nextcloud/axios'
 import { computed, nextTick, onMounted, ref, useTemplateRef } from 'vue'
-import NcButton from '@nextcloud/vue/components/NcButton'
 import NcDialog from '@nextcloud/vue/components/NcDialog'
-import NcLoadingIcon from '@nextcloud/vue/components/NcLoadingIcon'
 import NcPasswordField from '@nextcloud/vue/components/NcPasswordField'
 import { t } from '../utils/l10n.js'
 import { logger } from '../utils/logger.js'
 
-type ICanFocus = {
-	focus: () => void
-	select: () => void
-}
+type DialogButtons = InstanceType<typeof NcDialog>['$props']['buttons']
 
 const props = defineProps<{
 	/**
@@ -31,11 +26,18 @@ const emit = defineEmits<{
 
 onMounted(focusPasswordField)
 
-const passwordInput = useTemplateRef<ICanFocus>('field')
+const passwordInput = useTemplateRef('field')
 
 const password = ref('')
 const loading = ref(false)
 const hasError = ref<boolean | 403>(false)
+
+const buttons: DialogButtons = [{
+	label: t('Confirm'),
+	type: 'submit',
+	variant: 'primary',
+	callback,
+}]
 
 const helperText = computed(() => {
 	if (hasError.value !== false) {
@@ -61,18 +63,19 @@ const helperText = computed(() => {
 /**
  * Handle confirm button click
  */
-async function confirm(): Promise<void> {
+async function callback(): Promise<boolean> {
 	hasError.value = false
 	loading.value = true
 
 	if (password.value === '') {
 		hasError.value = true
-		return
+		return false
 	}
 
 	try {
 		await props.validate(password.value)
 		emit('close', true)
+		return true
 	} catch (error) {
 		if (isAxiosError(error) && error.response?.status === 403) {
 			hasError.value = 403
@@ -82,19 +85,9 @@ async function confirm(): Promise<void> {
 
 		logger.error('Exception during password confirmation', { error })
 		selectPasswordField()
+		return false
 	} finally {
 		loading.value = false
-	}
-}
-
-/**
- * Handle the close event.
- *
- * @param open - The new status
- */
-function close(open: boolean): void {
-	if (!open) {
-		emit('close', false)
 	}
 }
 
@@ -119,30 +112,19 @@ function selectPasswordField() {
 
 <template>
 	<NcDialog
+		is-form
+		:buttons
 		:name="t('Authentication required')"
 		:content-classes="$style.passwordDialog"
-		@update:open="close">
-		<!-- Dialog content -->
+		@update:open="emit('close', false)">
 		<p>{{ t('This action needs authentication, please confirm it by entering your password.') }}</p>
-		<form :class="$style.passwordDialogForm" @submit.prevent="confirm">
-			<NcPasswordField
-				ref="field"
-				v-model="password"
-				:label="t('Password')"
-				:helper-text="helperText"
-				:error="hasError !== false"
-				required />
-			<NcButton
-				:class="$style.passwordDialogSubmit"
-				variant="primary"
-				type="submit"
-				:disabled="!password || loading">
-				<template v-if="loading" #icon>
-					<NcLoadingIcon :size="20" />
-				</template>
-				{{ t('Confirm') }}
-			</NcButton>
-		</form>
+		<NcPasswordField
+			ref="field"
+			v-model="password"
+			:label="t('Password')"
+			:helper-text="helperText"
+			:error="hasError !== false"
+			required />
 	</NcDialog>
 </template>
 
@@ -150,20 +132,8 @@ function selectPasswordField() {
 .passwordDialog {
 	display: flex;
 	flex-direction: column;
+	gap: 10px 0;
 	margin-inline: 6px;
 	margin-block-end: 6px;
-	gap: 10px 0;
-}
-
-.passwordDialogForm {
-	display: flex;
-	flex-direction: column;
-	gap: 8px 0;
-	/* allow focus visible outlines */
-	padding: 2px;
-}
-
-.passwordDialogSubmit {
-	align-self: end;
 }
 </style>
