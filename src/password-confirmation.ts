@@ -54,13 +54,27 @@ async function _confirmPassword(password: string) {
 	logger.debug('Password confirmed')
 }
 
+// Internal state to track the dialog
+let _passwordDialog: Promise<boolean> | undefined
+let _dialogCallback: (s: string) => Promise<void>
+
 /**
  * Spawn a dialog to prompt the password.
  *
  * @param validate Is called to validate the user's password
  */
 async function promptPassword(validate: (password: string) => Promise<void>) {
-	const result = await spawnDialog(PasswordDialogVue, { validate })
+	_dialogCallback = validate
+	if (!_passwordDialog) {
+		_passwordDialog = spawnDialog(PasswordDialogVue, {
+			validate(password: string) {
+				return _dialogCallback(password)
+			},
+		})
+	}
+
+	const result = await _passwordDialog
+	_passwordDialog = undefined
 	if (!result) {
 		throw new Error('Dialog closed')
 	}
@@ -91,22 +105,20 @@ export function addPasswordConfirmationInterceptors(axios: AxiosInstance): void 
 		}
 
 		const { promise, resolve } = Promise.withResolvers<InternalAxiosRequestConfig>()
-		await promptPassword(async (password: string) => {
+		promptPassword(async (password: string) => {
 			switch (config.confirmPassword) {
-				case PwdConfirmationMode.Lax: {
+				case PwdConfirmationMode.Lax:
 					await _confirmPassword(password)
 					resolve(config)
-					return Promise.resolve()
-				}
+					break
 				case PwdConfirmationMode.Strict:
-					logger.debug('Adding auth info to the request', { config })
+					validatePromise = Promise.withResolvers<void>()
 					config.auth = {
 						username: getCurrentUser()?.uid ?? '',
 						password,
 					}
+					logger.debug('Adding auth info to the request', { config })
 					resolve(config)
-
-					validatePromise = Promise.withResolvers<void>()
 					return validatePromise.promise
 			}
 		})
