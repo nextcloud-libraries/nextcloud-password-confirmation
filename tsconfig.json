@@ -4,7 +4,7 @@
     "allowImportingTsExtensions": true,
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
-    "strict": true,
+    "strict": true
   },
   "include": [
     "src/**/*.ts",
