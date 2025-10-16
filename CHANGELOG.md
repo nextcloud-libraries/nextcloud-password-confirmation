@@ -6,6 +6,14 @@ All notable changes to this project will be documented in this file.
  - SPDX-License-Identifier: MIT
  -->
 
+## [6.0.1](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v6.0.0...v6.0.1) - 2025-10-16
+### Fixed
+* fix: ensure password is used for axios request [\#1172](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/1172) \([susnux](https://github.com/susnux)\)
+
+### Changed
+* ci: add workflow to block unconventional commits [\#1175](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/1175) \([susnux](https://github.com/susnux)\)
+* Updated translations
+
 ## [6.0.0](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v5.3.1...v6.0.0) - 2025-09-28
 ### Notes
 
