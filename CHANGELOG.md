@@ -46,35 +46,35 @@ For Vue 3 apps nothing changed, meaning the app and this library will share the 
 ```
 
 ### Fixed
-* fix: Differentiate non-403 errors by @artonge in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/1104
+* fix: Differentiate non-403 errors [\#1104](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/1104) \([artonge](https://github.com/artonge)\)
 
 ### Changed
-* chore: drop unneeded TS declarations by @susnux in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/1020
+* chore: drop unneeded TS declarations [\#1020](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/1020) \([susnux](https://github.com/susnux)\)
 * Updated translations
 
 ## 5.3.1 - 2024-12-16
 [Full Changelog](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v5.3.0...v5.3.1)
 
 ### Fixed
-* fix: Improve pwd confirmation condition #906 by @artonge in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/906
+* fix: Improve pwd confirmation condition #906 [\#906](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/906) \([artonge](https://github.com/artonge)\)
 
 ## 5.3.0 - 2024-11-27
 [Full Changelog](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v5.2.0...v5.3.0)
 
 ### Fixed
-* fix: Use spawnDialog from @nc/dialogs #895  by @artonge in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/895
+* fix: Use spawnDialog from @nc/dialogs #895  [\#895](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/895) \([artonge](https://github.com/artonge)\)
 
 ## 5.2.0 - 2024-11-27
 [Full Changelog](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v5.1.1...v5.2.0)
 
 ### Added
-* feat: Expose axios interceptors by @artonge in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/881
+* feat: Expose axios interceptors [\#881](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/881) \([artonge](https://github.com/artonge)\)
 
 ### Changed
-* chore: Add SPDX license headers by @susnux in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/805
-* Migrate REUSE to TOML by @AndyScherzinger in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/815
-* Updates for project Nextcloud password confirmation library by @transifex-integration in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/807
-* CI. Update dependabot-approve-merge.yml by @AndyScherzinger in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/843
+* chore: Add SPDX license headers [\#805](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/805) \([susnux](https://github.com/susnux)\)
+* Migrate REUSE to TOML [\#815](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/815) \([AndyScherzinger](https://github.com/AndyScherzinger)\)
+* Updates for project Nextcloud password confirmation library [\#807](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/807) \([transifex-integration](https://github.com/transifex-integration)\)
+* CI. Update dependabot-approve-merge.yml [\#843](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/843) \([AndyScherzinger](https://github.com/AndyScherzinger)\)
 * chore(deps): Bump skjnldsv/read-package-engines-version-actions to 3
 * chore(deps): Bump actions/setup-node to 4.1.0
 * chore(deps): Bump axios to 1.7.4
@@ -102,31 +102,31 @@ For Vue 3 apps nothing changed, meaning the app and this library will share the 
 **Full Changelog**: https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v5.0.1...v5.1.0
 
 ### Added
-* enh: Migrate to NcDialog by @susnux in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/697
-* enh: Compress translations to reduce bundle size by @susnux in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/698
+* enh: Migrate to NcDialog [\#697](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/697) \([susnux](https://github.com/susnux)\)
+* enh: Compress translations to reduce bundle size [\#698](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/698) \([susnux](https://github.com/susnux)\)
 
 ### Fixed
-* fix: Adjust code indention to be consistent (tabs) by @susnux in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/692
-* fix: Do not translate Exception error message by @susnux in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/691
-* fix: Adjust peer dependency on `@nextcloud/vue` to allow stable version by @susnux in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/693
+* fix: Adjust code indention to be consistent (tabs) [\#692](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/692) \([susnux](https://github.com/susnux)\)
+* fix: Do not translate Exception error message [\#691](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/691) \([susnux](https://github.com/susnux)\)
+* fix: Adjust peer dependency on `@nextcloud/vue` to allow stable version [\#693](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/693) \([susnux](https://github.com/susnux)\)
 
 ### Changed
 * Updated translations
 * Updated `@nextcloud/router` to 3.0.0
 * Updated development dependencies
 * Update NPM to v10 to align with the version provided by LTS Node 20
-* Make package ESM by default by @susnux in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/696
+* Make package ESM by default [\#696](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/696) \([susnux](https://github.com/susnux)\)
 
 ## 5.0.1 - 2023-11-28
 
 ### Fixed
 
-- fix: do not mount to hidden modal by @ShGKme in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/666
-- build: fix dev and watch build by specifying CSS chunk path by @ShGKme in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/667
+- fix: do not mount to hidden modal [\#666](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/666) \([ShGKme](https://github.com/ShGKme)\)
+- build: fix dev and watch build by specifying CSS chunk path [\#667](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/667) \([ShGKme](https://github.com/ShGKme)\)
 
 ### Changed
 
-- Setup for Transifex by @ShGKme in https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/634
+- Setup for Transifex [\#634](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/634) \([ShGKme](https://github.com/ShGKme)\)
 - Dependency updates
 
 ## 5.0.0 - 2023-10-09

@@ -111,6 +111,8 @@ export enum PwdConfirmationMode {
 1) Create release branch
 2) Adjust version using `npm version vx.y.z --no-git-tag-version`
 3) Update `CHANGELOG.md`
+  * Use the GitHub changelog generator (from the releases tab)
+  * Run `prerelease:format-changelog`
 4) Commit and open PR
 5) After merge, pull latest main
 6) `git tag vx.y.z`

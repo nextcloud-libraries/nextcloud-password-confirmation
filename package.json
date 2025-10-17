@@ -34,6 +34,7 @@
     "l10n:extract": "node build/extract-l10n.js",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
+    "prerelease:format-changelog": "node build/format-changelog.mjs",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "watch": "vite build --mode development --watch"

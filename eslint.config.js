@@ -4,5 +4,14 @@
  */
 
 import { recommendedLibrary } from '@nextcloud/eslint-config'
+import { defineConfig } from 'eslint/config'
 
-export default [...recommendedLibrary]
+export default defineConfig(
+	recommendedLibrary,
+	{
+		files: ['build/**'],
+		rules: {
+			'no-console': 'off',
+		},
+	},
+)
