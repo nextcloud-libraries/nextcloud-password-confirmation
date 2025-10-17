@@ -18,8 +18,8 @@ This library exports a function that displays a password confirmation dialog whe
 
 | `@nextcloud/password-confirmation` | Maintained | Nextcloud   | `@nextcloud/vue` |
 | ---------------------------------- | ---------- | ----------- | ---------------- |
-| 6.x                                | ✅         | 30+         | *9.x (Vue 3)* ¹  |
-| 5.x                                | ✅         | 28-31       | 8.x              |
+| 6.x                                | ✅         | 31+         | *9.x (Vue 3)* ¹  |
+| 5.x                                | ✅         | 28-32       | 8.x              |
 | 2.x - 4.x                          | ❌         | 25-27       | 7.x              |
 | 1.x                                | ❌         | < 25        | -                |
 
