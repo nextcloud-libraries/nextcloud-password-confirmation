@@ -3,175 +3,137 @@
  - SPDX-License-Identifier: MIT
  -->
 
-<template>
-	<NcDialog
-		:name="t('Authentication required')"
-		content-classes="vue-password-confirmation"
-		@update:open="close">
-		<!-- Dialog content -->
-		<p>{{ t('This action needs authentication, please confirm it by entering your password.') }}</p>
-		<form class="vue-password-confirmation__form" @submit.prevent="confirm">
-			<NcPasswordField
-				ref="field"
-				v-model="password"
-				:label="t('Password')"
-				:helper-text="helperText"
-				:error="error !== false"
-				required />
-			<NcButton
-				class="vue-password-confirmation__submit"
-				variant="primary"
-				type="submit"
-				:disabled="!password || loading">
-				<template v-if="loading" #icon>
-					<NcLoadingIcon :size="20" />
-				</template>
-				{{ t('Confirm') }}
-			</NcButton>
-		</form>
-	</NcDialog>
-</template>
-
-<script lang="ts">
+<script setup lang="ts">
 import { isAxiosError } from '@nextcloud/axios'
-import { defineComponent } from 'vue'
-import NcButton from '@nextcloud/vue/components/NcButton'
+import { computed, nextTick, onMounted, ref, useTemplateRef } from 'vue'
 import NcDialog from '@nextcloud/vue/components/NcDialog'
-import NcLoadingIcon from '@nextcloud/vue/components/NcLoadingIcon'
 import NcPasswordField from '@nextcloud/vue/components/NcPasswordField'
 import { t } from '../utils/l10n.js'
 import { logger } from '../utils/logger.js'
 
-type ICanFocus = {
-	focus: () => void
-	select: () => void
+type DialogButtons = InstanceType<typeof NcDialog>['$props']['buttons']
+
+const props = defineProps<{
+	/**
+	 * Function to call to validate password
+	 */
+	validate: (password: string) => Promise<void> | void
+}>()
+
+const emit = defineEmits<{
+	close: [confirmed: boolean]
+}>()
+
+onMounted(focusPasswordField)
+
+const passwordInput = useTemplateRef('field')
+
+const password = ref('')
+const loading = ref(false)
+const hasError = ref<boolean | 403>(false)
+
+const buttons: DialogButtons = [{
+	label: t('Confirm'),
+	type: 'submit',
+	variant: 'primary',
+	callback,
+}]
+
+const helperText = computed(() => {
+	if (hasError.value !== false) {
+		if (password.value === '') {
+			return t('Please enter your password')
+		}
+
+		switch (hasError.value) {
+			case true:
+				return t('Unknown error while checking password')
+			case 403:
+				return t('Wrong password')
+		}
+	}
+
+	if (loading.value) {
+		return t('Checking password …') // TRANSLATORS: This is a status message, shown when the system is checking the users password
+	}
+
+	return ''
+})
+
+/**
+ * Handle confirm button click
+ */
+async function callback(): Promise<boolean> {
+	hasError.value = false
+	loading.value = true
+
+	if (password.value === '') {
+		hasError.value = true
+		return false
+	}
+
+	try {
+		await props.validate(password.value)
+		emit('close', true)
+		return true
+	} catch (error) {
+		if (isAxiosError(error) && error.response?.status === 403) {
+			hasError.value = 403
+		} else {
+			hasError.value = true
+		}
+
+		logger.error('Exception during password confirmation', { error })
+		selectPasswordField()
+		return false
+	} finally {
+		loading.value = false
+	}
 }
 
-export default defineComponent({
-	name: 'PasswordDialog',
+/**
+ * Focus the password field
+ */
+function focusPasswordField() {
+	nextTick(() => {
+		passwordInput.value!.focus()
+	})
+}
 
-	components: {
-		NcButton,
-		NcDialog,
-		NcLoadingIcon,
-		NcPasswordField,
-	},
-
-	props: {
-		/**
-		 * Function to call to validate password
-		 */
-		validate: {
-			type: Function,
-			required: true,
-		},
-	},
-
-	emits: ['close'],
-
-	data() {
-		return {
-			password: '',
-			loading: false,
-			error: false as boolean | 403,
-		}
-	},
-
-	computed: {
-		helperText() {
-			if (this.error !== false) {
-				if (this.password === '') {
-					return t('Please enter your password')
-				}
-
-				switch (this.error) {
-					case true:
-						return t('Unknown error while checking password')
-					case 403:
-						return t('Wrong password')
-				}
-			}
-
-			if (this.loading) {
-				return t('Checking password …') // TRANSLATORS: This is a status message, shown when the system is checking the users password
-			}
-
-			return ''
-		},
-	},
-
-	mounted() {
-		this.focusPasswordField()
-	},
-
-	methods: {
-		t,
-
-		async confirm(): Promise<void> {
-			this.error = false
-			this.loading = true
-
-			if (this.password === '') {
-				this.error = true
-				return
-			}
-
-			try {
-				await this.validate(this.password)
-				this.$emit('close', true)
-			} catch (error) {
-				if (isAxiosError(error) && error.response?.status === 403) {
-					this.error = 403
-				} else {
-					this.error = true
-				}
-
-				logger.error('Exception during password confirmation', { error })
-				this.selectPasswordField()
-			} finally {
-				this.loading = false
-			}
-		},
-
-		close(open: boolean): void {
-			if (!open) {
-				this.$emit('close', false)
-			}
-		},
-
-		focusPasswordField() {
-			this.$nextTick(() => {
-				(this.$refs.field as ICanFocus).focus()
-			})
-		},
-
-		selectPasswordField() {
-			this.$nextTick(() => {
-				(this.$refs.field as ICanFocus).select()
-			})
-		},
-	},
-})
+/**
+ * Select the password field
+ */
+function selectPasswordField() {
+	nextTick(() => {
+		passwordInput.value!.select()
+	})
+}
 </script>
 
-<style lang="scss">
-.vue-password-confirmation {
+<template>
+	<NcDialog
+		is-form
+		:buttons
+		:name="t('Authentication required')"
+		:content-classes="$style.passwordDialog"
+		@update:open="emit('close', false)">
+		<p>{{ t('This action needs authentication, please confirm it by entering your password.') }}</p>
+		<NcPasswordField
+			ref="field"
+			v-model="password"
+			:label="t('Password')"
+			:helper-text="helperText"
+			:error="hasError !== false"
+			required />
+	</NcDialog>
+</template>
+
+<style module>
+.passwordDialog {
 	display: flex;
 	flex-direction: column;
+	gap: 10px 0;
 	margin-inline: 6px;
 	margin-block-end: 6px;
-	gap: 10px 0;
-
-	&__form {
-		display: flex;
-		flex-direction: column;
-		gap: 8px 0;
-		// allow focus visible outlines
-		padding: 2px;
-	}
-
-	&__submit {
-		align-self: end;
-	}
 }
 </style>
