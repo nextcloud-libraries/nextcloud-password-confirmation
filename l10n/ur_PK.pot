@@ -16,7 +16,7 @@ msgstr "تصدیق درکار ہے"
 #. TRANSLATORS: This is a status message, shown when the system is checking
 #. the users password
 msgid "Checking password …"
-msgstr "پاس ورڈ چیک کر رہا ہوں …"
+msgstr "پاس ورڈ چیک ہو رہا ہے …"
 
 msgid "Confirm"
 msgstr "تصدیق کریں"
