@@ -37,4 +37,4 @@ msgid "Unknown error while checking password"
 msgstr "پاس ورڈ چیک کرنے میں نامعلوم خرابی"
 
 msgid "Wrong password"
-msgstr "غلط پاس ورڈ"
+msgstr "نادرست پاس ورڈ"
