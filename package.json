@@ -60,7 +60,7 @@
     "gettext-parser": "^8.0.0",
     "sass": "^1.93.2",
     "typescript": "^5.9.3",
-    "vite": "^6.3.6"
+    "vite": "^6.4.0"
   },
   "browserslist": [
     "extends @nextcloud/browserslist-config"
