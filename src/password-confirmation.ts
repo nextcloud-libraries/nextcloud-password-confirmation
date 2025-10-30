@@ -27,12 +27,14 @@ let INTERCEPTOR_INITIALIZED = false
  * Confirm password if needed.
  * Replacement of deprecated `OC.PasswordConfirmation.requirePasswordConfirmation(callback)`
  *
+ * @param options - Options for the interceptors
+ * @param options.force - Force confirming password even if not required
  * @return Promise that resolves when password is confirmed or not needed.
  *                         Rejects if password confirmation was cancelled
  *                         or confirmation is already in process.
  */
-export async function confirmPassword(): Promise<void> {
-	if (!isPasswordConfirmationRequired(PwdConfirmationMode.Lax)) {
+export async function confirmPassword({ force = false }: { force?: boolean } = {}): Promise<void> {
+	if (!isPasswordConfirmationRequired(PwdConfirmationMode.Lax) && !force) {
 		return Promise.resolve()
 	}
 
@@ -85,8 +87,10 @@ async function promptPassword(validate: (password: string) => Promise<void>) {
  * password confirmation to add it as Basic Auth for every requests.
  *
  * @param axios - The axios instance to add intercepters to
+ * @param options - Options for the interceptors
+ * @param options.force - Force confirming password even if not required
  */
-export function addPasswordConfirmationInterceptors(axios: AxiosInstance): void {
+export function addPasswordConfirmationInterceptors(axios: AxiosInstance, { force = false }: { force?: boolean } = {}): void {
 	if (INTERCEPTOR_INITIALIZED) {
 		return
 	}
@@ -100,7 +104,7 @@ export function addPasswordConfirmationInterceptors(axios: AxiosInstance): void 
 			return config
 		}
 
-		if (!isPasswordConfirmationRequired(config.confirmPassword)) {
+		if (!isPasswordConfirmationRequired(config.confirmPassword) && !force) {
 			return config
 		}
 
