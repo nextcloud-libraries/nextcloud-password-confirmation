@@ -132,6 +132,11 @@ export function addPasswordConfirmationInterceptors(axios: AxiosInstance): void 
 				return response
 			}
 
+			if (!validatePromise) {
+				logger.debug('Password confirmation not required', { response })
+				return response
+			}
+
 			logger.debug('Password confirmation succeeded', { response })
 			window.nc_lastLogin = Date.now() / 1000
 			validatePromise.resolve()
