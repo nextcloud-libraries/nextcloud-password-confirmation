@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file.
 ### Changed
 * docs: adjust supported versions [\#1176](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/1176) \([susnux](https://github.com/susnux)\)
 * refactor: use css modules and script-setup [\#1174](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/1174) \([susnux](https://github.com/susnux)\)
+* ci: update workflows from organization [\#1211](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/1211) \([susnux](https://github.com/susnux)\) 
 
 ## [6.0.1](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v6.0.0...v6.0.1) - 2025-10-16
 ### Fixed
