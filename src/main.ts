@@ -128,7 +128,7 @@ export function addPasswordConfirmationInterceptors(axios: AxiosInstance): void 
 
 	INTERCEPTOR_INITIALIZED = true
 
-	let validatePromise: PromiseWithResolvers<void>
+	let validatePromise: PromiseWithResolvers<void> | undefined
 
 	axios.interceptors.request.use(
 		async (config) => {
@@ -175,6 +175,11 @@ export function addPasswordConfirmationInterceptors(axios: AxiosInstance): void 
 				return response
 			}
 
+			if (validatePromise === undefined) {
+				console.debug('Password confirmation not required', { response })
+				return response
+			}
+
 			console.debug('Password confirmation succeeded', { response })
 			window.nc_lastLogin = Date.now() / 1000
 			validatePromise.resolve()
@@ -183,6 +188,11 @@ export function addPasswordConfirmationInterceptors(axios: AxiosInstance): void 
 		},
 		(error) => {
 			if (error.config?.confirmPassword !== PwdConfirmationMode.Strict) {
+				throw error
+			}
+
+			if (validatePromise === undefined) {
+				console.debug('Password confirmation not required', { error })
 				throw error
 			}
 
