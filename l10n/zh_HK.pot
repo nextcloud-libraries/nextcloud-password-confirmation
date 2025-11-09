@@ -32,5 +32,8 @@ msgid ""
 "password."
 msgstr "此操作需要身份驗證，請輸入您的密碼以進行確認。"
 
+msgid "Unknown error while checking password"
+msgstr "檢查密碼時發生未知錯誤"
+
 msgid "Wrong password"
 msgstr "密碼錯誤"
