@@ -123,6 +123,7 @@ function selectPasswordField() {
 			v-model="password"
 			:label="t('Password')"
 			:helper-text="helperText"
+			:check-password-strength="false"
 			:error="hasError !== false"
 			required />
 	</NcDialog>
