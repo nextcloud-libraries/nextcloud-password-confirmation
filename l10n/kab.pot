@@ -34,5 +34,8 @@ msgstr ""
 "Tigawt-a tesra asesteb, ttxil-k·m, wekked-itt-id s usekcem n wawal-inek·inem"
 " n uɛeddi."
 
+msgid "Unknown error while checking password"
+msgstr "Tuccḍa tarussint imi yessefqad ɣef wawal n uɛeddi"
+
 msgid "Wrong password"
 msgstr "Awal n uɛeddi d arameɣtu"
