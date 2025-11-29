@@ -56,7 +56,7 @@
     "@nextcloud/vite-config": "^2.5.0",
     "@types/gettext-parser": "^8.0.0",
     "@types/node": "^24.10.1",
-    "@vitest/coverage-v8": "^4.0.13",
+    "@vitest/coverage-v8": "^4.0.14",
     "@vue/tsconfig": "^0.8.1",
     "gettext-extractor": "^4.0.1",
     "gettext-parser": "^8.0.0",
