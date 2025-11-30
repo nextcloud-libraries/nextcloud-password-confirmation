@@ -34,5 +34,8 @@ msgid ""
 msgstr ""
 "Tämä toimenpide vaatii tunnistautumisen. Vahvista kirjoittamalla salasanasi."
 
+msgid "Unknown error while checking password"
+msgstr "Tuntematon virhe salasanaa tarkistaessa"
+
 msgid "Wrong password"
 msgstr "Väärä salasana"
