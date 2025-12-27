@@ -59,7 +59,7 @@
     "@vitest/coverage-v8": "^4.0.16",
     "@vue/tsconfig": "^0.8.1",
     "gettext-extractor": "^4.0.4",
-    "gettext-parser": "^8.0.0",
+    "gettext-parser": "^9.0.0",
     "happy-dom": "^20.0.11",
     "sass": "^1.97.1",
     "typedoc": "^0.28.15",
