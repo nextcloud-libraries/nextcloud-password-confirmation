@@ -34,7 +34,7 @@ msgid ""
 msgstr "Ця дія вимагає авторизацію, зазначте ваш пароль."
 
 msgid "Unknown error while checking password"
-msgstr "Невідома помилка під час перевірки паролю"
+msgstr "Невідома помилка під час перевірки пароля"
 
 msgid "Wrong password"
 msgstr "Помилковий пароль"
