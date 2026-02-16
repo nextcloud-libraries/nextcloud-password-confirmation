@@ -1,10 +1,11 @@
 # 
 # Translators:
 # kshimohata, 2025
+# imamura, 2026
 # 
 msgid ""
 msgstr ""
-"Last-Translator: kshimohata, 2025\n"
+"Last-Translator: imamura, 2026\n"
 "Language-Team: Japanese (Japan) (https://app.transifex.com/nextcloud/teams/64236/ja_JP/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: ja_JP\n"
@@ -30,7 +31,7 @@ msgstr "パスワードを入力してください"
 msgid ""
 "This action needs authentication, please confirm it by entering your "
 "password."
-msgstr "この操作には認証が必要です。パスワードを入力して承認してください。"
+msgstr "この操作には認証が必要です。パスワードを入力してください。"
 
 msgid "Unknown error while checking password"
 msgstr "パスワードのチェック中に不明なエラーが発生しました"
