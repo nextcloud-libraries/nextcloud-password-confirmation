@@ -55,7 +55,7 @@
     "@nextcloud/eslint-config": "^9.0.0-rc.6",
     "@nextcloud/vite-config": "^2.5.0",
     "@types/gettext-parser": "^9.0.0",
-    "@types/node": "^25.2.1",
+    "@types/node": "^25.3.0",
     "@vitest/coverage-v8": "^4.0.18",
     "@vue/tsconfig": "^0.8.1",
     "gettext-extractor": "^4.0.5",
