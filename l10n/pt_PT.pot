@@ -1,10 +1,10 @@
-# 
 # Translators:
 # artur25 <arturdiogo1997@hotmail.com>, 2025
+# Sara Pestana, 2026
 # 
 msgid ""
 msgstr ""
-"Last-Translator: artur25 <arturdiogo1997@hotmail.com>, 2025\n"
+"Last-Translator: Sara Pestana, 2026\n"
 "Language-Team: Portuguese (Portugal) (https://app.transifex.com/nextcloud/teams/64236/pt_PT/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: pt_PT\n"
@@ -32,6 +32,9 @@ msgid ""
 "password."
 msgstr ""
 "Esta ação requer autenticação; confirme-a introduzindo a sua palavra-passe."
+
+msgid "Unknown error while checking password"
+msgstr "Erro desconhecido ao verificar a palavra-passe"
 
 msgid "Wrong password"
 msgstr "Palavra-passe incorreta"
