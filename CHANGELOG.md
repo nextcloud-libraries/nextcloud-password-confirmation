@@ -6,6 +6,14 @@ All notable changes to this project will be documented in this file.
  - SPDX-License-Identifier: MIT
  -->
 
+## [6.0.3](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v6.0.2...v6.0.3) - 2026-03-06
+### Fixed
+* fix: Don't apply password policy when trying to confirm a password [\#1228](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/1228)
+
+### Changed
+* Updated translations
+* Updated development dependencies
+
 ## [6.0.2](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v6.0.1...v6.0.2) - 2025-11-06
 ### Fixed
 * fix: add check for validatePromise for passwordless environments [\#1209](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/1209) \([benjaminfrueh](https://github.com/benjaminfrueh)\)
