@@ -112,18 +112,18 @@ function selectPasswordField() {
 
 <template>
 	<NcDialog
-		is-form
+		isForm
 		:buttons
 		:name="t('Authentication required')"
-		:content-classes="$style.passwordDialog"
+		:contentClasses="$style.passwordDialog"
 		@update:open="emit('close', false)">
 		<p>{{ t('This action needs authentication, please confirm it by entering your password.') }}</p>
 		<NcPasswordField
 			ref="field"
 			v-model="password"
 			:label="t('Password')"
-			:helper-text="helperText"
-			:check-password-strength="false"
+			:helperText
+			:checkPasswordStrength="false"
 			:error="hasError !== false"
 			required />
 	</NcDialog>
