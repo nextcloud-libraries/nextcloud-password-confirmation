@@ -4,10 +4,10 @@
  -->
 
 <script setup lang="ts">
-import { isAxiosError } from '@nextcloud/axios'
 import { computed, nextTick, onMounted, ref, useTemplateRef } from 'vue'
 import NcDialog from '@nextcloud/vue/components/NcDialog'
 import NcPasswordField from '@nextcloud/vue/components/NcPasswordField'
+import { isConfirmationError } from '../apiError.ts'
 import { t } from '../utils/l10n.js'
 import { logger } from '../utils/logger.js'
 
@@ -30,7 +30,7 @@ const passwordInput = useTemplateRef('field')
 
 const password = ref('')
 const loading = ref(false)
-const hasError = ref<boolean | 403>(false)
+const hasError = ref<boolean>(false)
 
 const buttons: DialogButtons = [{
 	label: t('Confirm'),
@@ -40,21 +40,16 @@ const buttons: DialogButtons = [{
 }]
 
 const helperText = computed(() => {
-	if (hasError.value !== false) {
-		if (password.value === '') {
-			return t('Please enter your password')
-		}
-
-		switch (hasError.value) {
-			case true:
-				return t('Unknown error while checking password')
-			case 403:
-				return t('Wrong password')
-		}
+	if (hasError.value) {
+		return t('Wrong password')
 	}
 
 	if (loading.value) {
 		return t('Checking password …') // TRANSLATORS: This is a status message, shown when the system is checking the users password
+	}
+
+	if (password.value === '') {
+		return t('Please enter your password')
 	}
 
 	return ''
@@ -75,20 +70,19 @@ async function callback(): Promise<boolean> {
 	try {
 		await props.validate(password.value)
 		emit('close', true)
-		return true
 	} catch (error) {
-		if (isAxiosError(error) && error.response?.status === 403) {
-			hasError.value = 403
-		} else {
+		if (isConfirmationError(error)) {
 			hasError.value = true
+			logger.error('Exception during password confirmation', { error })
+			selectPasswordField()
+			return false
 		}
-
-		logger.error('Exception during password confirmation', { error })
-		selectPasswordField()
-		return false
+		hasError.value = true
+		emit('close', false)
 	} finally {
 		loading.value = false
 	}
+	return true
 }
 
 /**
