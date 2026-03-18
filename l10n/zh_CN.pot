@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Joas Schilling, 2024
 # TUCAOEVER, 2024
@@ -33,9 +32,6 @@ msgid ""
 "This action needs authentication, please confirm it by entering your "
 "password."
 msgstr "此操作需要身份验证，请输入密码进行确认。"
-
-msgid "Unknown error while checking password"
-msgstr "检查密码时出现未知错误"
 
 msgid "Wrong password"
 msgstr "密码错误"
