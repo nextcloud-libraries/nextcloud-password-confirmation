@@ -10,6 +10,7 @@ import axios from '@nextcloud/axios'
 import { generateUrl } from '@nextcloud/router'
 import { spawnDialog } from '@nextcloud/vue/functions/dialog'
 import PasswordDialogVue from './components/PasswordDialog.vue'
+import { isConfirmationError } from './apiError.ts'
 import { PwdConfirmationMode } from './globals.ts'
 import { isPasswordConfirmationRequired } from './is-required.ts'
 import { logger } from './utils/logger.ts'
@@ -104,7 +105,7 @@ export function addPasswordConfirmationInterceptors(axios: AxiosInstance): void 
 			return config
 		}
 
-		const { promise, resolve } = Promise.withResolvers<InternalAxiosRequestConfig>()
+		const { promise, resolve, reject } = Promise.withResolvers<InternalAxiosRequestConfig>()
 		promptPassword(async (password: string) => {
 			switch (config.confirmPassword) {
 				case PwdConfirmationMode.Lax:
@@ -121,7 +122,7 @@ export function addPasswordConfirmationInterceptors(axios: AxiosInstance): void 
 					resolve(config)
 					return validatePromise.promise
 			}
-		})
+		}).catch(reject)
 
 		return promise
 	})
@@ -155,11 +156,13 @@ export function addPasswordConfirmationInterceptors(axios: AxiosInstance): void 
 
 			logger.debug('Password confirmation failed', { error })
 			validatePromise.reject(error)
-
-			// If the password confirmation failed, we trigger another request.
-			// that will go through the password confirmation flow again.
-			logger.debug('Triggering new request', { error })
-			return axios.request(error.config)
+			if (isConfirmationError(error)) {
+				// If the password confirmation failed, we trigger another request.
+				// that will go through the password confirmation flow again.
+				logger.debug('Triggering new request', { error })
+				return axios.request(error.config)
+			}
+			throw error
 		},
 	)
 }
