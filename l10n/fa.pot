@@ -1,4 +1,3 @@
-# 
 # Translators:
 # reza reza <forghan89@yahoo.com>, 2024
 # Omid Nateghi, 2025

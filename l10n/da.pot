@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Joas Schilling, 2024
 # Martin Bonde <Martin@maboni.dk>, 2024
@@ -35,9 +34,6 @@ msgid ""
 "password."
 msgstr ""
 "Denne handling kræver godkendelse. Indtast din adgangskode for at bekræfte."
-
-msgid "Unknown error while checking password"
-msgstr "Ukendt fejl under kontrol af adgangskode"
 
 msgid "Wrong password"
 msgstr "forkert Adgangskode"

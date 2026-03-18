@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Joas Schilling, 2024
 # Vincenzo Reale <vinx.reale@gmail.com>, 2026
@@ -34,9 +33,6 @@ msgid ""
 msgstr ""
 "Questa azione richiede l'autenticazione, confermala digitando la tua "
 "password."
-
-msgid "Unknown error while checking password"
-msgstr "Errore sconosciuto durante la verifica della password"
 
 msgid "Wrong password"
 msgstr "Password errata"

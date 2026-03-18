@@ -1,11 +1,10 @@
-# 
 # Translators:
-# Efstathios Iosifidis <iefstathios@gmail.com>, 2025
-# Γιάννος, 2025
+# Efstathios Iosifidis <eiosifidis@gmail.com>, 2025
+# ac8a127b4e32514af68813db2f21936d_cf77e36, 2025
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Γιάννος, 2025\n"
+"Last-Translator: ac8a127b4e32514af68813db2f21936d_cf77e36, 2025\n"
 "Language-Team: Greek (https://app.transifex.com/nextcloud/teams/64236/el/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: el\n"
@@ -34,9 +33,6 @@ msgid ""
 msgstr ""
 "Αυτή η ενέργεια απαιτεί πιστοποίηση. Επιβεβαιώστε την εισάγοντας τον κωδικό "
 "πρόσβασής σας."
-
-msgid "Unknown error while checking password"
-msgstr "Άγνωστο σφάλμα κατά τον έλεγχο του κωδικού πρόσβασης"
 
 msgid "Wrong password"
 msgstr "Λάθος συνθηματικό"

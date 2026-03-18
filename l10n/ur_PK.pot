@@ -1,10 +1,9 @@
-# 
 # Translators:
-# Usama Ahmed, 2025
+# marfisdev, 2025
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Usama Ahmed, 2025\n"
+"Last-Translator: marfisdev, 2025\n"
 "Language-Team: Urdu (Pakistan) (https://app.transifex.com/nextcloud/teams/64236/ur_PK/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: ur_PK\n"
@@ -32,9 +31,6 @@ msgid ""
 "password."
 msgstr ""
 "اس عمل کو تصدیق کی ضرورت ہے، براہ کرم پاس ورڈ درج کرکے اس کی تصدیق کریں۔"
-
-msgid "Unknown error while checking password"
-msgstr "پاس ورڈ چیک کرنے میں نامعلوم خرابی"
 
 msgid "Wrong password"
 msgstr "نادرست پاس ورڈ"
