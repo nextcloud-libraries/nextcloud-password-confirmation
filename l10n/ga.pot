@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Aindriú Mac Giolla Eoin, 2025
 # 
@@ -33,9 +32,6 @@ msgid ""
 msgstr ""
 "Teastaíonn fíordheimhniú don ghníomh seo, deimhnigh é trí do phasfhocal a "
 "iontráil."
-
-msgid "Unknown error while checking password"
-msgstr "Earráid anaithnid agus an focal faire á sheiceáil"
 
 msgid "Wrong password"
 msgstr "Pasfhocal mícheart"
