@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Nenad Lazarić, 2026
 # 
@@ -32,9 +31,6 @@ msgid ""
 "password."
 msgstr ""
 "Ova radnja zahtijeva autentifikaciju, potvrdite je unosom svoje lozinke."
-
-msgid "Unknown error while checking password"
-msgstr "Nepoznata pogreška pri provjeri lozinke"
 
 msgid "Wrong password"
 msgstr "Pogrešna lozinka"
