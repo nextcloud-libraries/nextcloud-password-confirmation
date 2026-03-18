@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Joas Schilling, 2024
 # Pavel Borecki <pavel.borecki@gmail.com>, 2025
@@ -32,9 +31,6 @@ msgid ""
 "This action needs authentication, please confirm it by entering your "
 "password."
 msgstr "Tato akce vyžaduje ověření se – potvrďte ji zadáním svého hesla."
-
-msgid "Unknown error while checking password"
-msgstr "Neznámá chyba při kontrolování hesla"
 
 msgid "Wrong password"
 msgstr "Nesprávné heslo"
