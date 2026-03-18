@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Priit Jõerüüt <transifex@joeruut.com>, 2025
 # 
@@ -32,9 +31,6 @@ msgid ""
 "password."
 msgstr ""
 "See tegevus eeldab autentimist, palun tee seda sisestades oma salasõna."
-
-msgid "Unknown error while checking password"
-msgstr "Tundmatu viga salasõna kontrollimisel"
 
 msgid "Wrong password"
 msgstr "Vale salasõna"
