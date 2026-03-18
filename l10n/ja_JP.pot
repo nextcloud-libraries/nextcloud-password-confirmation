@@ -1,4 +1,3 @@
-# 
 # Translators:
 # kshimohata, 2025
 # imamura, 2026
@@ -32,9 +31,6 @@ msgid ""
 "This action needs authentication, please confirm it by entering your "
 "password."
 msgstr "この操作には認証が必要です。パスワードを入力してください。"
-
-msgid "Unknown error while checking password"
-msgstr "パスワードのチェック中に不明なエラーが発生しました"
 
 msgid "Wrong password"
 msgstr "間違ったパスワード"
