@@ -1,11 +1,10 @@
-# 
 # Translators:
 # Joas Schilling, 2024
-# O St, 2026
+# O St, 2025
 # 
 msgid ""
 msgstr ""
-"Last-Translator: O St, 2026\n"
+"Last-Translator: O St, 2025\n"
 "Language-Team: Ukrainian (https://app.transifex.com/nextcloud/teams/64236/uk/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: uk\n"
@@ -32,9 +31,6 @@ msgid ""
 "This action needs authentication, please confirm it by entering your "
 "password."
 msgstr "Ця дія вимагає авторизацію, зазначте ваш пароль."
-
-msgid "Unknown error while checking password"
-msgstr "Невідома помилка під час перевірки пароля"
 
 msgid "Wrong password"
 msgstr "Помилковий пароль"
