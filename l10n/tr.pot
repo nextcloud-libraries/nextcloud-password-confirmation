@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Joas Schilling, 2024
 # Kaya Zeren <kayazeren@gmail.com>, 2025
@@ -33,9 +32,6 @@ msgid ""
 "password."
 msgstr ""
 "Bu işlemi yapmak için kimliğinizi doğrulamalısınız. Lütfen parolanızı yazın."
-
-msgid "Unknown error while checking password"
-msgstr "Parola denetlenirken bilinmeyen bir sorun çıktı"
 
 msgid "Wrong password"
 msgstr "Parola geçersiz"
