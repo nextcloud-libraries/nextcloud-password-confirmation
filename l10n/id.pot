@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Joas Schilling, 2024
 # Udin Bahrudin Budiman, 2025
