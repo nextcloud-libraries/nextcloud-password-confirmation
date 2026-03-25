@@ -1,0 +1,38 @@
+# Translators:
+# Moo, 2025
+# Modestas Girdzevicius <modestas.girdzevicius@gmail.com>, 2026
+# 
+msgid ""
+msgstr ""
+"Last-Translator: Modestas Girdzevicius <modestas.girdzevicius@gmail.com>, 2026\n"
+"Language-Team: Lithuanian (Lithuania) (https://app.transifex.com/nextcloud/teams/64236/lt_LT/)\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: lt_LT\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
+
+msgid "Authentication required"
+msgstr "Reikalingas autentifikavimas"
+
+#. TRANSLATORS: This is a status message, shown when the system is checking
+#. the users password
+msgid "Checking password …"
+msgstr "Tikrinamas slaptažodis  …"
+
+msgid "Confirm"
+msgstr "Patvirtinti"
+
+msgid "Password"
+msgstr "Slaptažodis"
+
+msgid "Please enter your password"
+msgstr "Įveskite slaptažodį"
+
+msgid ""
+"This action needs authentication, please confirm it by entering your "
+"password."
+msgstr ""
+"Šiam veiksmui reikalinga autentifikacija, patvirtinkite ją įvesdami "
+"slaptažodį."
+
+msgid "Wrong password"
+msgstr "Neteisingas slaptažodis"
