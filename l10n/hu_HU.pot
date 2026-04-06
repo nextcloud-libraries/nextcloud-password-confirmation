@@ -2,17 +2,18 @@
 # Joas Schilling, 2024
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2024
 # János Schrempf <schrempf.janos@gmail.com>, 2025
+# Balázs Meskó <meskobalazs@mailbox.org>, 2026
 # 
 msgid ""
 msgstr ""
-"Last-Translator: János Schrempf <schrempf.janos@gmail.com>, 2025\n"
+"Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>, 2026\n"
 "Language-Team: Hungarian (Hungary) (https://app.transifex.com/nextcloud/teams/64236/hu_HU/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: hu_HU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Authentication required"
-msgstr "Azonosítás szükséges"
+msgstr "Hitelesítés szükséges"
 
 #. TRANSLATORS: This is a status message, shown when the system is checking
 #. the users password
