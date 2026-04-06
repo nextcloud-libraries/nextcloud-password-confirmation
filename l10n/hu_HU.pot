@@ -1,7 +1,6 @@
 # Translators:
 # Joas Schilling, 2024
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2024
-# János Schrempf <schrempf.janos@gmail.com>, 2025
 # Balázs Meskó <meskobalazs@mailbox.org>, 2026
 # 
 msgid ""
@@ -33,7 +32,7 @@ msgid ""
 "This action needs authentication, please confirm it by entering your "
 "password."
 msgstr ""
-"Ehhez a tevékenységhez azonosítás szükséges. Kérlek hagyd jóvá a jelszavad "
+"Ehhez a tevékenységhez hitelesítés szükséges, erősítse meg a jelszava "
 "megadásával."
 
 msgid "Wrong password"
