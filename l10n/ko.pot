@@ -1,10 +1,11 @@
 # Translators:
 # Hyeongjin Park, 2025
 # 보헤민, 2025
+# Hyeongjun Son, 2026
 # 
 msgid ""
 msgstr ""
-"Last-Translator: 보헤민, 2025\n"
+"Last-Translator: Hyeongjun Son, 2026\n"
 "Language-Team: Korean (https://app.transifex.com/nextcloud/teams/64236/ko/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: ko\n"
@@ -30,7 +31,7 @@ msgstr "비밀번호를 입력하세요"
 msgid ""
 "This action needs authentication, please confirm it by entering your "
 "password."
-msgstr "이 작업은 인증이 필요합니다. 비밀번호를 입력하여 확인하십시오. "
+msgstr "이 작업은 인증이 필요합니다. 비밀번호를 입력하여 확인해주세요."
 
 msgid "Wrong password"
 msgstr "잘못된 비밀번호"
