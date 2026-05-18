@@ -1,0 +1,37 @@
+# Translators:
+# bounkirdni_2025, 2026
+# 
+msgid ""
+msgstr ""
+"Last-Translator: bounkirdni_2025, 2026\n"
+"Language-Team: Lao (https://app.transifex.com/nextcloud/teams/64236/lo/)\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: lo\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Authentication required"
+msgstr "ຈຳເປັນຕ້ອງມີການຢືນຢັນຕົວຕົນ"
+
+#. TRANSLATORS: This is a status message, shown when the system is checking
+#. the users password
+msgid "Checking password …"
+msgstr "ກຳລັງກວດສອບລະຫັດຜ່ານ..."
+
+msgid "Confirm"
+msgstr "ຢືນຢັນ"
+
+msgid "Password"
+msgstr "ລະຫັດຜ່ານ"
+
+msgid "Please enter your password"
+msgstr "ກະລຸນາປ້ອນລະຫັດຜ່ານຂອງທ່ານ"
+
+msgid ""
+"This action needs authentication, please confirm it by entering your "
+"password."
+msgstr ""
+"ການດຳເນີນການນີ້ຈຳເປັນຕ້ອງມີການຢືນຢັນຕົວຕົນ, "
+"ກະລຸນາຢືນຢັນໂດຍການປ້ອນລະຫັດຜ່ານຂອງທ່ານ."
+
+msgid "Wrong password"
+msgstr "ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ"
