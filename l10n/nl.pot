@@ -2,10 +2,11 @@
 # Joas Schilling, 2024
 # WebSpider <nils@familievogels.nl>, 2024
 # Stephan Paternotte <stephan@paternottes.net>, 2025
+# Sebastiaan Veld <sebastiaan.veld@virtfields.nl>, 2026
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
+"Last-Translator: Sebastiaan Veld <sebastiaan.veld@virtfields.nl>, 2026\n"
 "Language-Team: Dutch (https://app.transifex.com/nextcloud/teams/64236/nl/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: nl\n"
@@ -31,7 +32,9 @@ msgstr "Voer je wachtwoord in"
 msgid ""
 "This action needs authentication, please confirm it by entering your "
 "password."
-msgstr "Deze actie vereist authenticatie, voer je wachtwoord in."
+msgstr ""
+"Voor deze handeling is authenticatie vereist. Bevestig dit door je "
+"wachtwoord in te voeren."
 
 msgid "Wrong password"
 msgstr "Incorrect wachtwoord"
