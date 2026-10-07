@@ -15,6 +15,9 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
+msgid "Please confirm your password to proceed."
+msgstr ""
+
 msgid "Please enter your password"
 msgstr ""
 

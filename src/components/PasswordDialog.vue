@@ -15,6 +15,10 @@ type DialogButtons = InstanceType<typeof NcDialog>['$props']['buttons']
 
 const props = defineProps<{
 	/**
+	 * Custom text to show in the dialog, instead of the default text
+	 */
+	customText?: string
+	/**
 	 * Function to call to validate password
 	 */
 	validate: (password: string) => Promise<void> | void
@@ -111,7 +115,13 @@ function selectPasswordField() {
 		:name="t('Authentication required')"
 		:contentClasses="$style.passwordDialog"
 		@update:open="emit('close', false)">
-		<p>{{ t('This action needs authentication, please confirm it by entering your password.') }}</p>
+		<div v-if="customText">
+			<p>{{ customText }}</p>
+			<p>{{ t('Please confirm your password to proceed.') }}</p>
+		</div>
+		<p v-else>
+			{{ t('This action needs authentication, please confirm it by entering your password.') }}
+		</p>
 		<NcPasswordField
 			ref="field"
 			v-model="password"

@@ -8,6 +8,7 @@ declare module '*/PasswordDialog.vue' {
 	import type { ComponentOptionsMixin, ComponentProvideOptions, DefineComponent, PublicProps } from 'vue'
 
 	type DialogProps = {
+		customText?: string
 		validate: (value: string) => Promise<void> | void
 	}
 
