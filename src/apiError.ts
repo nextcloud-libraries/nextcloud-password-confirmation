@@ -19,12 +19,13 @@ export function isConfirmationError(error: unknown): boolean {
 		return false
 	}
 
-	const hasConfirmationHeader = error.response.headers?.['x-nextcloud-password-confirmation'] === 'true'
 	if (NC_MAJOR_VERSION < 32) {
 		logger.debug('Handle legacy confirmation error based on status code', { status: error.response.status })
 		return error.response.status === 403
 	}
 
+	// https://github.com/nextcloud/server/pull/58869
+	const hasConfirmationHeader = error.response.headers?.['X-NC-Auth-NotConfirmed'] === 'true'
 	logger.debug('Handle modern confirmation error based on header', { hasConfirmationHeader })
 	return hasConfirmationHeader
 }
