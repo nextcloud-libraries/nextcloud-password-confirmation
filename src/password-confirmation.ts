@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-import type { AxiosInstance, InternalAxiosRequestConfig } from '@nextcloud/axios'
+import type { AxiosBasicCredentials, AxiosInstance, InternalAxiosRequestConfig } from '@nextcloud/axios'
 
 import { getCurrentUser } from '@nextcloud/auth'
 import axios from '@nextcloud/axios'
@@ -39,9 +39,34 @@ export async function confirmPassword(options: { text?: string } = {}): Promise<
 		return Promise.resolve()
 	}
 
-	await promptPassword(async (password: string) => {
-		await _confirmPassword(password)
-	}, options.text)
+	await promptConfirmedPassword(options.text)
+}
+
+/**
+ * Prompt the user for the password and validate it using the confirmation endpoint.
+ *
+ * @param text - Custom text to show in the dialog, instead of the default text
+ * @return The confirmed password
+ */
+async function promptConfirmedPassword(text?: string): Promise<string> {
+	let password = ''
+	await promptPassword(async (value: string) => {
+		await _confirmPassword(value)
+		password = value
+	}, text)
+	return password
+}
+
+/**
+ * Get the Basic Auth credentials of the current user.
+ *
+ * @param password - The password of the current user
+ */
+function getBasicAuth(password: string): AxiosBasicCredentials {
+	return {
+		username: getCurrentUser()?.uid ?? '',
+		password,
+	}
 }
 
 /**
@@ -109,23 +134,20 @@ export function addPasswordConfirmationInterceptors(axios: AxiosInstance): void 
 			return config
 		}
 
+		if (config.confirmPassword === PwdConfirmationMode.Lax) {
+			await promptConfirmedPassword()
+			return config
+		}
+
+		// In strict mode the request itself validates the password,
+		// so keep the dialog open until the response interceptor resolves or rejects the validation.
 		const { promise, resolve, reject } = Promise.withResolvers<InternalAxiosRequestConfig>()
 		promptPassword(async (password: string) => {
-			switch (config.confirmPassword) {
-				case PwdConfirmationMode.Lax:
-					await _confirmPassword(password)
-					resolve(config)
-					break
-				case PwdConfirmationMode.Strict:
-					validatePromise = Promise.withResolvers<void>()
-					config.auth = {
-						username: getCurrentUser()?.uid ?? '',
-						password,
-					}
-					logger.debug('Adding auth info to the request', { config })
-					resolve(config)
-					return validatePromise.promise
-			}
+			validatePromise = Promise.withResolvers<void>()
+			config.auth = getBasicAuth(password)
+			logger.debug('Adding auth info to the request', { config })
+			resolve(config)
+			return validatePromise.promise
 		}).catch(reject)
 
 		return promise
