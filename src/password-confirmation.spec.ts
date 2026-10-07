@@ -3,8 +3,13 @@
  * SPDX-License-Identifier: MIT
  */
 
+import type { AxiosInstance } from '@nextcloud/axios'
+import type * as ErrorsModule from './errors.ts'
+import type * as PasswordConfirmationModule from './password-confirmation.ts'
+
 import { beforeEach, describe, expect, test, vi } from 'vitest'
 import { PasswordConfirmationCancelledError } from './errors.ts'
+import { PwdConfirmationMode } from './globals.ts'
 
 const spawnDialogMock = vi.hoisted(() => vi.fn())
 const axiosMock = vi.hoisted(() => createAxiosMock())
@@ -78,6 +83,8 @@ async function runDialog(validate: (password: string) => Promise<void>, password
 	return false
 }
 
+const auth = { username: 'admin', password: 'secret' }
+
 beforeEach(() => {
 	vi.clearAllMocks()
 	window.backendAllowsPasswordConfirmation = true
@@ -115,5 +122,148 @@ describe('confirmPassword', () => {
 		spawnDialogMock.mockResolvedValue(false)
 
 		await expect(confirmPassword()).rejects.toThrow(PasswordConfirmationCancelledError)
+	})
+})
+
+describe('addPasswordConfirmationInterceptors', () => {
+	let module: typeof PasswordConfirmationModule
+	let errors: typeof ErrorsModule
+	let client: ReturnType<typeof createAxiosMock>
+	let onRequest: (config: object) => Promise<object>
+	let onResponse: (response: object) => object
+	let onResponseError: (error: object) => unknown
+
+	beforeEach(async () => {
+		// reset the module state (initialized interceptors and pending validation)
+		vi.resetModules()
+		module = await import('./password-confirmation.ts')
+		errors = await import('./errors.ts')
+
+		client = createAxiosMock()
+		module.addPasswordConfirmationInterceptors(client as unknown as AxiosInstance)
+		onRequest = client.interceptors.request.use.mock.calls[0]![0]
+		;[onResponse, onResponseError] = client.interceptors.response.use.mock.calls[0]!
+	})
+
+	/**
+	 * Create an axios error for a failed strict request
+	 *
+	 * @param config - The request config
+	 * @param confirmationError - Whether the error is caused by a wrong password
+	 */
+	function createError(config: object, confirmationError: boolean) {
+		return {
+			isAxiosError: true,
+			config,
+			response: {
+				status: 403,
+				headers: confirmationError ? { 'x-nextcloud-password-confirmation': 'true' } : {},
+			},
+		}
+	}
+
+	test('only adds the interceptors once', () => {
+		module.addPasswordConfirmationInterceptors(client as unknown as AxiosInstance)
+		expect(client.interceptors.request.use).toHaveBeenCalledOnce()
+		expect(client.interceptors.response.use).toHaveBeenCalledOnce()
+	})
+
+	test('ignores requests without confirmPassword', async () => {
+		const config = { url: '/url' }
+
+		await expect(onRequest(config)).resolves.toBe(config)
+		expect(spawnDialogMock).not.toHaveBeenCalled()
+	})
+
+	test('ignores requests if no confirmation is required', async () => {
+		window.backendAllowsPasswordConfirmation = false
+		const config = { url: '/url', confirmPassword: PwdConfirmationMode.Strict }
+
+		await expect(onRequest(config)).resolves.toBe(config)
+		expect(spawnDialogMock).not.toHaveBeenCalled()
+	})
+
+	describe('lax mode', () => {
+		test('confirms the password before sending the request', async () => {
+			mockDialogInput('secret')
+			const config = { url: '/url', confirmPassword: PwdConfirmationMode.Lax }
+
+			await expect(onRequest(config)).resolves.toEqual({ url: '/url', confirmPassword: PwdConfirmationMode.Lax })
+			expect(axiosMock.post).toHaveBeenCalledWith('/index.php/login/confirm', { password: 'secret' })
+			expect(window.nc_lastLogin).toBe(1234)
+		})
+
+		test('rejects with PasswordConfirmationCancelledError if cancelled', async () => {
+			spawnDialogMock.mockResolvedValue(false)
+
+			await expect(onRequest({ confirmPassword: PwdConfirmationMode.Lax })).rejects.toThrow(errors.PasswordConfirmationCancelledError)
+		})
+	})
+
+	describe('strict mode', () => {
+		test('ignores responses of other requests', () => {
+			const response = { config: { confirmPassword: PwdConfirmationMode.Lax } }
+			expect(onResponse(response)).toBe(response)
+		})
+
+		test('ignores strict responses without pending confirmation', async () => {
+			const response = { config: { confirmPassword: PwdConfirmationMode.Strict } }
+			expect(onResponse(response)).toBe(response)
+
+			const error = createError(response.config, true)
+			await expect(async () => onResponseError(error)).rejects.toBe(error)
+		})
+
+		test('rethrows errors of other requests', async () => {
+			const error = createError({ confirmPassword: PwdConfirmationMode.Lax }, true)
+			await expect(async () => onResponseError(error)).rejects.toBe(error)
+		})
+
+		test('adds the password to the request and keeps the dialog open until the response', async () => {
+			mockDialogInput('secret')
+			const config = await onRequest({ url: '/url', confirmPassword: PwdConfirmationMode.Strict })
+
+			expect(config).toEqual({ url: '/url', confirmPassword: PwdConfirmationMode.Strict, auth })
+			expect(axiosMock.post).not.toHaveBeenCalled()
+
+			let closed = false
+			dialogResult!.then(() => {
+				closed = true
+			})
+			await Promise.resolve()
+			expect(closed).toBe(false)
+
+			const now = Date.now() / 1000
+			const response = { config }
+			expect(onResponse(response)).toBe(response)
+			await expect(dialogResult).resolves.toBe(true)
+			expect(window.nc_lastLogin).toBeGreaterThanOrEqual(now)
+		})
+
+		test('retries the request if the password was wrong', async () => {
+			mockDialogInput('wrong')
+			const config = await onRequest({ url: '/url', confirmPassword: PwdConfirmationMode.Strict })
+			client.request.mockResolvedValue('retried')
+
+			await expect(onResponseError(createError(config, true))).resolves.toBe('retried')
+			expect(client.request).toHaveBeenCalledWith(config)
+			// the validation failed, so the dialog did not accept the password
+			await expect(dialogResult).resolves.toBe(false)
+		})
+
+		test('rethrows other errors', async () => {
+			mockDialogInput('secret')
+			const config = await onRequest({ url: '/url', confirmPassword: PwdConfirmationMode.Strict })
+			const error = createError(config, false)
+
+			await expect(async () => onResponseError(error)).rejects.toBe(error)
+			expect(client.request).not.toHaveBeenCalled()
+		})
+
+		test('rejects with PasswordConfirmationCancelledError if cancelled', async () => {
+			spawnDialogMock.mockResolvedValue(false)
+
+			await expect(onRequest({ confirmPassword: PwdConfirmationMode.Strict })).rejects.toThrow(errors.PasswordConfirmationCancelledError)
+		})
 	})
 })
