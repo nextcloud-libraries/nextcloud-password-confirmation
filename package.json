@@ -50,17 +50,17 @@
   },
   "devDependencies": {
     "@nextcloud/browserslist-config": "^3.1.2",
-    "@nextcloud/eslint-config": "^8.3.0",
+    "@nextcloud/eslint-config": "^8.4.2",
     "@nextcloud/vite-config": "^1.7.2",
     "@types/gettext-parser": "^8.0.0",
-    "@types/node": "^22.20.4",
+    "@types/node": "^22.20.5",
     "@types/node-gettext": "^3.0.6",
     "@vue/tsconfig": "^0.5.1",
     "gettext-extractor": "^3.8.0",
     "gettext-parser": "^8.0.0",
     "sass": "^1.105.1",
     "typescript": "^5.9.3",
-    "vite": "^7.3.6"
+    "vite": "^7.3.7"
   },
   "browserslist": [
     "extends @nextcloud/browserslist-config"
@@ -73,5 +73,15 @@
   "engines": {
     "node": "^20.0.0 ||^22.0.0",
     "npm": "^10.5.1"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "^22"
+    },
+    "packageManager": [{
+      "name": "npm",
+      "version": "^10.5.1"
+    }]
   }
 }
