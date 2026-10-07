@@ -304,7 +304,7 @@ describe('addPasswordConfirmationInterceptors', () => {
 			config,
 			response: {
 				status: 403,
-				headers: confirmationError ? { 'x-nextcloud-password-confirmation': 'true' } : {},
+				headers: confirmationError ? { 'X-NC-Auth-NotConfirmed': 'true' } : {},
 			},
 		}
 	}
