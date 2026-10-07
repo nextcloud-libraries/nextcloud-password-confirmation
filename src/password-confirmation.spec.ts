@@ -23,7 +23,7 @@ vi.mock('@nextcloud/auth', () => ({ getCurrentUser: () => ({ uid: 'admin' }) }))
 vi.mock('@nextcloud/router', () => ({ generateUrl: (url: string) => `/index.php${url}` }))
 vi.mock('./components/PasswordDialog.vue', () => ({ default: {} }))
 
-const { confirmPassword } = await import('./password-confirmation.ts')
+const { confirmPassword, withStrictPasswordConfirmation } = await import('./password-confirmation.ts')
 
 /**
  * Create a callable mock of an axios instance
@@ -122,6 +122,153 @@ describe('confirmPassword', () => {
 		spawnDialogMock.mockResolvedValue(false)
 
 		await expect(confirmPassword()).rejects.toThrow(PasswordConfirmationCancelledError)
+	})
+})
+
+describe('withStrictPasswordConfirmation', () => {
+	test('runs the callback with the unmodified client if no confirmation is required', async () => {
+		window.backendAllowsPasswordConfirmation = false
+		const client = createAxiosMock()
+		const callback = vi.fn(async () => 'result')
+
+		await expect(withStrictPasswordConfirmation(callback, { axios: client as unknown as AxiosInstance })).resolves.toBe('result')
+		expect(callback).toHaveBeenCalledWith(client)
+		expect(spawnDialogMock).not.toHaveBeenCalled()
+	})
+
+	test('uses @nextcloud/axios by default', async () => {
+		mockDialogInput('secret')
+
+		await withStrictPasswordConfirmation(async (client) => {
+			await client.get('/a')
+		})
+		expect(axiosMock.get).toHaveBeenCalledWith('/a', { auth, confirmPassword: undefined })
+	})
+
+	test('prompts once with the custom text and returns the callback value', async () => {
+		mockDialogInput('secret')
+		const client = createAxiosMock()
+
+		const result = await withStrictPasswordConfirmation(async (axios) => {
+			await axios.put('/a', { a: 1 })
+			await axios.get('/b')
+			return 'result'
+		}, { text: 'Going to update apps', axios: client as unknown as AxiosInstance })
+
+		expect(result).toBe('result')
+		expect(spawnDialogMock).toHaveBeenCalledOnce()
+		expect(spawnDialogMock.mock.calls[0]![1].customText).toBe('Going to update apps')
+		expect(axiosMock.post).toHaveBeenCalledOnce()
+		expect(axiosMock.post).toHaveBeenCalledWith('/index.php/login/confirm', { password: 'secret' })
+		expect(client.put).toHaveBeenCalledWith('/a', { a: 1 }, { auth, confirmPassword: undefined })
+		expect(client.get).toHaveBeenCalledWith('/b', { auth, confirmPassword: undefined })
+	})
+
+	test('only runs the callback once the password was validated', async () => {
+		mockDialogInput('wrong', 'secret')
+		axiosMock.post.mockImplementation(async (_url, { password }) => {
+			if (password !== 'secret') {
+				throw new Error('Wrong password')
+			}
+			return { data: { lastLogin: 1234 } }
+		})
+		const client = createAxiosMock()
+		const callback = vi.fn(async (axios: AxiosInstance) => {
+			await axios.get('/a')
+		})
+
+		await withStrictPasswordConfirmation(callback, { axios: client as unknown as AxiosInstance })
+		expect(axiosMock.post).toHaveBeenCalledTimes(2)
+		expect(callback).toHaveBeenCalledOnce()
+		expect(client.get).toHaveBeenCalledWith('/a', { auth, confirmPassword: undefined })
+	})
+
+	test('rejects with PasswordConfirmationCancelledError and does not run the callback if cancelled', async () => {
+		spawnDialogMock.mockResolvedValue(false)
+		const callback = vi.fn()
+
+		await expect(withStrictPasswordConfirmation(callback)).rejects.toThrow(PasswordConfirmationCancelledError)
+		expect(callback).not.toHaveBeenCalled()
+	})
+
+	test('propagates errors of the callback', async () => {
+		mockDialogInput('secret')
+		const error = new Error('Request failed')
+
+		await expect(withStrictPasswordConfirmation(async () => {
+			throw error
+		})).rejects.toBe(error)
+	})
+
+	describe('authenticated client', () => {
+		/**
+		 * Get the authenticated client passed to the callback
+		 *
+		 * @param client - The base client
+		 */
+		async function getAuthenticatedClient(client: ReturnType<typeof createAxiosMock>): Promise<AxiosInstance> {
+			mockDialogInput('secret')
+			return withStrictPasswordConfirmation(async (axios) => axios, { axios: client as unknown as AxiosInstance })
+		}
+
+		test.each(['get', 'delete', 'head', 'options'] as const)('adds auth to %s requests', async (method) => {
+			const client = createAxiosMock()
+			const authenticated = await getAuthenticatedClient(client)
+
+			await authenticated[method]('/url', { headers: { a: 'b' }, confirmPassword: PwdConfirmationMode.Strict })
+			expect(client[method]).toHaveBeenCalledWith('/url', { headers: { a: 'b' }, auth, confirmPassword: undefined })
+		})
+
+		test.each(['post', 'put', 'patch', 'postForm', 'putForm', 'patchForm'] as const)('adds auth to %s requests', async (method) => {
+			const client = createAxiosMock()
+			const authenticated = await getAuthenticatedClient(client)
+
+			await authenticated[method]('/url', { a: 1 }, { headers: { a: 'b' }, confirmPassword: PwdConfirmationMode.Strict })
+			expect(client[method]).toHaveBeenCalledWith('/url', { a: 1 }, { headers: { a: 'b' }, auth, confirmPassword: undefined })
+		})
+
+		test('adds auth to requests without config', async () => {
+			const client = createAxiosMock()
+			const authenticated = await getAuthenticatedClient(client)
+
+			await authenticated.get('/url')
+			await authenticated.post('/url', { a: 1 })
+			expect(client.get).toHaveBeenCalledWith('/url', { auth, confirmPassword: undefined })
+			expect(client.post).toHaveBeenCalledWith('/url', { a: 1 }, { auth, confirmPassword: undefined })
+		})
+
+		test('adds auth to generic requests', async () => {
+			const client = createAxiosMock()
+			const authenticated = await getAuthenticatedClient(client)
+
+			await authenticated.request({ url: '/url', method: 'PUT' })
+			expect(client.request).toHaveBeenCalledWith({ url: '/url', method: 'PUT', auth, confirmPassword: undefined })
+		})
+
+		test('adds auth when calling the client directly', async () => {
+			const client = createAxiosMock()
+			const authenticated = await getAuthenticatedClient(client)
+
+			await authenticated({ url: '/url', method: 'PUT' })
+			await authenticated('/url', { method: 'DELETE' })
+			expect(client).toHaveBeenCalledWith({ url: '/url', method: 'PUT', auth, confirmPassword: undefined })
+			expect(client).toHaveBeenCalledWith('/url', { method: 'DELETE', auth, confirmPassword: undefined })
+		})
+
+		test('passes through other properties', async () => {
+			const client = createAxiosMock()
+			const authenticated = await getAuthenticatedClient(client)
+
+			expect(authenticated.defaults).toBe(client.defaults)
+		})
+
+		test('does not modify the original client', async () => {
+			const client = createAxiosMock()
+			const { get } = client
+			await getAuthenticatedClient(client)
+
+			expect(client.get).toBe(get)
+		})
 	})
 })
 

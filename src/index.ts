@@ -9,4 +9,5 @@ export { isPasswordConfirmationRequired } from './is-required.ts'
 export {
 	addPasswordConfirmationInterceptors,
 	confirmPassword,
+	withStrictPasswordConfirmation,
 } from './password-confirmation.ts'

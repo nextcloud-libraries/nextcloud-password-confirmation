@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-import type { AxiosBasicCredentials, AxiosInstance, InternalAxiosRequestConfig } from '@nextcloud/axios'
+import type { AxiosBasicCredentials, AxiosInstance, AxiosRequestConfig, InternalAxiosRequestConfig } from '@nextcloud/axios'
 
 import { getCurrentUser } from '@nextcloud/auth'
 import axios from '@nextcloud/axios'
@@ -108,6 +108,83 @@ async function promptPassword(validate: (password: string) => Promise<void>, cus
 	if (!result) {
 		throw new PasswordConfirmationCancelledError()
 	}
+}
+
+/**
+ * Group multiple requests that require strict password confirmation,
+ * so the user only needs to enter the password once.
+ *
+ * The password is validated once before the callback is executed,
+ * then all requests made with the axios instance passed to the callback
+ * are authenticated with the confirmed password.
+ *
+ * @example
+ * ```ts
+ * await withStrictPasswordConfirmation(async (axios) => {
+ *     await axios.put(...)
+ *     await axios.get(...)
+ * }, { text: t('myapp', 'The following apps will be updated …') })
+ * ```
+ *
+ * @param callback - Function performing the requests using the provided axios instance
+ * @param options - Additional options
+ * @param options.text - Custom text to show in the dialog, instead of the default text
+ * @param options.axios - The axios instance to use, defaults to `@nextcloud/axios`
+ * @return Promise resolving to the return value of the callback.
+ *                         Rejects with `PasswordConfirmationCancelledError` if password confirmation was cancelled.
+ */
+export async function withStrictPasswordConfirmation<T>(
+	callback: (axios: AxiosInstance) => Promise<T>,
+	options: { text?: string, axios?: AxiosInstance } = {},
+): Promise<T> {
+	const client = options.axios ?? axios
+	if (!isPasswordConfirmationRequired(PwdConfirmationMode.Strict)) {
+		return await callback(client)
+	}
+
+	const password = await promptConfirmedPassword(options.text)
+	return await callback(createAuthenticatedClient(client, getBasicAuth(password)))
+}
+
+/**
+ * Create a proxy of an axios instance that adds the auth information to every request.
+ * Using a proxy ensures that unrelated requests made with the same instance are not affected,
+ * while defaults and interceptors of the original instance are still used.
+ *
+ * @param client - The axios instance to wrap
+ * @param auth - The auth information to add to the requests
+ */
+function createAuthenticatedClient(client: AxiosInstance, auth: AxiosBasicCredentials): AxiosInstance {
+	// Explicitly unset `confirmPassword` so the interceptors do not ask for the password again
+	const withAuth = (config: AxiosRequestConfig = {}): AxiosRequestConfig => ({ ...config, auth, confirmPassword: undefined })
+
+	return new Proxy(client, {
+		apply(target, thisArg, [urlOrConfig, config]) {
+			return typeof urlOrConfig === 'string'
+				? target(urlOrConfig, withAuth(config))
+				: target(withAuth(urlOrConfig))
+		},
+		get(target, property, receiver) {
+			switch (property) {
+				case 'request':
+					return (config?: AxiosRequestConfig) => target.request(withAuth(config))
+				case 'get':
+				case 'delete':
+				case 'head':
+				case 'options':
+					return (url: string, config?: AxiosRequestConfig) => target[property](url, withAuth(config))
+				case 'post':
+				case 'put':
+				case 'patch':
+				case 'postForm':
+				case 'putForm':
+				case 'patchForm':
+					return (url: string, data?: unknown, config?: AxiosRequestConfig) => target[property](url, data, withAuth(config))
+				default:
+					return Reflect.get(target, property, receiver)
+			}
+		},
+	})
 }
 
 /**
