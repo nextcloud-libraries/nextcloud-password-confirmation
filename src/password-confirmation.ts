@@ -11,6 +11,7 @@ import { generateUrl } from '@nextcloud/router'
 import { spawnDialog } from '@nextcloud/vue/functions/dialog'
 import PasswordDialogVue from './components/PasswordDialog.vue'
 import { isConfirmationError } from './apiError.ts'
+import { PasswordConfirmationCancelledError } from './errors.ts'
 import { PwdConfirmationMode } from './globals.ts'
 import { isPasswordConfirmationRequired } from './is-required.ts'
 import { logger } from './utils/logger.ts'
@@ -31,8 +32,7 @@ let INTERCEPTOR_INITIALIZED = false
  * @param options - Additional options
  * @param options.text - Custom text to show in the dialog, instead of the default text
  * @return Promise that resolves when password is confirmed or not needed.
- *                         Rejects if password confirmation was cancelled
- *                         or confirmation is already in process.
+ *                         Rejects with `PasswordConfirmationCancelledError` if password confirmation was cancelled.
  */
 export async function confirmPassword(options: { text?: string } = {}): Promise<void> {
 	if (!isPasswordConfirmationRequired(PwdConfirmationMode.Lax)) {
@@ -81,7 +81,7 @@ async function promptPassword(validate: (password: string) => Promise<void>, cus
 	const result = await _passwordDialog
 	_passwordDialog = undefined
 	if (!result) {
-		throw new Error('Dialog closed')
+		throw new PasswordConfirmationCancelledError()
 	}
 }
 

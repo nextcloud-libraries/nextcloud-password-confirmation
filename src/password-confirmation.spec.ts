@@ -4,6 +4,7 @@
  */
 
 import { beforeEach, describe, expect, test, vi } from 'vitest'
+import { PasswordConfirmationCancelledError } from './errors.ts'
 
 const spawnDialogMock = vi.hoisted(() => vi.fn())
 const axiosMock = vi.hoisted(() => createAxiosMock())
@@ -108,5 +109,11 @@ describe('confirmPassword', () => {
 
 		await confirmPassword({ text: 'Custom text' })
 		expect(spawnDialogMock.mock.calls[0]![1].customText).toBe('Custom text')
+	})
+
+	test('rejects with PasswordConfirmationCancelledError if cancelled', async () => {
+		spawnDialogMock.mockResolvedValue(false)
+
+		await expect(confirmPassword()).rejects.toThrow(PasswordConfirmationCancelledError)
 	})
 })
