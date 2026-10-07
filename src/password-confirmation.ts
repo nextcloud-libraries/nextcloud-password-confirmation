@@ -28,18 +28,20 @@ let INTERCEPTOR_INITIALIZED = false
  * Confirm password if needed.
  * Replacement of deprecated `OC.PasswordConfirmation.requirePasswordConfirmation(callback)`
  *
+ * @param options - Additional options
+ * @param options.text - Custom text to show in the dialog, instead of the default text
  * @return Promise that resolves when password is confirmed or not needed.
  *                         Rejects if password confirmation was cancelled
  *                         or confirmation is already in process.
  */
-export async function confirmPassword(): Promise<void> {
+export async function confirmPassword(options: { text?: string } = {}): Promise<void> {
 	if (!isPasswordConfirmationRequired(PwdConfirmationMode.Lax)) {
 		return Promise.resolve()
 	}
 
 	await promptPassword(async (password: string) => {
 		await _confirmPassword(password)
-	})
+	}, options.text)
 }
 
 /**
@@ -63,11 +65,13 @@ let _dialogCallback: (s: string) => Promise<void>
  * Spawn a dialog to prompt the password.
  *
  * @param validate Is called to validate the user's password
+ * @param customText Optional custom text to show in the dialog, instead of the default text
  */
-async function promptPassword(validate: (password: string) => Promise<void>) {
+async function promptPassword(validate: (password: string) => Promise<void>, customText?: string): Promise<void> {
 	_dialogCallback = validate
 	if (!_passwordDialog) {
 		_passwordDialog = spawnDialog(PasswordDialogVue, {
+			customText,
 			validate(password: string) {
 				return _dialogCallback(password)
 			},
