@@ -1,0 +1,37 @@
+# Translators:
+# David Wagener, 2026
+# 
+msgid ""
+msgstr ""
+"Last-Translator: David Wagener, 2026\n"
+"Language-Team: Luxembourgish (https://app.transifex.com/nextcloud/teams/64236/lb/)\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: lb\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Authentication required"
+msgstr "Authentifizéierung erfuerderlech"
+
+#. TRANSLATORS: This is a status message, shown when the system is checking
+#. the users password
+msgid "Checking password …"
+msgstr "Passwuert préiwen …"
+
+msgid "Confirm"
+msgstr "Bestätegen"
+
+msgid "Password"
+msgstr "Passwuert"
+
+msgid "Please enter your password"
+msgstr "Wannechgelift gëff däi Passwuert an"
+
+msgid ""
+"This action needs authentication, please confirm it by entering your "
+"password."
+msgstr ""
+"Fir dës Aktioun ass eng Authentifizéierung erfuerderlech. Wannechgelift "
+"bestäteg dës duerch d'Aginn vun dengem Passwuert."
+
+msgid "Wrong password"
+msgstr "Falscht Passwuert"
