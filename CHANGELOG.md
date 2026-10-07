@@ -6,6 +6,17 @@ All notable changes to this project will be documented in this file.
  - SPDX-License-Identifier: MIT
  -->
 
+## [6.2.0](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v6.1.0...v6.2.0) - 2026-10-07
+### Added
+* feat: add withStrictPasswordConfirmation to group strict requests \([\#1512](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/1512)\)
+
+### Fixed
+* fix: use proper header name for password confirmation errors \([\#1519](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/1519)\)
+
+### Changed
+* Updated translations
+* Updated dependencies
+
 ## [6.1.0](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v6.0.3...v6.1.0) - 2026-03-18
 ### Added
 * feat: use status header on recent Nextcloud versions to detect confirmation error [\#1359](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/1359)
