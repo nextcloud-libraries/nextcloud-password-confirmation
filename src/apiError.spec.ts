@@ -53,7 +53,7 @@ describe('isConfirmationError', () => {
 		const error = {
 			response: {
 				headers: {
-					'x-nextcloud-password-confirmation': 'true',
+					'X-NC-Auth-NotConfirmed': 'true',
 				},
 				status: 403,
 			},
