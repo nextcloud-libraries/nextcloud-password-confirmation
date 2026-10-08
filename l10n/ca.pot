@@ -24,6 +24,9 @@ msgstr "Confirma"
 msgid "Password"
 msgstr "Contrasenya"
 
+msgid "Please confirm your password to proceed."
+msgstr "Si us plau, confirmeu la vostra contrasenya per continuar."
+
 msgid "Please enter your password"
 msgstr "Introduïu la vostra contrasenya"
 
