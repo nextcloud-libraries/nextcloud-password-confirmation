@@ -2,10 +2,11 @@
 # Joas Schilling, 2024
 # Martin Wilichowski, 2025
 # Mario Siegmann <mario_siegmann@web.de>, 2025
+# Mark Ziegler <mark.ziegler@rakekniven.de>, 2026
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Mario Siegmann <mario_siegmann@web.de>, 2025\n"
+"Last-Translator: Mark Ziegler <mark.ziegler@rakekniven.de>, 2026\n"
 "Language-Team: German (https://app.transifex.com/nextcloud/teams/64236/de/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: de\n"
@@ -24,6 +25,9 @@ msgstr "Bestätigen"
 
 msgid "Password"
 msgstr "Passwort"
+
+msgid "Please confirm your password to proceed."
+msgstr "Bitte bestätigen Sie Ihr Passwort, um fortzufahren."
 
 msgid "Please enter your password"
 msgstr "Bitte gib dein Passwort ein"
