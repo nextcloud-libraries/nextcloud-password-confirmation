@@ -1,9 +1,9 @@
 # Translators:
-# Priit Jõerüüt <transifex@joeruut.com>, 2025
+# Priit Jõerüüt <transifex@joeruut.com>, 2026
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Priit Jõerüüt <transifex@joeruut.com>, 2025\n"
+"Last-Translator: Priit Jõerüüt <transifex@joeruut.com>, 2026\n"
 "Language-Team: Estonian (Estonia) (https://app.transifex.com/nextcloud/teams/64236/et_EE/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: et_EE\n"
@@ -22,6 +22,9 @@ msgstr "Kinnita"
 
 msgid "Password"
 msgstr "Salasõna"
+
+msgid "Please confirm your password to proceed."
+msgstr "Jätkamiseks palun kinnita oma salasõna."
 
 msgid "Please enter your password"
 msgstr "Palun sisesta oma salasõna"
