@@ -3,10 +3,11 @@
 # JEEEEEEEEEEEEEEEEEEEEEED, 2024
 # Matsac42, 2025
 # Yohan HARROCH, 2026
+# Xavier, 2026
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Yohan HARROCH, 2026\n"
+"Last-Translator: Xavier, 2026\n"
 "Language-Team: French (https://app.transifex.com/nextcloud/teams/64236/fr/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: fr\n"
@@ -25,6 +26,9 @@ msgstr "Confirmer"
 
 msgid "Password"
 msgstr "Mot de passe"
+
+msgid "Please confirm your password to proceed."
+msgstr "Veuillez confirmer votre mot de passe pour poursuivre."
 
 msgid "Please enter your password"
 msgstr "Veuillez saisir votre mot de passe"
