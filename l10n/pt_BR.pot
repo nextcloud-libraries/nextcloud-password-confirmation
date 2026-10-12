@@ -1,10 +1,10 @@
 # Translators:
 # Joas Schilling, 2024
-# F Bausch, 2025
+# F Bausch, 2026
 # 
 msgid ""
 msgstr ""
-"Last-Translator: F Bausch, 2025\n"
+"Last-Translator: F Bausch, 2026\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/nextcloud/teams/64236/pt_BR/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: pt_BR\n"
@@ -23,6 +23,9 @@ msgstr "Confirmar"
 
 msgid "Password"
 msgstr "Senha"
+
+msgid "Please confirm your password to proceed."
+msgstr "Por favor, confirme sua senha para continuar."
 
 msgid "Please enter your password"
 msgstr "Por favor, insira sua senha"
