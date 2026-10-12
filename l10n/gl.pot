@@ -1,11 +1,11 @@
 # Translators:
 # Joas Schilling, 2024
-# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2025
 # Xosé, 2026
+# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2026
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Xosé, 2026\n"
+"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2026\n"
 "Language-Team: Galician (https://app.transifex.com/nextcloud/teams/64236/gl/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: gl\n"
@@ -35,7 +35,7 @@ msgid ""
 "This action needs authentication, please confirm it by entering your "
 "password."
 msgstr ""
-"Esta acción precisa de autenticación, confírmea introducindo o seu "
+"Esta acción precisa de autenticación; confírmea introducindo o seu "
 "contrasinal."
 
 msgid "Wrong password"
