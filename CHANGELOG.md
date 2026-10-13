@@ -6,6 +6,14 @@ All notable changes to this project will be documented in this file.
  - SPDX-License-Identifier: MIT
  -->
 
+## [6.2.1](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v6.2.0...v6.2.1) - 2026-10-13
+### Fixed
+* fix: proper export of types \([\#1533](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/1533)\)
+
+### Changed
+* chore: add type checking to scripts and CI \([\#1532](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/1532)\)
+* Updated translations
+
 ## [6.2.0](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/compare/v6.1.0...v6.2.0) - 2026-10-07
 ### Added
 * feat: add withStrictPasswordConfirmation to group strict requests \([\#1512](https://github.com/nextcloud-libraries/nextcloud-password-confirmation/pull/1512)\)
