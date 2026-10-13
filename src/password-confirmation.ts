@@ -136,7 +136,7 @@ async function promptPassword(validate: (password: string) => Promise<void>, cus
 export async function withStrictPasswordConfirmation<T>(
 	callback: (axios: AxiosInstance) => T,
 	options: { text?: string, axios?: AxiosInstance } = {},
-): Promise<T> {
+): Promise<Awaited<T>> {
 	const client = options.axios ?? axios
 	if (!isPasswordConfirmationRequired(PwdConfirmationMode.Strict)) {
 		return await callback(client)
