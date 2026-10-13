@@ -134,7 +134,7 @@ async function promptPassword(validate: (password: string) => Promise<void>, cus
  *                         Rejects with `PasswordConfirmationCancelledError` if password confirmation was cancelled.
  */
 export async function withStrictPasswordConfirmation<T>(
-	callback: (axios: AxiosInstance) => Promise<T>,
+	callback: (axios: AxiosInstance) => T,
 	options: { text?: string, axios?: AxiosInstance } = {},
 ): Promise<T> {
 	const client = options.axios ?? axios
