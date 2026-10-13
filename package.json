@@ -36,6 +36,7 @@
     "lint:fix": "eslint --fix",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
+    "ts:check": "vue-tsc --noEmit",
     "watch": "vite build --mode development --watch"
   },
   "browserslist": [
