@@ -1,9 +1,9 @@
 # Translators:
-# Aindriú Mac Giolla Eoin, 2025
+# Aindriú Mac Giolla Eoin, 2026
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Aindriú Mac Giolla Eoin, 2025\n"
+"Last-Translator: Aindriú Mac Giolla Eoin, 2026\n"
 "Language-Team: Irish (https://app.transifex.com/nextcloud/teams/64236/ga/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: ga\n"
@@ -22,6 +22,9 @@ msgstr "Deimhnigh"
 
 msgid "Password"
 msgstr "Pasfhocal"
+
+msgid "Please confirm your password to proceed."
+msgstr "Deimhnigh do phasfhocal, le do thoil, chun dul ar aghaidh."
 
 msgid "Please enter your password"
 msgstr "Cuir isteach do phasfhocal"
