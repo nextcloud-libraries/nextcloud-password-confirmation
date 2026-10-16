@@ -3,10 +3,11 @@
 # Erik Lennartsson, 2024
 # Magnus Höglund, 2025
 # Jonatan Nyberg, 2026
+# Daniel Nylander <po@danielnylander.se>, 2026
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Jonatan Nyberg, 2026\n"
+"Last-Translator: Daniel Nylander <po@danielnylander.se>, 2026\n"
 "Language-Team: Swedish (https://app.transifex.com/nextcloud/teams/64236/sv/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: sv\n"
@@ -25,6 +26,9 @@ msgstr "Bekräfta"
 
 msgid "Password"
 msgstr "Lösenord"
+
+msgid "Please confirm your password to proceed."
+msgstr "Bekräfta ditt lösenord för att fortsätta."
 
 msgid "Please enter your password"
 msgstr "Ange ditt lösenord"
