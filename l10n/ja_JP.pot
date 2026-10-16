@@ -1,10 +1,11 @@
 # Translators:
 # kshimohata, 2025
-# imamura, 2026
+# kojima.imamura, 2026
+# Katsuhiro Shimohata, 2026
 # 
 msgid ""
 msgstr ""
-"Last-Translator: imamura, 2026\n"
+"Last-Translator: Katsuhiro Shimohata, 2026\n"
 "Language-Team: Japanese (Japan) (https://app.transifex.com/nextcloud/teams/64236/ja_JP/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: ja_JP\n"
@@ -23,6 +24,9 @@ msgstr "確認"
 
 msgid "Password"
 msgstr "パスワード"
+
+msgid "Please confirm your password to proceed."
+msgstr "続行するには、パスワードを確認してください。"
 
 msgid "Please enter your password"
 msgstr "パスワードを入力してください"
