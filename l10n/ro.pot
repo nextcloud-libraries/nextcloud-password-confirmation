@@ -1,35 +1,40 @@
-# 
 # Translators:
 # Joas Schilling, 2024
-# Georgeuhm, 2024
+# Ștefan Chelban, 2026
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Georgeuhm, 2024\n"
+"Last-Translator: Ștefan Chelban, 2026\n"
 "Language-Team: Romanian (https://app.transifex.com/nextcloud/teams/64236/ro/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: ro\n"
 "Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
+msgid "Authentication required"
+msgstr "Autentificare necesară"
+
 #. TRANSLATORS: This is a status message, shown when the system is checking
 #. the users password
-msgid "Checking password …"
-msgstr "Se verifică parola ..."
+msgid "Checking password …"
+msgstr "Se verifică parola…"
 
 msgid "Confirm"
-msgstr "Confirmare"
-
-msgid "Confirm your password"
-msgstr "Confirmare parolă"
+msgstr "Confirmă"
 
 msgid "Password"
 msgstr "Parolă"
 
-msgid "Please enter your password"
-msgstr "Vă rugăm să introduceți parola"
+msgid "Please confirm your password to proceed."
+msgstr "Confirmă-ți parola pentru a continua."
 
-msgid "This action needs authentication"
-msgstr "Această acțiune necesită autentificare"
+msgid "Please enter your password"
+msgstr "Introdu-ți parola"
+
+msgid ""
+"This action needs authentication, please confirm it by entering your "
+"password."
+msgstr ""
+"Această acțiune necesită autentificare. Confirm-o introducându-ți parola."
 
 msgid "Wrong password"
 msgstr "Parolă incorectă"
