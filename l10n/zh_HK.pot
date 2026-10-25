@@ -1,9 +1,9 @@
 # Translators:
-# Café Tango, 2025
+# Café Tango, 2026
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Café Tango, 2025\n"
+"Last-Translator: Café Tango, 2026\n"
 "Language-Team: Chinese (Hong Kong) (https://app.transifex.com/nextcloud/teams/64236/zh_HK/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: zh_HK\n"
@@ -22,6 +22,9 @@ msgstr "確認"
 
 msgid "Password"
 msgstr "密碼"
+
+msgid "Please confirm your password to proceed."
+msgstr "請確認你的密碼以繼續。"
 
 msgid "Please enter your password"
 msgstr "請輸入您的密碼"
