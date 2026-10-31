@@ -1,7 +1,6 @@
 # Translators:
 # Joas Schilling, 2024
 # hhjuhl, 2025
-# Ronny Buelund <mail@rbuelund.dk>, 2025
 # Christian Koerner, 2026
 # 
 msgid ""
@@ -18,7 +17,7 @@ msgstr "Bekræft din identitet"
 #. TRANSLATORS: This is a status message, shown when the system is checking
 #. the users password
 msgid "Checking password …"
-msgstr "Kontrollerer adgangskode …"
+msgstr "Kontrollerer adgangskode …"
 
 msgid "Confirm"
 msgstr "Bekræft"
