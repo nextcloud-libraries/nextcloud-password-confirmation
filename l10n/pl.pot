@@ -1,35 +1,40 @@
-# 
 # Translators:
 # Joas Schilling, 2024
-# Piotr Strębski <strebski@gmail.com>, 2024
+# Piotr Strebski <strebski@gmail.com>, 2024
+# Bartosz Keller, 2026
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Piotr Strębski <strebski@gmail.com>, 2024\n"
+"Last-Translator: Bartosz Keller, 2026\n"
 "Language-Team: Polish (https://app.transifex.com/nextcloud/teams/64236/pl/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: pl\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
+msgid "Authentication required"
+msgstr "Uwierzytelnienie wymagane"
+
 #. TRANSLATORS: This is a status message, shown when the system is checking
 #. the users password
-msgid "Checking password …"
-msgstr "Sprawdzanie hasła…"
+msgid "Checking password …"
+msgstr "Sprawdzanie hasła ..."
 
 msgid "Confirm"
 msgstr "Potwierdź"
 
-msgid "Confirm your password"
-msgstr "Potwierdź swoje hasło"
-
 msgid "Password"
 msgstr "Hasło"
+
+msgid "Please confirm your password to proceed."
+msgstr "Potwierdź swoje hasło, aby kontynuować."
 
 msgid "Please enter your password"
 msgstr "Wprowadź swoje hasło"
 
-msgid "This action needs authentication"
-msgstr "Wykonanie tej czynności wymaga autoryzacji"
+msgid ""
+"This action needs authentication, please confirm it by entering your "
+"password."
+msgstr "Ta operacja wymaga uwierzytelnienia. Wprowadź hasło, aby kontynuować."
 
 msgid "Wrong password"
 msgstr "Nieprawidłowe hasło"
